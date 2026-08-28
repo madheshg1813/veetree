@@ -1,20 +1,15 @@
-import { TreeMark } from "./icons";
-
-/** VEE + tree glyph + REE. `gradientId` must be unique per instance on the page. */
-export function Wordmark({
-  gradientId,
-  className = "",
-}: {
-  gradientId: string;
-  className?: string;
-}) {
+/**
+ * The VeeTree wordmark.
+ *
+ * The brand artwork is a traced vector (~40 KB), so it ships as a cached file in
+ * /public rather than being inlined twice. It is applied as a CSS mask, which
+ * keeps the file cacheable while still letting each placement paint itself with
+ * `currentColor` — dark on the cream header, cream on the dark footer.
+ */
+export function Wordmark({ className = "" }: { className?: string }) {
   return (
-    <a className={`brand ${className}`.trim()} href="#top" aria-label={`VeeTree home`}>
-      <span className="brand__vee">VEE</span>
-      <span className="brand__mark" aria-hidden="true">
-        <TreeMark gradientId={gradientId} />
-      </span>
-      <span className="brand__tree">REE</span>
+    <a className={`brand ${className}`.trim()} href="#top" aria-label="VeeTree — home">
+      <span className="brand__logo" role="img" aria-label="VeeTree" />
     </a>
   );
 }

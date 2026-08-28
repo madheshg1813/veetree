@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer__inner">
         <div className="footer__brand">
-          <Wordmark gradientId="bm-footer" className="brand--footer" />
+          <Wordmark className="brand--footer" />
           <p className="footer__tag">{site.tagline}</p>
         </div>
 

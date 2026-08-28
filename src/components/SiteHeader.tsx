@@ -25,7 +25,7 @@ export function SiteHeader() {
   return (
     <header className={`site-header ${stuck ? "is-stuck" : ""}`} id="top">
       <div className="shell site-header__inner">
-        <Wordmark gradientId="bm-header" />
+        <Wordmark />
 
         <nav className="nav" aria-label="Primary">
           {NAV_LINKS.map((link) => (

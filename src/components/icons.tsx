@@ -85,27 +85,3 @@ export const BookIcon = () => (
     <path d="M7.8 11.6h4.4M7.8 15.4h4.4M19.8 11.6h4.4M19.8 15.4h4.4" />
   </StrokeIcon>
 );
-
-/** The tree glyph that sits between VEE and REE in the wordmark. */
-export function TreeMark({ gradientId }: { gradientId: string }) {
-  return (
-    <svg viewBox="0 0 40 64" role="presentation" aria-hidden="true">
-      <defs>
-        <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#E8C46B" />
-          <stop offset="55%" stopColor="#C8912F" />
-          <stop offset="100%" stopColor="#7A5312" />
-        </linearGradient>
-      </defs>
-      <path d="M20 2 L34 24 H6 Z" fill={`url(#${gradientId})`} />
-      <rect x="18.2" y="22" width="3.6" height="22" fill={`url(#${gradientId})`} />
-      <g stroke={`url(#${gradientId})`} strokeWidth={2} strokeLinecap="round" fill="none">
-        <path d="M20 43 C20 50 14 51 9 60" />
-        <path d="M20 43 C20 50 26 51 31 60" />
-        <path d="M20 43 L20 61" />
-        <path d="M15.5 49 C12 52 11 56 10.4 60" />
-        <path d="M24.5 49 C28 52 29 56 29.6 60" />
-      </g>
-    </svg>
-  );
-}
