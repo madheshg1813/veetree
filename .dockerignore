@@ -1,6 +1,11 @@
 .git
 .gitignore
 .DS_Store
+node_modules
+.next
+out
+npm-debug.log*
+
+# Source photography — only the optimised copies in public/ ship.
 Product Images/
 README.md
-*.md

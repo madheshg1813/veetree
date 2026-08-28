@@ -1,66 +1,109 @@
-# VeeTree — Landing Page
+# VeeTree
 
-Single-page site for **veetree.life**. No cart, no checkout — every "Buy" button opens
-WhatsApp with a pre-filled message naming that exact product.
+Landing page for **veetree.life** — Ayurvedic skin and hair care, sold through WhatsApp.
+No cart, no checkout: every "Buy" button opens a chat with the product already named.
 
-## Preview locally
+Built with **Next.js 16** (App Router) and **TypeScript**.
 
-Just double-click `index.html` — it opens in any browser and works as-is.
-
-For a proper local server (recommended, avoids browser file:// quirks):
+## Running it
 
 ```bash
-cd "/Users/divakar/Documents/Client Websites/VeeTree Life" && python3 -m http.server 4321 --directory .
+npm install
+npm run dev
 ```
 
-Then open http://localhost:4321
+Open http://localhost:3000
 
-## Publishing
+| Script | What it does |
+|---|---|
+| `npm run dev` | Dev server with hot reload |
+| `npm run build` | Production build |
+| `npm start` | ⚠️ Not usable — see note below |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | `tsc --noEmit` |
 
-It's a plain static site. Drag the whole folder onto **Netlify Drop**, **Cloudflare Pages**,
-or **Vercel** — no build step. Point `veetree.life` at it and you're live.
+> **`npm start` doesn't work here.** `next.config.ts` sets `output: "standalone"`
+> for a small Docker image, and `next start` is incompatible with it. To run a
+> production build locally:
+>
+> ```bash
+> npm run build && cp -R public .next/standalone/ && cp -R .next/static .next/standalone/.next/ && node .next/standalone/server.js
+> ```
 
-## Editing things
+## Layout
+
+```
+src/
+  app/
+    layout.tsx        metadata, fonts, <html> shell
+    page.tsx          composes the sections
+    globals.css       the entire design system
+  components/
+    SiteHeader.tsx    sticky header + mobile menu      (client)
+    Hero.tsx          headline, CTAs, product collage
+    TrustStrip.tsx    four brand pillars
+    Story.tsx         "Our Roots"
+    Collection.tsx    filterable product grid           (client)
+    ProductCard.tsx   one card
+    Ritual.tsx        "The VeeTree Promise"
+    CtaBand.tsx       closing call to action
+    SiteFooter.tsx    footer
+    WhatsAppFab.tsx   floating button                   (client)
+    Reveal.tsx        scroll-in animation wrapper       (client)
+    icons.tsx         inline SVGs
+  lib/
+    site.ts           brand config — phone, Instagram, copy
+    products.ts       the 11 products, typed
+    whatsapp.ts       wa.me deep-link builder
+public/
+  products/           11 optimised photos
+Product Images/       your untouched originals (not deployed)
+```
+
+Only four components are client components; everything else renders on the server.
+
+## Editing
 
 | What | Where |
 |---|---|
-| **WhatsApp number** | `assets/js/main.js`, line 10 — `WHATSAPP_NUMBER` (country code, no `+`, no spaces) |
-| **Pre-filled chat text** | `assets/js/main.js` — `GENERAL_MESSAGE` and `productMessage()` |
-| **Colours / gradients** | `assets/css/styles.css`, the `:root` block at the top |
-| **Product name, size, blurb** | `index.html` — each `<article class="card">` |
-| **Product photo** | replace the file in `assets/img/products/`, keep the same filename |
-| **Instagram link** | search `veetree.life` in `index.html` (3 places) |
+| **WhatsApp number** | `src/lib/site.ts` → `whatsappNumber` (and `whatsappDisplay`) |
+| **Message wording** | `src/lib/whatsapp.ts` |
+| **Instagram, tagline, SEO copy** | `src/lib/site.ts` |
+| **Products** | `src/lib/products.ts` |
+| **Colours, gradients, type** | `:root` at the top of `src/app/globals.css` |
 
 ### Adding a product
 
-Copy any `<article class="card">` block in `index.html` and change:
+Add an entry to the `products` array in `src/lib/products.ts` and drop a photo at
+`public/products/<slug>.jpg`. That's it — the card, the WhatsApp message, and the
+filter chip counts are all derived from that array, so nothing else needs touching.
 
-- `data-cat="skin|hair|body|lips"` — which filter chip it appears under
-- `style="--c1:#…;--c2:#…"` — the two accent colours pulled from that product's photo
-  (they drive the hover border, the image tint and the ingredient tags)
-- `data-wa="Product Name (size)"` — becomes the WhatsApp message
-- the `<img src>` and alt text
+TypeScript enforces the shape, and `category` must be one of `skin | hair | body | lips`.
 
-Then bump the count in the matching filter chip near `<div class="filters">`.
+## Deploying
 
-## Copy to confirm before going live
+Railway builds the `Dockerfile` automatically — no configuration needed.
 
-These lines are written as placeholders and should be checked against what VeeTree can
+1. New Project → Deploy from GitHub repo → this repo
+2. Settings → Networking → **Generate Domain**
+
+The multi-stage build ships only the standalone server, so the runtime image
+carries neither the source nor the 18 MB of original photography.
+
+### Custom domain
+
+Add the domain in Railway (Settings → Networking → Custom Domain); it gives you a
+CNAME target to enter at your DNS provider.
+
+A CNAME cannot legally sit on a root domain, so `veetree.life` needs either a DNS
+provider that flattens CNAMEs (Cloudflare does, free) or a root → `www` redirect.
+
+## Copy to confirm before launch
+
+These lines are placeholders and should be checked against what VeeTree can
 actually stand behind:
 
-- The ticker claims: *100% Natural · No Parabens · No Sulphates · Cruelty Free*
-- The four "Promise" cards (`#ritual`) — sourcing, batch size, freshness
-- The "Our Roots" brand story paragraphs (`#story`)
-- Product sizes were read off the label photos — worth a second look
-
-## Structure
-
-```
-index.html                  the whole page
-assets/css/styles.css       all styling
-assets/js/main.js           WhatsApp links, filters, menu, scroll reveal
-assets/img/products/        11 optimised product photos (~1.5 MB total)
-assets/img/hero-backdrop.jpg  soft blurred wash behind the hero
-assets/img/favicon.svg      tab icon
-Product Images/             your originals, untouched
-```
+- Ticker claims: *100% Natural · No Parabens · No Sulphates · Cruelty Free*
+- The four Promise cards in `Ritual.tsx` — sourcing, batch size, freshness
+- The brand story in `Story.tsx`
+- Product sizes, which were read off the label photographs

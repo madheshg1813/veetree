@@ -54,9 +54,10 @@
 
   --ease:cubic-bezier(.22,.8,.28,1);
 
-  --f-display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --f-body:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  --f-brand:"Cinzel",Georgia,serif;
+  /* Supplied by next/font in layout.tsx — self-hosted, no runtime request. */
+  --f-display:var(--font-cormorant),Georgia,"Times New Roman",serif;
+  --f-body:var(--font-jost),-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --f-brand:var(--font-cinzel),Georgia,serif;
 }
 
 /* ── Reset ─────────────────────────────────────────────── */
@@ -74,6 +75,8 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block;}
+/* next/image emits its own wrapper element; it must not break the layouts below. */
+.hero__card > img,.story__media > img,.card__media > img{width:100%;height:100%;object-fit:cover;}
 a{color:inherit;text-decoration:none;}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;}
 h1,h2,h3,h4{margin:0;font-family:var(--f-display);font-weight:600;line-height:1.08;letter-spacing:-.012em;color:var(--ink);}
@@ -255,7 +258,7 @@ ul{margin:0;padding:0;list-style:none;}
 }
 .hero__wash{
   position:absolute;inset:0;
-  background:url("../img/hero-backdrop.jpg") center/cover no-repeat;
+  background:url("/hero-backdrop.jpg") center/cover no-repeat;
   opacity:.42;
   mix-blend-mode:multiply;
   mask-image:radial-gradient(78% 82% at 88% 12%,#000 0%,rgba(0,0,0,.4) 46%,transparent 76%);
@@ -439,7 +442,8 @@ ul{margin:0;padding:0;list-style:none;}
 
 /* ── Collection ────────────────────────────────────────── */
 .collection{padding:clamp(4rem,9vw,7rem) 0;background:var(--cream-100);}
-.filters{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.5rem;}
+.filters{margin-bottom:2.5rem;}
+.filters__row{display:flex;flex-wrap:wrap;gap:.6rem;}
 .chip{
   padding:.6rem 1.15rem;border-radius:100px;
   border:1px solid rgba(15,42,29,.16);
@@ -522,7 +526,7 @@ ul{margin:0;padding:0;list-style:none;}
 .card__body .btn{margin-top:auto;}
 
 .card.is-hidden{display:none;}
-.card.is-filtering{animation:pop .45s var(--ease) both;}
+.card.is-filtering{animation:pop .45s var(--ease) var(--d,0s) both;}
 @keyframes pop{from{opacity:0;transform:scale(.96) translateY(10px);}to{opacity:1;transform:none;}}
 
 /* ── Ritual ────────────────────────────────────────────── */
