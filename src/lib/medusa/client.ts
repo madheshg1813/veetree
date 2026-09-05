@@ -51,6 +51,8 @@ export interface MedusaProduct {
   description: string | null
   status: string
   metadata: Record<string, unknown> | null
+  /** Set separately from `images` — a product can have one without the other. */
+  thumbnail: string | null
   images: MedusaImage[]
   variants: MedusaVariant[]
   categories: MedusaCategory[]
@@ -77,7 +79,7 @@ async function storeFetch<T>(path: string, revalidate = 60): Promise<T | null> {
 }
 
 const FIELDS = [
-  "id", "title", "handle", "description", "status", "metadata",
+  "id", "title", "handle", "description", "status", "metadata", "thumbnail",
   "*images", "*variants", "*variants.calculated_price", "*categories",
   // Stock, as the admin sets it. Needs the "+" form: inventory_quantity is
   // computed per sales channel and is not returned by "*variants" alone.

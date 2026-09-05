@@ -24,7 +24,13 @@ import { ingredientIcon } from "@/lib/catalog/ingredientIcon"
 import { liveProduct, liveRelated } from "@/lib/catalog/live"
 import { site } from "@/lib/site"
 
-export const dynamicParams = false
+/**
+ * Was false, which 404'd any slug not known at build time. Only the
+ * hand-written products are prerendered; a product added in the dashboard is
+ * rendered on first request and then cached like the rest, which is what lets
+ * it go live without a deploy.
+ */
+export const dynamicParams = true
 
 export function generateStaticParams() {
   return allProductSlugs().map((slug) => ({ slug }))

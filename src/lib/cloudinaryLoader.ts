@@ -28,9 +28,31 @@ export function publicIdFor(src: string): string {
 }
 
 export default function cloudinaryLoader({ src, width, quality }: LoaderArgs): string {
-  // Already absolute (or Cloudinary not configured) — hand it back untouched.
-  if (!CLOUD || /^https?:\/\//.test(src)) return src
+  if (!CLOUD) return src
 
   const transforms = ["f_auto", `q_${quality ?? "auto"}`, "c_limit", `w_${width}`].join(",")
+
+  if (/^https?:\/\//.test(src)) {
+    /**
+     * Images set in the Medusa dashboard arrive as full Cloudinary URLs, and
+     * handing those straight to the browser would serve one size to every
+     * device. Where the URL is our own cloud, its transform segment is
+     * replaced with the one this layout asked for; anything else is left
+     * alone, since rewriting a stranger's URL would only break it.
+     */
+    const marker = `res.cloudinary.com/${CLOUD}/image/upload/`
+    const at = src.indexOf(marker)
+    if (at === -1) return src
+
+    const rest = src.slice(at + marker.length)
+    const [first, ...tail] = rest.split("/")
+    // A transform segment looks like "f_auto,q_auto" — a public id does not.
+    const isTransform = first !== undefined && /^[a-z]{1,3}_[^/]*$/.test(first)
+    const publicId = isTransform ? tail.join("/") : rest
+    if (!publicId) return src
+
+    return `https://${marker}${transforms}/${publicId}`
+  }
+
   return `https://res.cloudinary.com/${CLOUD}/image/upload/${transforms}/${publicIdFor(src)}`
 }

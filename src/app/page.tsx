@@ -4,9 +4,11 @@ import { ComboStrip } from "@/components/home/ComboStrip"
 import { ConcernGrid } from "@/components/home/ConcernGrid"
 import { HeroSlider } from "@/components/home/HeroSlider"
 import { HomeSearch } from "@/components/home/HomeSearch"
+import { ReelsStrip } from "@/components/home/ReelsStrip"
 import { Reviews } from "@/components/Reviews"
 import { bestSellersByTab, searchIndex } from "@/lib/home/shopItems"
 import { comboItems } from "@/lib/home/comboItems"
+import { latestReels } from "@/lib/home/reels"
 import { liveProducts } from "@/lib/catalog/live"
 import { SLIDES } from "@/lib/home/slides"
 import { CtaBand } from "@/components/CtaBand"
@@ -23,7 +25,9 @@ import { WhatsAppFab } from "@/components/WhatsAppFab"
  * below in the order they were already in.
  */
 export default async function HomePage() {
-  const products = await liveProducts()
+  // Fetched in parallel: the reels call goes to Instagram and should not sit
+  // behind the catalogue.
+  const [products, reels] = await Promise.all([liveProducts(), latestReels(3)])
 
   return (
     <>
@@ -39,6 +43,7 @@ export default async function HomePage() {
         <ConcernGrid />
         <TrustStrip />
         <Reviews />
+        <ReelsStrip reels={reels} />
         <Ritual />
         <CtaBand />
       </main>

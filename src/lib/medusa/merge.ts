@@ -12,6 +12,27 @@ import type { MedusaProduct } from "./client"
  *
  * Anything Medusa does not know about is left exactly as the file has it.
  */
+/**
+ * Whether an image URL from Medusa can actually be served to a visitor.
+ *
+ * Medusa's default file provider writes URLs from the backend's own point of
+ * view — `http://localhost:9000/static/…` — which resolves to nothing in a
+ * customer's browser. Those records exist as soon as anyone uploads through
+ * the dashboard before object storage is configured, so they are filtered out
+ * here rather than rendered as broken images. Plain http is rejected too: the
+ * storefront is https, and a mixed-content image is blocked anyway.
+ */
+export function usableImageUrl(url: string | null | undefined): url is string {
+  if (!url) return false
+  try {
+    const { protocol, hostname } = new URL(url)
+    if (protocol !== "https:") return false
+    return !/^(localhost|127\.|0\.0\.0\.0|\[::1\]|.*\.local|.*\.internal)$/i.test(hostname)
+  } catch {
+    return false
+  }
+}
+
 export function mergeProduct(local: Product, remote: MedusaProduct | undefined): Product {
   if (!remote) return local
 
@@ -55,8 +76,25 @@ export function mergeProduct(local: Product, remote: MedusaProduct | undefined):
           : null,
     }))
 
+  /**
+   * Photography from the dashboard wins when it is there.
+   *
+   * The thumbnail leads, then any gallery images that are not already it —
+   * Medusa keeps the two separately, and a product can have one without the
+   * other. Dimensions are the square the rest of the catalogue uses; the
+   * Cloudinary loader serves whatever the layout asks for, so these only set
+   * the aspect ratio that reserves space before the image lands.
+   */
+  const remoteImages = [
+    ...(remote.thumbnail ? [remote.thumbnail] : []),
+    ...remote.images.map((i) => i.url).filter((url) => url !== remote.thumbnail),
+  ]
+    .filter(usableImageUrl)
+    .map((src) => ({ src, alt: local.name, width: 1100, height: 1100 }))
+
   return {
     ...local,
+    images: remoteImages.length ? remoteImages : local.images,
     variants: [...variants, ...extra],
     inStock: remote.status === "published" && variants.some((v) => v.price !== null),
   }
