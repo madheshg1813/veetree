@@ -1,0 +1,59 @@
+/* ── Policy pages ──────────────────────────────────────── */
+/* Long-form prose: narrower measure than the catalogue, and enough vertical
+   rhythm that a customer can find one clause among forty. */
+
+.legal__updated{
+  margin-top:.9rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-45,rgba(20,25,12,.55));
+}
+
+.legal__body{
+  display:grid;gap:2.4rem;max-width:74ch;
+  padding:2.5rem 0 clamp(3.5rem,7vw,6rem);
+}
+
+.legal__section h2{
+  font-size:clamp(1.18rem,2vw,1.42rem);
+  color:var(--forest-900);
+  margin-bottom:.85rem;
+  scroll-margin-top:6rem;
+}
+
+.legal__section p{color:var(--ink-70);font-size:.96rem;line-height:1.78;}
+.legal__section p + p{margin-top:.85rem;}
+
+.legal__list{
+  margin:.9rem 0 0;padding:0;list-style:none;
+  display:grid;gap:.6rem;
+}
+.legal__list li{
+  position:relative;padding-left:1.15rem;
+  color:var(--ink-70);font-size:.96rem;line-height:1.72;
+}
+.legal__list li::before{
+  content:"";position:absolute;left:0;top:.66em;
+  width:5px;height:5px;border-radius:50%;background:#C79A5E;
+}
+.legal__list + p{margin-top:.9rem;}
+
+/* A clause that carries more weight than the prose around it. */
+.legal__note{
+  margin-top:1rem;padding:.95rem 1.1rem;
+  border-left:2px solid #C79A5E;
+  background:rgba(199,154,94,.07);
+  border-radius:0 6px 6px 0;
+  font-size:.94rem;
+}
+
+/* An unconfirmed business detail. Deliberately loud — a placeholder that
+   shipped unnoticed would be worse than a missing page. */
+.legal__tbd{
+  background:#FFE9A8;color:#5B4405;
+  padding:.05em .4em;border-radius:3px;
+  font-size:.88em;font-weight:500;white-space:nowrap;
+}
+
+@media (max-width:520px){
+  .legal__body{gap:2rem;padding-top:2rem;}
+  .legal__section p,.legal__list li{font-size:.93rem;}
+}

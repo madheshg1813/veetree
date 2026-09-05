@@ -1,5 +1,7 @@
+import Link from "next/link"
+
 /**
- * The VeeTree wordmark.
+ * The Veetree wordmark.
  *
  * The brand artwork is a traced vector (~40 KB), so it ships as a cached file in
  * /public rather than being inlined twice. It is applied as a CSS mask, which
@@ -8,8 +10,8 @@
  */
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
-    <a className={`brand ${className}`.trim()} href="#top" aria-label="VeeTree — home">
-      <span className="brand__logo" role="img" aria-label="VeeTree" />
-    </a>
+    <Link className={`brand ${className}`.trim()} href="/" aria-label="Veetree — home">
+      <span className="brand__logo" role="img" aria-label="Veetree" />
+    </Link>
   );
 }

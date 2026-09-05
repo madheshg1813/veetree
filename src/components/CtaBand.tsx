@@ -1,5 +1,3 @@
-import { site } from "@/lib/site";
-import { InstagramIcon } from "./icons";
 import { Reveal } from "./Reveal";
 import { WhatsAppButton } from "./WhatsAppButton";
 
@@ -13,25 +11,19 @@ export function CtaBand() {
           Ordering is a message away
         </p>
         <h2 className="cta__title">
-          Tell us what your skin needs.
+          Eleven formulations.
           <br />
-          <em className="grad-gold">We&rsquo;ll take it from there.</em>
+          <em className="grad-gold">One honest label.</em>
         </h2>
         <p className="cta__sub">
-          No carts, no forms, no forgotten passwords. Send us a message on WhatsApp and we&rsquo;ll
-          confirm price, availability and delivery — usually within the hour.
+          Every product lists what is in it and how to use it. Order online and we&rsquo;ll get it
+          to you — or message us first if you would rather talk it through.
         </p>
         <div className="cta__actions">
-          <WhatsAppButton className="btn--lg">Chat with VeeTree</WhatsAppButton>
-          <a
-            className="btn btn--outline btn--lg"
-            href={site.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <InstagramIcon className="ig-ico" />
-            Follow @{site.instagramHandle}
+          <a className="btn btn--shop btn--lg" href="#collection">
+            Shop the Collection
           </a>
+          <WhatsAppButton className="btn--lg btn--wa-quiet">Ask a question</WhatsAppButton>
         </div>
       </Reveal>
     </section>

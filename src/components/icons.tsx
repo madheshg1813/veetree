@@ -18,15 +18,22 @@ export function InstagramIcon(props: IconProps) {
   );
 }
 
-/** Shared gold gradient used by the trust icons. Rendered once, near <body>. */
+/** Shared gold gradients used by the trust icons and review stars. Rendered once, near <body>. */
 export function GoldGradientDefs() {
   return (
     <svg width="0" height="0" aria-hidden="true" focusable="false" style={{ position: "absolute" }}>
       <defs>
         <linearGradient id="goldStroke" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#F0D48F" />
-          <stop offset="48%" stopColor="#C8912F" />
-          <stop offset="100%" stopColor="#8A5E14" />
+          <stop offset="0" stopColor="#E9C99A" />
+          <stop offset="48%" stopColor="#C07A38" />
+          <stop offset="100%" stopColor="#8A431C" />
+        </linearGradient>
+        {/* Brighter, for shapes that are filled rather than stroked — a star
+            filled with the stroke gradient above reads almost brown. */}
+        <linearGradient id="goldFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#F0D08A" />
+          <stop offset="55%" stopColor="#DDA15E" />
+          <stop offset="100%" stopColor="#C07A38" />
         </linearGradient>
       </defs>
     </svg>

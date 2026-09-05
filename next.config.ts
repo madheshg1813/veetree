@@ -6,8 +6,14 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    // Product photography is served from /public at a handful of fixed widths.
-    formats: ["image/avif", "image/webp"],
+    /**
+     * Images are served through Cloudinary's CDN, which handles resizing and
+     * format negotiation at the edge. The loader falls back to the local file
+     * in /public when NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME is not set, so the
+     * site works with or without Cloudinary configured.
+     */
+    loader: "custom",
+    loaderFile: "./src/lib/cloudinaryLoader.ts",
   },
 };
 

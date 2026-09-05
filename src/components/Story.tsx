@@ -15,7 +15,7 @@ export function Story() {
         <Reveal className="story__media">
           <Image
             src="/products/nalpamaradi-body-lebam.jpg"
-            alt="VeeTree Nalpamaradi Body Lebam tin surrounded by amla, turmeric, lotus and herbal roots"
+            alt="Veetree Nalpamaradi Body Lebam tin surrounded by amla, turmeric, lotus and herbal roots"
             width={1100}
             height={1100}
             sizes="(max-width: 900px) 90vw, 45vw"
@@ -39,7 +39,7 @@ export function Story() {
             A tree is only as good as <em className="grad-gold">what feeds it</em>.
           </h2>
           <p>
-            VeeTree began with a simple frustration: shelves full of beautiful bottles saying very
+            Veetree began with a simple frustration: shelves full of beautiful bottles saying very
             little about what was actually inside them. So we went back to the source — to
             Nalpamaradi tins ground with four barks, to Kumkumadi steeped with saffron, to hair oils
             simmered with amla and hibiscus the way they have been for generations.

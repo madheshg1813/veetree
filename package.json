@@ -8,9 +8,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "images:upload": "node --env-file-if-exists=.env.local scripts/upload-cloudinary.mjs",
+    "otp:check": "node --env-file=.env.local scripts/check-2factor.mjs",
+    "otp:setup": "node scripts/set-2factor-key.mjs",
+    "otp:diag": "node --env-file=.env.local scripts/otp-diag.mjs"
   },
   "dependencies": {
+    "lucide-react": "^1.39.0",
     "next": "^16.3.3",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
@@ -19,6 +24,7 @@
     "@types/node": "^26.4.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
+    "cloudinary": "^2.11.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.3",
     "typescript": "^6.0.3"

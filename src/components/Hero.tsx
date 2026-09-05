@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
-import { WhatsAppButton } from "./WhatsAppButton";
 
 const STATS = [
   { value: "11", label: "Formulations" },
@@ -12,7 +11,7 @@ export function Hero() {
   return (
     <section className="hero">
       <div className="hero__wash" aria-hidden="true" />
-      <div className="hero__orb hero__orb--gold" aria-hidden="true" />
+      <div className="hero__orb hero__orb--earth" aria-hidden="true" />
       <div className="hero__orb hero__orb--green" aria-hidden="true" />
 
       <div className="shell hero__inner">
@@ -32,9 +31,11 @@ export function Hero() {
           </p>
 
           <div className="hero__actions">
-            <WhatsAppButton>Order on WhatsApp</WhatsAppButton>
-            <a className="btn btn--ghost" href="#collection">
-              Explore the Collection
+            <a className="btn btn--shop" href="#collection">
+              Shop the Collection
+            </a>
+            <a className="btn btn--ghost" href="#story">
+              Our Roots
             </a>
           </div>
 
@@ -52,7 +53,7 @@ export function Hero() {
           <figure className="hero__card hero__card--main">
             <Image
               src="/products/kumkumadi-serum.jpg"
-              alt="VeeTree Kumkumadi Brightening Face Serum in an amber glass dropper bottle beside a brass lamp and saffron threads"
+              alt="Veetree Kumkumadi Brightening Face Serum in an amber glass dropper bottle beside a brass lamp and saffron threads"
               width={1100}
               height={1100}
               priority
@@ -68,7 +69,7 @@ export function Hero() {
           <figure className="hero__card hero__card--sm hero__card--a">
             <Image
               src="/products/rose-hydrosol.jpg"
-              alt="VeeTree Rose Hydrosol mist bottle surrounded by fresh pink roses"
+              alt="Veetree Rose Hydrosol mist bottle surrounded by fresh pink roses"
               width={732}
               height={1100}
               sizes="(max-width: 900px) 35vw, 15vw"
@@ -78,7 +79,7 @@ export function Hero() {
           <figure className="hero__card hero__card--sm hero__card--b">
             <Image
               src="/products/mango-lip-oil.jpg"
-              alt="VeeTree Mango Lip Oil roller bottle on a wooden stand beside fresh mango"
+              alt="Veetree Mango Lip Oil roller bottle on a wooden stand beside fresh mango"
               width={880}
               height={1100}
               sizes="(max-width: 900px) 32vw, 14vw"

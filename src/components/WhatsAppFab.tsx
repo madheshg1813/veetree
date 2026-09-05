@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 import { whatsappLink } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "./icons";
 
-/** Floating action button that appears once the hero is scrolled past. */
+/**
+ * Floating support link. Ordering happens on the site — this is for questions,
+ * so the label must not read as a purchase route.
+ */
 export function WhatsAppFab() {
   const [visible, setVisible] = useState(false);
 
@@ -21,10 +24,10 @@ export function WhatsAppFab() {
       href={whatsappLink()}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Order on WhatsApp"
+      aria-label="Message Veetree on WhatsApp"
     >
       <WhatsAppIcon />
-      <span className="fab__label">Order on WhatsApp</span>
+      <span className="fab__label">Message us</span>
     </a>
   );
 }

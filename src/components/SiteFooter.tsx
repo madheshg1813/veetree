@@ -1,6 +1,21 @@
+import Link from "next/link"
 import { site } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 import { Wordmark } from "./Wordmark";
+
+/**
+ * Official brand marks, served from /public/social.
+ *
+ * YouTube, WhatsApp and Facebook are the platforms' own colour icons as
+ * supplied; Instagram is the same glyph on Instagram's brand gradient, built
+ * to match because no Instagram file was supplied with the others.
+ */
+const SOCIALS = [
+  { key: "whatsapp", href: whatsappLink(), label: `Message ${site.name} on WhatsApp`, text: site.whatsappDisplay },
+  { key: "instagram", href: site.instagramUrl, label: `${site.name} on Instagram`, text: `@${site.instagramHandle}` },
+  { key: "youtube", href: site.youtubeUrl, label: `${site.name} on YouTube`, text: `@${site.youtubeHandle}` },
+  { key: "facebook", href: site.facebookUrl, label: `${site.name} on Facebook`, text: site.facebookName },
+] as const
 
 export function SiteFooter() {
   return (
@@ -14,19 +29,41 @@ export function SiteFooter() {
         <div className="footer__cols">
           <div className="footer__col">
             <h4>Collection</h4>
-            <a href="#collection">Skin Care</a>
-            <a href="#collection">Hair Care</a>
-            <a href="#collection">Body &amp; Lips</a>
+            <Link href="/#collection">Skin Care</Link>
+            <Link href="/#collection">Hair Care</Link>
+            <Link href="/#collection">Body &amp; Lips</Link>
+          </div>
+
+          <div className="footer__col">
+            <h4>Information</h4>
+            <Link href="/about">About Us</Link>
+            <Link href="/terms">Terms &amp; Conditions</Link>
+            <Link href="/terms-of-use">Terms of Use</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/disclaimer">Disclaimer</Link>
           </div>
 
           <div className="footer__col">
             <h4>Reach Us</h4>
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-              WhatsApp · {site.whatsappDisplay}
-            </a>
-            <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer">
-              Instagram · @{site.instagramHandle}
-            </a>
+            {SOCIALS.map(({ key, href, label, text }) => (
+              <a
+                key={key}
+                className="footer__social"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+              >
+                {/*
+                  Plain <img>, not next/image: the Cloudinary loader rewrites
+                  every next/image src to a Cloudinary public ID, and these
+                  brand marks live in /public rather than the asset library.
+                */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="footer__ico" src={`/social/${key}.${key === "facebook" ? "png" : "svg"}`} alt="" width={18} height={18} loading="lazy" decoding="async" />
+                <span>{text}</span>
+              </a>
+            ))}
           </div>
 
           <div className="footer__col">

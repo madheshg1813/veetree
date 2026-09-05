@@ -20,3 +20,6 @@ out/
 next-env.d.ts
 *.tsbuildinfo
 .env*.local
+# Backups written by `npm run otp:setup` — these hold real secrets, and the
+# rule above does not match them because the filename no longer ends in .local.
+.env*.local.bak-*

@@ -30,7 +30,7 @@ export function Ritual() {
         <Reveal as="header" className="section-head section-head--center">
           <p className="eyebrow eyebrow--light">
             <span className="eyebrow__line" />
-            The VeeTree Promise
+            The Veetree Promise
           </p>
           <h2 className="section-title">
             What goes in <em className="grad-gold">is the whole point</em>

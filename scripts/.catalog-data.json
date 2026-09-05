@@ -1,0 +1,1318 @@
+{
+ "products": [
+  {
+   "slug": "face-brightening-pack",
+   "name": "Face Brightening Pack",
+   "raw": "Face Brightening Pack",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-FACE-BRIGHTENING-PACK",
+     "price": 219
+    }
+   ],
+   "ings": [
+    "Green gram",
+    "Raw rice",
+    "Oats",
+    "Flaxseeds",
+    "Almond",
+    "Red mysoor dal",
+    "chickpeas",
+    "Fenugreek",
+    "Wheat flour",
+    "Licorice",
+    "Manjista",
+    "Nutmeg",
+    "Avarampoo (Tanner's cassia)",
+    "Hibiscus flower",
+    "Damask Rose",
+    "Potato",
+    "papaya",
+    "Beetroot"
+   ],
+   "steps": [
+    "Cleanse your face thoroughly.",
+    "Apply an even layer to the face and neck, avoiding the eye and lip area.",
+    "Leave on for 10 to 15 minutes or until partially dry.",
+    "Rinse off with lukewarm water and pat dry.",
+    "Use 2 to 3 times a week for best results."
+   ],
+   "extra": [],
+   "desc": "A gentle herbal face pack enriched with natural botanicals to refresh, brighten and revive dull-looking skin, leaving it soft, smooth and radiant.",
+   "img": null
+  },
+  {
+   "slug": "kumkumadi-serum",
+   "name": "Kumkumadi Serum",
+   "raw": "Kumkumadi serum",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": [
+    "Face Serums",
+    "/collections/face-serums"
+   ],
+   "variants": [
+    {
+     "size": "15 ml",
+     "sku": "VT-KUMKUMADI-SERUM-15ML",
+     "price": 249
+    },
+    {
+     "size": "20 ml",
+     "sku": "VT-KUMKUMADI-SERUM-20ML",
+     "price": 349
+    }
+   ],
+   "ings": [
+    "Purest grade of Sesame seed oil from organic farming",
+    "Dashmoola powder",
+    "(10 Herbs powder blend)",
+    "Saffron (Kumkuma/Kesar)",
+    "Sandalwood (Chandana)",
+    "Manjista",
+    "Licorice (Yashtimadhu)",
+    "Vetiver (Ushira)",
+    "Indian Madder",
+    "Lotus (Kamal)",
+    "Banyan Bark (Vata)",
+    "Sacred Fig Bark (Ashwattha)",
+    "Plaksha Bark",
+    "Lodhra",
+    "Turmeric (Haridra)",
+    "Country Rose",
+    "Daruharidra",
+    "Blue Water Lily (Neelotpala)",
+    "Goat's Milk (used during traditional preparation)"
+   ],
+   "steps": [
+    "Cleanse and dry your face.",
+    "Apply 2–3 drops to the face and neck.",
+    "Gently massage or pat until fully absorbed.",
+    "Leave overnight for best results (or) use 1hr before Face wash."
+   ],
+   "extra": [],
+   "desc": "A luxurious Ayurvedic-inspired facial serum infused with traditional botanicals to nourish the skin, enhance its natural glow and support a more even-looking complexion.",
+   "img": [
+    "kumkumadi-serum",
+    "in a glass dropper bottle with a gold cap, beside a brass lamp and saffron threads"
+   ]
+  },
+  {
+   "slug": "aqua-rose-brightening-serum",
+   "name": "Aqua Rose Brightening Serum",
+   "raw": "Aqua Rose Brightning Serum",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": [
+    "Face Serums",
+    "/collections/face-serums"
+   ],
+   "variants": [
+    {
+     "size": "30 ml",
+     "sku": "VT-AQUA-ROSE-BRIGHTENING-SERUM",
+     "price": 269
+    }
+   ],
+   "ings": [
+    "Aqua",
+    "Rose hydrosol",
+    "Natural Betaine",
+    "Glycerine",
+    "Xanthan gum",
+    "Propanediol",
+    "Licorice root extract",
+    "Red rice milk extract",
+    "Alpha arbutin",
+    "Niacinamide",
+    "Hyaluronic acid",
+    "Natural preservative",
+    "(ECOCERT approved ingredients)"
+   ],
+   "steps": [
+    "Gently apply a few drops to clean, damp skin both in the morning and at night, letting it absorb completely.",
+    "When To Use : AM & PM, daily.",
+    "For AM Routine: Follow with a Sunscreen.",
+    "For PM routine: Following Face cream if required."
+   ],
+   "extra": [],
+   "desc": "A lightweight brightening serum that helps fade the appearance of dark spots and dullness while promoting a fresh, hydrated and even-looking complexion.",
+   "img": null
+  },
+  {
+   "slug": "aloe-vera-gel",
+   "name": "Aloe Vera Gel",
+   "raw": "Aloevera gel",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-ALOE-VERA-GEL",
+     "price": 299
+    }
+   ],
+   "ings": [
+    "Aloe Barbadensis (Aloe vera) juice",
+    "Xanthan gum",
+    "Guar Gum",
+    "Geogard ECT (Ecocert/Cosmos approved natural preservative)"
+   ],
+   "steps": [
+    "Apply a small amount to clean skin or scalp.",
+    "Gently massage until fully absorbed.",
+    "Leave on—no need to rinse.",
+    "Use daily or as needed.",
+    "Can be used as a lightweight moisturizer, after-sun soothing gel",
+    "Add VEETREE Protein hair pack powder, few water and aloe vera gel and mix it into a paste to make a hair mask.",
+    "Mix VEETREE Face pack powder with Aloe Vera Gel and apply it for super-nourished skin.",
+    "Apply it before shaving the face to remove the hair without mess while hydrating the skin."
+   ],
+   "extra": [
+    "Suitable for: Face, Body & Scalp.",
+    "DIY:",
+    "or to help calm irritated skin and hydrate the scalp."
+   ],
+   "desc": "A soothing, lightweight gel that provides refreshing hydration and helps calm and soften the skin, making it ideal for everyday skincare.",
+   "img": [
+    "aloe-vera-gel",
+    "in a black jar on a stone plinth, beside fresh cut aloe leaves"
+   ]
+  },
+  {
+   "slug": "saffron-gel",
+   "name": "Saffron Gel",
+   "raw": "Saffron gel",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-SAFFRON-GEL",
+     "price": 319
+    }
+   ],
+   "ings": [
+    "Aqua (kashmiri Saffron infused)",
+    "Rosehip oil",
+    "Xanthan gum",
+    "Guar Gum",
+    "Geogard ECT (Ecocert/Cosmos approved natural preservative)"
+   ],
+   "steps": [
+    "Apply a small amount to clean face and neck.",
+    "Gently massage until fully absorbed.",
+    "Leave on—no need to rinse.",
+    "Use morning and night for best results.",
+    "Suitable for: All Skin Types.",
+    "Tip: Follow with sunscreen during the day for best results."
+   ],
+   "extra": [],
+   "desc": "A refreshing gel enriched with the goodness of saffron to hydrate, revitalise and enhance the skin’s natural-looking radiance.",
+   "img": null
+  },
+  {
+   "slug": "multi-floral-gel",
+   "name": "Multi-Floral Gel",
+   "raw": "Multi floral gel",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "30 ml",
+     "sku": "VT-MULTI-FLORAL-GEL",
+     "price": 288
+    }
+   ],
+   "ings": [
+    "Aqua",
+    "Aloevera leaf",
+    "Floral Extracts",
+    "Panthenol",
+    "Glycerine",
+    "Pomegranate & Bakuchiol oil",
+    "Blue pea",
+    "& Hibiscus extract",
+    "Vit E",
+    "Hyaluronic acid",
+    "Copper tripeptide",
+    "Xanthan gum",
+    "Ecocert preservative"
+   ],
+   "steps": [
+    "Cleanse your face thoroughly.",
+    "Apply a thin layer of Multi Floral Gel to the face and neck.",
+    "Gently massage until fully absorbed.",
+    "Use morning and night for best results.",
+    "Follow with a moisturizer if needed.",
+    "Apply sunscreen during the daytime."
+   ],
+   "extra": [],
+   "desc": "A delicate floral-infused gel that refreshes and hydrates the skin while leaving it soft, supple and naturally radiant.",
+   "img": [
+    "multi-floral-gel",
+    "in a pump bottle beside a red hibiscus flower and blue butterfly pea blooms"
+   ]
+  },
+  {
+   "slug": "kumkumadi-night-cream",
+   "name": "Kumkumadi Night Cream",
+   "raw": "Kumkumayadi night cream",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "30 g",
+     "sku": "VT-KUMKUMADI-NIGHT-CREAM",
+     "price": 379
+    }
+   ],
+   "ings": [
+    "Aqua",
+    "Rose hydrosol",
+    "Kumkumadi Thailam",
+    ":18+ Herbs blend",
+    "Kashmiri Saffron",
+    "E wax",
+    "Manjistha & Licorice root Extracts",
+    "24k Gold",
+    "Vit E",
+    "Rose Oil",
+    "ECO Preservative"
+   ],
+   "steps": [
+    "Cleanse your face and pat dry.",
+    "Apply a small amount of Kumkumayadi Night Cream to the face and neck.",
+    "Gently massage until fully absorbed.",
+    "Use every night as the last step of your skincare routine.",
+    "For dry skin - Apply 2–3 drops of Kumkumadi Serum before using the Kumkumayadi Night Cream for added nourishment.",
+    "For oily skin - use a lightweight water-based serum before the cream, if needed."
+   ],
+   "extra": [
+    "Special Tip:"
+   ],
+   "desc": "A nourishing night cream that works while you sleep to improve the appearance of dullness and hyperpigmentation, leaving the skin soft, moisturised and naturally radiant.",
+   "img": null
+  },
+  {
+   "slug": "rose-hydrosol",
+   "name": "Rose Hydrosol",
+   "raw": "Rose hydrosol",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": [
+    "Hydrosols",
+    "/collections/hydrosols"
+   ],
+   "variants": [
+    {
+     "size": "100 ml",
+     "sku": "VT-ROSE-HYDROSOL",
+     "price": 189
+    }
+   ],
+   "ings": [
+    "100% Pure Form of Rose Hydrosol through steam distillation process",
+    "Rose Essential oil"
+   ],
+   "steps": [
+    "Step 1: Close your eyes and spray 2 to 4 pumps onto a clean face and neck.",
+    "Step 2: Let it absorb naturally or gently pat into the skin with clean hands.",
+    "Follow with your serum or moisturizer.",
+    "Step 3: Use morning and night, or anytime during the day to refresh, hydrate, and soothe your skin.",
+    "Pro Tip: Use before applying your serum, facial oil, or moisturizer to help lock in hydration."
+   ],
+   "extra": [],
+   "desc": "A refreshing floral mist that instantly refreshes and hydrates the skin, leaving it soft, fresh and beautifully rejuvenated.",
+   "img": [
+    "rose-hydrosol",
+    "in an amber spray bottle on a stone slab, surrounded by fresh pink garden roses and petals"
+   ]
+  },
+  {
+   "slug": "tea-tree-hydrosol",
+   "name": "Tea Tree Hydrosol",
+   "raw": "Teatree Hydrosol",
+   "cat_label": "Face Care",
+   "cat_href": "/collections/face-care",
+   "sub": [
+    "Hydrosols",
+    "/collections/hydrosols"
+   ],
+   "variants": [
+    {
+     "size": "100 ml",
+     "sku": "VT-TEA-TREE-HYDROSOL",
+     "price": 218
+    }
+   ],
+   "ings": [
+    "100% Pure Form of Teatree Hydrosol through steam distillation process",
+    "Teatree Essential oil"
+   ],
+   "steps": [
+    "Step 1: Close your eyes and spray 2 to 4 pumps onto a clean face and neck (Acne Care), avoiding direct contact with the eyes.",
+    "For scalp use, part your hair and spray directly onto a clean scalp (Dandruff Care).",
+    "Step 2: Let it absorb naturally after spraying.",
+    "On the scalp, gently massage with your fingertips.",
+    "Follow with VEETREE Aloevera gel (Acne care) facial use.",
+    "Step 3: Use morning and night or anytime during the day to refresh, soothe and balance oily or acne-prone skin.",
+    "For the scalp, use daily or as needed to help soothe an itchy scalp and reduce dandruff."
+   ],
+   "extra": [],
+   "desc": "A refreshing botanical mist that helps keep the skin feeling clean, fresh and balanced while providing lightweight hydration.",
+   "img": null
+  },
+  {
+   "slug": "hair-growth-oil",
+   "name": "Hair Growth Oil",
+   "raw": "Hair Growth Oil",
+   "cat_label": "Hair Care",
+   "cat_href": "/collections/hair-care",
+   "sub": [
+    "Hair Oils",
+    "/collections/hair-oils"
+   ],
+   "variants": [
+    {
+     "size": "100 ml",
+     "sku": "VT-HAIR-GROWTH-OIL-100ML",
+     "price": 179
+    },
+    {
+     "size": "200 ml",
+     "sku": "VT-HAIR-GROWTH-OIL-200ML",
+     "price": 329
+    }
+   ],
+   "ings": [
+    "wood pressed coconut oil",
+    "Kalonji seed oil",
+    "sesame oil",
+    "Almond oil",
+    "Fenugreek",
+    "country Amla",
+    "Bhringraj",
+    "Hibiscus flowers & leaves",
+    "Rosemary",
+    "Clove",
+    "Vitamin E oil"
+   ],
+   "steps": [
+    "Step 1: Pour the desired amount of Hair Regrowth Oil into your palm and gently massage it into your hair and scalp.",
+    "Step 2: To boost blood circulation at the roots, flip your hair forward and massage.",
+    "This technique is known as the inversion method.",
+    "Step 3: Leave the oil on for 1 hour or overnight before washing your hair.",
+    "For best results, use the Hair Regrowth Oil twice a week / Before hair wash day."
+   ],
+   "extra": [],
+   "desc": "A nourishing hair oil that supports healthy hair growth, strengthens the roots and helps reduce the appearance of hair fall, leaving hair thicker, stronger and healthier-looking.",
+   "img": [
+    "hair-growth-oil",
+    "in a bottle set in a brass plate with amla, hibiscus, curry leaves and black seeds"
+   ]
+  },
+  {
+   "slug": "scalp-hair-rebirth-serum",
+   "name": "Scalp & Hair Rebirth Serum",
+   "raw": "Scalp & Hair rebirth serum",
+   "cat_label": "Hair Care",
+   "cat_href": "/collections/hair-care",
+   "sub": [
+    "Hair Serums",
+    "/collections/hair-serums"
+   ],
+   "variants": [
+    {
+     "size": "50 ml",
+     "sku": "VT-SCALP-HAIR-REBIRTH-SERUM",
+     "price": 397
+    }
+   ],
+   "ings": [
+    "Virgin coconut oil",
+    "Argan Oil",
+    "Almond Oil",
+    "Jamaican Black Castor Oil",
+    "Cold-Pressed",
+    "Moringa Seed Oil",
+    "Pumpkin Seed Oil",
+    "Kalonji Seed Oil",
+    "Onion Oil",
+    "Amla Oil",
+    "Bhringraj & Brahmi Oil Extracts",
+    "Vitamin E Oil",
+    "Tea Tree Oil & Peppermint Oil",
+    "Rosemary Oil"
+   ],
+   "steps": [
+    "Step 1: Apply a few drops of this scalp rebirth serum directly onto your scalp, focusing on areas of concern like the hairline or crown.",
+    "Step 2: Massage gently using circular motions for 5 to 10 minutes to stimulate blood circulation and help the oil penetrate deeply.",
+    "Leave the oil on for at least 30 minutes to allow the active ingredients to work.",
+    "For intensive treatment, leave it on overnight for maximum nourishment.",
+    "Step 3: Wash off thoroughly with a gentle shampoo.",
+    "Use two to three times weekly for visible results.",
+    "Consistency is key in seeing improvements in hair density and reduced shedding."
+   ],
+   "extra": [],
+   "desc": "A targeted scalp and hair serum designed to revitalise the scalp, support healthier-looking hair growth and improve the overall strength and vitality of the hair.",
+   "img": [
+    "scalp-hair-rebirth-serum",
+    "in an amber pump bottle, photographed with pumpkin seeds, amla and rosemary sprigs"
+   ]
+  },
+  {
+   "slug": "protein-hair-pack",
+   "name": "Protein Hair Pack",
+   "raw": "Protein Hair pack",
+   "cat_label": "Hair Care",
+   "cat_href": "/collections/hair-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-PROTEIN-HAIR-PACK",
+     "price": 289
+    }
+   ],
+   "ings": [
+    "Arappu leaves",
+    "Curry leaves",
+    "Hibiscus flowers & leaves",
+    "Henna",
+    "Moringa",
+    "karumbula",
+    "Neem",
+    "Bhringraj",
+    "Indigo",
+    "aloevera leaf",
+    "Raw rice",
+    "Fenugreek",
+    "kalonji",
+    "Flaxseed",
+    "sesame seeds",
+    "Rosemary",
+    "vetiver",
+    "Vasambu"
+   ],
+   "steps": [
+    "Mix the required amount of Protein Hair Pack Powder with warm water to form a smooth paste.",
+    "Apply evenly to the scalp and hair from roots to ends.",
+    "Leave on for 20–30 minutes.",
+    "Rinse thoroughly with water and follow with a mild shampoo if needed.",
+    "Use 1–2 times a week for best results."
+   ],
+   "extra": [
+    "Special Tip: For best results, avoid oiling your hair before applying the Protein Hair Pack. Apply the pack to a clean scalp and hair."
+   ],
+   "desc": "A nourishing hair treatment that helps strengthen weak, damaged hair, improve smoothness and reduce the appearance of breakage, leaving hair soft, manageable and healthier-looking.",
+   "img": null
+  },
+  {
+   "slug": "seed-petal-shampoo",
+   "name": "Seed-Petal Shampoo",
+   "raw": "Seed Petal shampoo",
+   "cat_label": "Hair Care",
+   "cat_href": "/collections/hair-care",
+   "sub": [
+    "Shampoos",
+    "/collections/shampoos"
+   ],
+   "variants": [
+    {
+     "size": "100 ml",
+     "sku": "VT-SEED-PETAL-SHAMPOO-100ML",
+     "price": null
+    },
+    {
+     "size": "200 ml",
+     "sku": "VT-SEED-PETAL-SHAMPOO-200ML",
+     "price": null
+    }
+   ],
+   "ings": [
+    "Aqua",
+    "Real- Flaxseed",
+    "Hibiscus",
+    "Rosemary leaves blend",
+    "Decyl glucoside",
+    "Coco glucoside",
+    "Cocamido-propyl betaine- Coconut Derived Surfactants",
+    "Panthenol",
+    "Hibiscus & rosemary Extract",
+    "Glycerine",
+    "Xanthan gum",
+    "Preservative ECT"
+   ],
+   "steps": [
+    "Apply to wet hair Massage for 1 - 2 minutes Rinse Off Repeat if needed"
+   ],
+   "extra": [],
+   "desc": "A gentle cleansing shampoo that effectively cleanses the scalp and hair while helping maintain softness, freshness and healthy-looking hair.",
+   "img": [
+    "seed-petal-shampoo",
+    "in an amber bottle beside hibiscus flowers, rosemary sprigs and flaxseeds"
+   ]
+  },
+  {
+   "slug": "jasmine-hair-butter",
+   "name": "Jasmine Hair Butter",
+   "raw": "Jasmine Hair Butter",
+   "cat_label": "Hair Care",
+   "cat_href": "/collections/hair-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-JASMINE-HAIR-BUTTER",
+     "price": 357
+    }
+   ],
+   "ings": [
+    "Aqua",
+    "Jasmine Hydrosol",
+    "Shea butter",
+    "Argan oil",
+    "Jamaican black castor oil",
+    "Flaxseed oil",
+    "vegetable glycerine",
+    "Panthenol",
+    "E wax",
+    "Natural stabilizer",
+    "Rice protein & Hibiscus extract",
+    "Vitamin E oil",
+    "Jasmine E oil",
+    "ECO-Certified Preservative"
+   ],
+   "steps": [
+    "Step 1: Take a coin-sized amount of our protein-free luscious hair butter on wet hands and rub between your palms to emulsify.",
+    "Step 2: Rake the hair butter through a section of your wet hair after washing, or lightly spray your hair with water or a hydrosol if it's dry before applying.",
+    "This helps lock in moisture and revive dry, dehydrated curls.",
+    "Remember to apply it 2 inches away from the scalp and work it all the way down to the ends.",
+    "Step 3: Scrunch your hair to squeeze out excess and enhance your natural texture.",
+    "Make this your one-and-done butter for post hair wash or alternative days for defined and frizz-free results."
+   ],
+   "extra": [],
+   "desc": "A rich yet nourishing hair butter that deeply conditions dry, rough hair, improves softness and manageability, and leaves hair smooth, silky and beautifully nourished.",
+   "img": null
+  },
+  {
+   "slug": "anti-dandruff-gel",
+   "name": "Anti-Dandruff Gel",
+   "raw": "Anti Dandruff gel",
+   "cat_label": "Hair Care",
+   "cat_href": "/collections/hair-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-ANTI-DANDRUFF-GEL",
+     "price": 289
+    }
+   ],
+   "ings": [
+    "Aloe vera gel",
+    "Teatree essential oil",
+    "Neem seed oil",
+    "Jojoba oil",
+    "Moringa seed oil"
+   ],
+   "steps": [
+    "Apply On scalp At night or evening and Leave overnight.",
+    "You can also leave on scalp for few hours.",
+    "Then Rinse with shampoo."
+   ],
+   "extra": [],
+   "desc": "A refreshing scalp gel that helps control visible dandruff, soothe an uncomfortable scalp and maintain a clean, fresh and balanced-feeling scalp.",
+   "img": null
+  },
+  {
+   "slug": "rosemary-hydrosol",
+   "name": "Rosemary Hydrosol",
+   "raw": "Rosemary Hydrosol",
+   "cat_label": "Hair Care",
+   "cat_href": "/collections/hair-care",
+   "sub": [
+    "Hydrosols",
+    "/collections/hydrosols"
+   ],
+   "variants": [
+    {
+     "size": "100 ml",
+     "sku": "VT-ROSEMARY-HYDROSOL",
+     "price": 228
+    }
+   ],
+   "ings": [
+    "100% Pure Form of Rosemary Hydrosol through steam distillation process",
+    "Rosemary Essential oil"
+   ],
+   "steps": [
+    "Spray directly onto the scalp and hair roots.",
+    "Gently massage for 1–2 minutes.",
+    "Use every morning and night on clean scalp and hair.",
+    "Do not rinse. Style as usual."
+   ],
+   "extra": [],
+   "desc": "A refreshing scalp mist that helps revitalise the scalp, keep it feeling fresh and support a healthy-looking scalp and hair care routine.",
+   "img": [
+    "rosemary-hydrosol",
+    "in an amber spray bottle beside fresh flowering rosemary sprigs"
+   ]
+  },
+  {
+   "slug": "nalpamaradi-lotion",
+   "name": "Nalpamaradi Lotion",
+   "raw": "Nalparamadi lotion",
+   "cat_label": "Body Care",
+   "cat_href": "/collections/body-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 ml",
+     "sku": "VT-NALPAMARADI-LOTION",
+     "price": 429
+    }
+   ],
+   "ings": [
+    "Aqua",
+    "Shea butter",
+    "Wood pressed Sesame oil",
+    "Nalpamara Herbs - Vata",
+    "Udumbara",
+    "Ashwattha",
+    "Plaksha",
+    "Vetiver",
+    "Indian Gooseberry (Amla)",
+    "Manjistha",
+    "Sandalwood",
+    "Licorice",
+    "Rose",
+    "Cyperus rotundus",
+    "Hemidesmus indicus",
+    "Milk",
+    "E wax",
+    "vegetable Glycerine",
+    "Xanthan gum",
+    "Carrot seed oil",
+    "Vitamin E oil",
+    "ECO certified preservative"
+   ],
+   "steps": [
+    "Apply generously all over the body on clean, dry skin at night.",
+    "Gently massage until fully absorbed.",
+    "Leave overnight for best results.",
+    "Use daily to keep skin soft, nourished, and radiant."
+   ],
+   "extra": [],
+   "desc": "A nourishing body lotion that helps improve the appearance of uneven skin tone, dullness and dryness, leaving the skin soft, smooth and naturally radiant.",
+   "img": null
+  },
+  {
+   "slug": "ritual-body-oil",
+   "name": "Ritual Body Oil",
+   "raw": "Ritual body oil",
+   "cat_label": "Body Care",
+   "cat_href": "/collections/body-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "50 ml",
+     "sku": "VT-RITUAL-BODY-OIL",
+     "price": 379
+    }
+   ],
+   "ings": [
+    "Wood pressed sesame seed oil",
+    "jojoba Oil",
+    "Almond Oil",
+    "Moringa seed Oil",
+    "Papaya",
+    "Carrot",
+    "Beetroot Extracts",
+    "Manjista & Licorice infusion",
+    "Vitamin E Oil",
+    "original Saffron & Lavender Essential Oil"
+   ],
+   "steps": [
+    "Apply generously all over the body to dry skin 1 hour before bathing.",
+    "Gently massage in circular motions until evenly absorbed.",
+    "Rinse off during your bath or shower.",
+    "Use 2–3 times a week or as needed for soft, smooth, and nourished skin."
+   ],
+   "extra": [],
+   "desc": "A luxurious body oil that deeply nourishes and moisturises the skin, leaving it soft, supple, smooth and beautifully glowing.",
+   "img": null
+  },
+  {
+   "slug": "nalpamaradi-lepam",
+   "name": "Nalpamaradi Lepam",
+   "raw": "Nalparamadi lepam",
+   "cat_label": "Body Care",
+   "cat_href": "/collections/body-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "15 g",
+     "sku": "VT-NALPAMARADI-LEPAM",
+     "price": 276
+    }
+   ],
+   "ings": [
+    "Wood pressed Sesame oil",
+    "Nalpamara Herbs - Vata",
+    "Udumbara",
+    "Ashwattha",
+    "Plaksha",
+    "Vetiver",
+    "Indian Gooseberry (Amla)",
+    "Manjistha",
+    "Sandalwood",
+    "Licorice",
+    "Rose",
+    "Cyperus rotundus",
+    "Hemidesmus indicus",
+    "Milk",
+    "Beeswax",
+    "Rosehip oil",
+    "Carrot seed oil",
+    "Vitamin E oil"
+   ],
+   "steps": [
+    "Apply an even layer all over the body on clean, dry skin.",
+    "Leave on for 15–20 minutes, then gently massage with a little water and rinse thoroughly.",
+    "For stubborn dark areas such as the neck, underarms, inner thighs, elbows, knees, or other dark body patches, you may leave it on overnight and rinse off the next morning.",
+    "Use 2–3 times a week for best results."
+   ],
+   "extra": [],
+   "desc": "A traditional herbal body treatment that helps refresh dull-looking skin, improve the appearance of uneven tone and leave the skin feeling soft, smooth and rejuvenated.",
+   "img": [
+    "nalpamaradi-body-lebam",
+    "in a metal tin, surrounded by amla, turmeric, lotus petals and herbal roots"
+   ]
+  },
+  {
+   "slug": "patchouli-shower-gel",
+   "name": "Patchouli Shower Gel",
+   "raw": "Paucholi shower gel",
+   "cat_label": "Body Care",
+   "cat_href": "/collections/body-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 ml",
+     "sku": "VT-PATCHOULI-SHOWER-GEL-100ML",
+     "price": null
+    },
+    {
+     "size": "200 ml",
+     "sku": "VT-PATCHOULI-SHOWER-GEL-200ML",
+     "price": null
+    }
+   ],
+   "ings": [
+    "Aqua",
+    "Lavender buds infused",
+    "Decyl glucoside",
+    "Coco glucoside",
+    "Cocamido-propyl betaine- Coconut Derived Surfactants",
+    "Panthenol",
+    "Glycerine",
+    "Xanthan gum",
+    "patchouli essential oil",
+    "Preservative ECO"
+   ],
+   "steps": [
+    "Squeeze the required amount Lather & Gently Cleanse Rinse Off"
+   ],
+   "extra": [],
+   "desc": "A refreshing shower gel that gently cleanses away impurities while leaving the skin feeling fresh, soft, clean and beautifully refreshed.",
+   "img": [
+    "patchouli-shower-gel",
+    "in an amber bottle on a stone slab with dried lavender buds and sprigs"
+   ]
+  },
+  {
+   "slug": "body-face-scrub",
+   "name": "Body & Face Scrub",
+   "raw": "Body & face scrub",
+   "cat_label": "Body Care",
+   "cat_href": "/collections/body-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-BODY-FACE-SCRUB",
+     "price": 358
+    }
+   ],
+   "ings": [
+    "Aqua (Saffron infused)",
+    "Grapeseed oil",
+    "Rosehip oil",
+    "E wax",
+    "xanthan gum",
+    "Licorice extract",
+    "Ubtan Blend - Green gram",
+    "mysoor dal",
+    "wheat flour",
+    "vetiver",
+    "rose",
+    "hibiscus flower",
+    "nutmeg",
+    "liquorice",
+    "Manjista",
+    "orange peel",
+    "kasturi manjal (Herbs blend)",
+    "walnut shell granules",
+    "Saffron",
+    "Vitamin E oil",
+    "Eco certified preservative"
+   ],
+   "steps": [
+    "Mix the required amount of Protein Hair Pack Powder with water, aloe vera gel, or curd to form a smooth paste.",
+    "Apply evenly to the scalp and hair from roots to ends.",
+    "Leave on for 20–30 minutes.",
+    "Rinse thoroughly with water and follow with a mild shampoo if needed.",
+    "Use 1–2 times a week for best results."
+   ],
+   "extra": [
+    "Special Tip: For best results, avoid oiling your hair before applying the Protein Hair Pack. Apply the pack to a clean scalp and hair."
+   ],
+   "desc": "A gentle exfoliating scrub that helps remove dead skin cells and surface buildup, leaving the skin smoother, softer, brighter and refreshed.",
+   "img": null
+  },
+  {
+   "slug": "rose-vanilla-body-butter",
+   "name": "Rose & Vanilla Body Butter",
+   "raw": "Rose & vannila body butter",
+   "cat_label": "Body Care",
+   "cat_href": "/collections/body-care",
+   "sub": [
+    "Body Butters",
+    "/collections/body-butters"
+   ],
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-ROSE-VANILLA-BODY-BUTTER",
+     "price": 333
+    }
+   ],
+   "ings": [
+    "Shea butter",
+    "Cocoa butter",
+    "Damask rose infused Almond Oil",
+    "Rose essential oil"
+   ],
+   "steps": [
+    "Apply after bathing or showering to Skin absorbs moisture best when it's slightly damp.",
+    "Take a small amount to Body butter is thicker and richer than regular lotion.",
+    "Massage into the body to Focus on dry areas such as elbows, knees, heels, hands, and feet.",
+    "Allow it to absorb to Wait a few minutes before dressing if it feels heavy.",
+    "Use daily or as needed to Especially during cold weather or if you have dry skin.",
+    "After a shower",
+    "Anytime your skin feels dry or rough"
+   ],
+   "extra": [
+    "Best times to use it:",
+    "Before bed (for overnight hydration)"
+   ],
+   "desc": "A rich, indulgent body butter that melts beautifully into the skin, leaving it feeling deeply nourished, soft and smooth. The delicate blend of rose and warm vanilla creates a comforting, elegant fragrance for a luxurious everyday body-care ritual.",
+   "img": null
+  },
+  {
+   "slug": "tender-coconut-body-butter",
+   "name": "Tender Coconut Body Butter",
+   "raw": "Tender coconut body butter",
+   "cat_label": "Body Care",
+   "cat_href": "/collections/body-care",
+   "sub": [
+    "Body Butters",
+    "/collections/body-butters"
+   ],
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-TENDER-COCONUT-BODY-BUTTER",
+     "price": 333
+    }
+   ],
+   "ings": [
+    "Coconut butter",
+    "Shea butter",
+    "Cocoa butter",
+    "Almond Oil",
+    "Geranium essential oil"
+   ],
+   "steps": [
+    "Apply after bathing or showering to Skin absorbs moisture best when it's slightly damp.",
+    "Take a small amount to Body butter is thicker and richer than regular lotion.",
+    "Massage into the body to Focus on dry areas such as elbows, knees, heels, hands, and feet.",
+    "Allow it to absorb to Wait a few minutes before dressing if it feels heavy.",
+    "Use daily or as needed to Especially during cold weather or if you have dry skin.",
+    "After a shower",
+    "Anytime your skin feels dry or rough"
+   ],
+   "extra": [
+    "Best times to use it:",
+    "Before bed (for overnight hydration)"
+   ],
+   "desc": "A creamy, comforting body butter that leaves the skin feeling moisturised, supple and beautifully smooth. With its fresh, tropical character, it brings a soft coconut-inspired touch to your daily body-care routine.",
+   "img": null
+  },
+  {
+   "slug": "choco-body-butter",
+   "name": "Choco Body Butter",
+   "raw": "Choco Body butter",
+   "cat_label": "Body Care",
+   "cat_href": "/collections/body-care",
+   "sub": [
+    "Body Butters",
+    "/collections/body-butters"
+   ],
+   "variants": [
+    {
+     "size": "100 g",
+     "sku": "VT-CHOCO-BODY-BUTTER",
+     "price": 333
+    }
+   ],
+   "ings": [
+    "Shea butter",
+    "Cocoa butter",
+    "Jojoba Oil",
+    "Cocoa Powder Geranium essential oil"
+   ],
+   "steps": [
+    "Same as rose body butter"
+   ],
+   "extra": [],
+   "desc": "A decadent body butter with a delicious chocolate-inspired fragrance that turns everyday moisturising into a luxurious treat. It melts into the skin, leaving it feeling soft, smooth and pampered with a rich, comforting aroma.",
+   "img": null
+  },
+  {
+   "slug": "sandalwood-lip-balm",
+   "name": "Sandalwood Lip Balm",
+   "raw": "Sandalwood lipbalm",
+   "cat_label": "Lip Care",
+   "cat_href": "/collections/lip-care",
+   "sub": [
+    "Lip Balms",
+    "/collections/lip-balms"
+   ],
+   "variants": [
+    {
+     "size": "10 g",
+     "sku": "VT-SANDALWOOD-LIP-BALM",
+     "price": 139
+    }
+   ],
+   "ings": [
+    "Shea butter",
+    "Cocoa butter",
+    "jojoba oil",
+    "Olive oil",
+    "almond oil",
+    "rosehip oil",
+    "beeswax",
+    "sandalwood herb infused",
+    "sandalwood essential oil",
+    "vitamin e oil"
+   ],
+   "steps": [
+    "Use it before applying lipstick so that the lips don't dry out.",
+    "Can be applied to the cheeks as a highlighter",
+    "Use it as often as you can to hydrate your lips."
+   ],
+   "extra": [
+    "Step 1: Apply a thin, even layer of lip balm to clean, dry lips.",
+    "Step 2: Reapply throughout the day as needed, especially when your lips feel dry or chapped.",
+    "Step 3: For overnight care, apply a slightly thicker layer before bedtime to deeply nourish and soften your lips.",
+    "Special tips:"
+   ],
+   "desc": "A nourishing natural-tinted lip balm that moisturises dry lips, keeps them soft and smooth, and adds a subtle, beautiful tint while helping improve the appearance of uneven lip tone.",
+   "img": null
+  },
+  {
+   "slug": "fruit-spice-lip-balm",
+   "name": "Fruit & Spice Lip Balm",
+   "raw": "Fruit & spice lipbalm",
+   "cat_label": "Lip Care",
+   "cat_href": "/collections/lip-care",
+   "sub": [
+    "Lip Balms",
+    "/collections/lip-balms"
+   ],
+   "variants": [
+    {
+     "size": "10 g",
+     "sku": "VT-FRUIT-SPICE-LIP-BALM",
+     "price": 139
+    }
+   ],
+   "ings": [
+    "Shea butter",
+    "Cocoa butter",
+    "jojoba oil",
+    "Olive oil",
+    "almond oil",
+    "beeswax",
+    "clove herb infused",
+    "Fruit & spice essential oil",
+    "vitamin E oil"
+   ],
+   "steps": [
+    "Use it before applying lipstick so that the lips don't dry out.",
+    "Can be applied to the cheeks as a highlighter",
+    "Use it as often as you can to hydrate your lips."
+   ],
+   "extra": [
+    "Step 1: Apply a thin, even layer of lip balm to clean, dry lips.",
+    "Step 2: Reapply throughout the day as needed, especially when your lips feel dry or chapped.",
+    "Step 3: For overnight care, apply a slightly thicker layer before bedtime to deeply nourish and soften your lips.",
+    "Special tips:"
+   ],
+   "desc": "Nourishes and moisturises dry lips, helps restore softness and smoothness, and supports a naturally healthy-looking lip tone.",
+   "img": null
+  },
+  {
+   "slug": "orange-lip-scrub",
+   "name": "Orange Lip Scrub",
+   "raw": "Orange lip scrub",
+   "cat_label": "Lip Care",
+   "cat_href": "/collections/lip-care",
+   "sub": [
+    "Lip Scrubs",
+    "/collections/lip-scrubs"
+   ],
+   "variants": [
+    {
+     "size": "15 g",
+     "sku": "VT-ORANGE-LIP-SCRUB",
+     "price": 99
+    }
+   ],
+   "ings": [
+    "Organic Shea butter & Cocoa butter",
+    "Jojoba oil",
+    "grapeseed oil",
+    "orange essential oil",
+    "organic sugar",
+    "beeswax",
+    "Honey powder",
+    "Vitamin e oil"
+   ],
+   "steps": [
+    "Step 1: Take a small pinch of Lip Scrub and gently massage it onto your lips for 2 minutes.",
+    "Step 2: Wash it off and follow up with VEETREE Lip Balm.",
+    "For best results, use Twice a week."
+   ],
+   "extra": [],
+   "desc": "Gently exfoliates dead skin cells, smooths dry lips and helps reveal softer, brighter-looking lips.",
+   "img": null
+  },
+  {
+   "slug": "coffee-lip-scrub",
+   "name": "Coffee Lip Scrub",
+   "raw": "Coffee lip scrub",
+   "cat_label": "Lip Care",
+   "cat_href": "/collections/lip-care",
+   "sub": [
+    "Lip Scrubs",
+    "/collections/lip-scrubs"
+   ],
+   "variants": [
+    {
+     "size": "15 g",
+     "sku": "VT-COFFEE-LIP-SCRUB",
+     "price": 99
+    }
+   ],
+   "ings": [
+    "Organic Shea butter & Cocoa butter",
+    "Jojoba oil",
+    "grapeseed oil",
+    "Coffee essential oil",
+    "organic sugar",
+    "Coffee bean granules",
+    "beeswax",
+    "Honey powder",
+    "Vitamin E oil"
+   ],
+   "steps": [
+    "Step 1: Take a small pinch of Lip Scrub and gently massage it onto your lips for 2 minutes.",
+    "Step 2: Wash it off and follow up with VEETREE Lip Balm.",
+    "For best results, use Twice a week."
+   ],
+   "extra": [],
+   "desc": "Buffs away dry, flaky skin, smooths the lips and helps improve their overall appearance.",
+   "img": null
+  },
+  {
+   "slug": "mango-lip-oil",
+   "name": "Mango Lip Oil",
+   "raw": "Mango Lip Oil",
+   "cat_label": "Lip Care",
+   "cat_href": "/collections/lip-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "10 ml",
+     "sku": "VT-MANGO-LIP-OIL",
+     "price": 149
+    }
+   ],
+   "ings": [
+    "Mango Butter",
+    "Almond oil",
+    "Rosehip oil",
+    "Flaxseed oil Rich in Omega-3 fatty acids",
+    "Olive oil",
+    "Vitamin E oil",
+    "Saffron pure grade"
+   ],
+   "steps": [
+    "Apply to clean, dry lips.",
+    "Press or rub your lips together gently to distribute the oil evenly.",
+    "Reapply whenever needed to lock in moisture and help improve the appearance of dry, dull & pigmented lips.",
+    "Suitable for daily use."
+   ],
+   "extra": [],
+   "desc": "Deeply nourishes and softens dry lips while giving them a smooth, healthy-looking finish.",
+   "img": [
+    "mango-lip-oil",
+    "in an amber roll-on bottle on a wooden stand, beside a cut mango and a brass diffuser"
+   ]
+  },
+  {
+   "slug": "under-eye-serum",
+   "name": "Under-Eye Serum",
+   "raw": "under-eye serum",
+   "cat_label": "Eye Care",
+   "cat_href": "/collections/eye-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "10 ml",
+     "sku": "VT-UNDER-EYE-SERUM",
+     "price": 236
+    }
+   ],
+   "ings": [
+    "Pomegranate seed oil",
+    "Almond oil",
+    "Rosehip oil",
+    "Olive oil",
+    "Castor seed oil",
+    "Nutmeg & Vit E oil",
+    "Tamanu oil",
+    "Sandalwood & Neroli E Oil"
+   ],
+   "steps": [
+    "Apply to clean, dry skin around the under-eye area using the roll-on applicator.",
+    "Gently pat with your fingertips until fully absorbed.",
+    "At night, apply before any serum or moisturizer.",
+    "Use daily for best results."
+   ],
+   "extra": [],
+   "desc": "Helps hydrate and refresh the delicate under-eye area while improving the appearance of dullness, fine lines and tired-looking eyes.",
+   "img": null
+  },
+  {
+   "slug": "earth-eye-cream",
+   "name": "Earth Eye Cream",
+   "raw": "Earth eye cream",
+   "cat_label": "Eye Care",
+   "cat_href": "/collections/eye-care",
+   "sub": null,
+   "variants": [
+    {
+     "size": "15 g",
+     "sku": "VT-EARTH-EYE-CREAM",
+     "price": 299
+    }
+   ],
+   "ings": [
+    "Aqua",
+    "Herbs infusion",
+    "Bakuchiol oil",
+    "Kashmiri Saffron",
+    "Rosehip & Almond oil",
+    "Shea butter",
+    "E wax",
+    "Xanthan gum",
+    "Tocopherol",
+    "neroli Oil",
+    "ECO Preservative"
+   ],
+   "steps": [
+    "Step 1: Take a pea-sized amount of Under Eye Cream & apply underneath your eye & around the brow bone.",
+    "Step 2: Gently pat as you let the cream absorb.",
+    "Do not let it close to the lids.",
+    "Make this part of your daily regime to get healthy skin under your eyes.",
+    "Disclaimer - Formulations containing natural ingredients tend to change color over time.",
+    "However, the product efficacy remains unchanged."
+   ],
+   "extra": [],
+   "desc": "Provides nourishing hydration to the under-eye area and helps reduce the appearance of dark, tired and dull-looking eyes.",
+   "img": null
+  }
+ ],
+ "byCat": {
+  "FACE CARE": [
+   "face-brightening-pack",
+   "kumkumadi-serum",
+   "aqua-rose-brightening-serum",
+   "aloe-vera-gel",
+   "saffron-gel",
+   "multi-floral-gel",
+   "kumkumadi-night-cream",
+   "rose-hydrosol",
+   "tea-tree-hydrosol"
+  ],
+  "HAIR CARE": [
+   "hair-growth-oil",
+   "scalp-hair-rebirth-serum",
+   "protein-hair-pack",
+   "seed-petal-shampoo",
+   "jasmine-hair-butter",
+   "anti-dandruff-gel",
+   "rosemary-hydrosol"
+  ],
+  "BODY CARE": [
+   "nalpamaradi-lotion",
+   "ritual-body-oil",
+   "nalpamaradi-lepam",
+   "patchouli-shower-gel",
+   "body-face-scrub",
+   "rose-vanilla-body-butter",
+   "tender-coconut-body-butter",
+   "choco-body-butter"
+  ],
+  "LIP CARE": [
+   "sandalwood-lip-balm",
+   "fruit-spice-lip-balm",
+   "orange-lip-scrub",
+   "coffee-lip-scrub",
+   "mango-lip-oil"
+  ],
+  "EYE CARE": [
+   "under-eye-serum",
+   "earth-eye-cream"
+  ]
+ },
+ "notes": [
+  "Aqua Rose Brightening Serum: 2 prices for 1 size(s) — used ₹269 for 30 ml; CONFIRM",
+  "Seed-Petal Shampoo: no price in the sheet — shown as 'price on request'",
+  "Patchouli Shower Gel: no price in the sheet — shown as 'price on request'"
+ ]
+}

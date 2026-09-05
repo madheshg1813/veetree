@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Cinzel, Cormorant_Garamond, Jost } from "next/font/google";
-import { GoldGradientDefs } from "@/components/icons";
+import { GoldGradientDefs } from "@/components/icons"
 import { site } from "@/lib/site";
-import "./globals.css";
+import "./globals.css"
+import "./catalog.css";
+import "./home.css";
+import "./legal.css";
 
 // Self-hosted at build time — no request to Google at runtime.
 const cormorant = Cormorant_Garamond({

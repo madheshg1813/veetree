@@ -1,67 +1,49 @@
-"use client";
+import Link from "next/link"
+import { CommerceCard } from "@/components/catalog/CommerceCard"
+import { FEATURED_SLUGS } from "@/lib/catalog/featured"
+import type { Product } from "@/lib/catalog"
+import { Reveal } from "./Reveal"
 
-import { useState } from "react";
-import { categoryFilters, products, type Category } from "@/lib/products";
-import { ProductCard } from "./ProductCard";
-import { Reveal } from "./Reveal";
-
-type Filter = Category | "all";
-
-export function Collection() {
-  const [active, setActive] = useState<Filter>("all");
-
-  const visible = products.filter((p) => active === "all" || p.category === active);
+/**
+ * Homepage bestsellers.
+ *
+ * A curated eight rather than the whole catalogue — 31 cards is a warehouse,
+ * not a shop front. Discovery happens through the category grid above; this
+ * section exists to show the range at its strongest.
+ *
+ * No longer a client component: with no filter chips there is no state, so
+ * this renders on the server and ships no JavaScript.
+ */
+export function Collection({ products }: { products: readonly Product[] }) {
+  const bySlug = new Map(products.map((p) => [p.slug, p]))
+  const featured = FEATURED_SLUGS.map((s) => bySlug.get(s)).filter(
+    (p): p is Product => p !== undefined
+  )
 
   return (
     <section className="collection" id="collection">
       <div className="shell">
-        <Reveal as="header" className="section-head">
-          <p className="eyebrow">
-            <span className="eyebrow__line" />
-            The Collection
-          </p>
-          <h2 className="section-title">
-            Eleven ways to <em className="grad-gold">come back to yourself</em>
-          </h2>
-          <p className="section-sub">
-            Tap any product to start a WhatsApp chat — we&rsquo;ll confirm price, size and delivery
-            in a message.
-          </p>
-        </Reveal>
-
-        <Reveal className="filters">
-          <div role="tablist" aria-label="Filter products by category" className="filters__row">
-            {categoryFilters.map((filter) => (
-              <button
-                key={filter.id}
-                type="button"
-                role="tab"
-                aria-selected={active === filter.id}
-                className={`chip ${active === filter.id ? "is-active" : ""}`}
-                onClick={() => setActive(filter.id)}
-              >
-                {filter.label} <span>{filter.count}</span>
-              </button>
-            ))}
+        <Reveal as="header" className="section-head section-head--split">
+          <div>
+            <p className="eyebrow">
+              <span className="eyebrow__line" />
+              Bestsellers
+            </p>
+            <h2 className="section-title">
+              The ones people <em className="grad-gold">come back for</em>
+            </h2>
           </div>
+          <Link className="btn btn--ghost btn--sm section-head__cta" href="/collections/face-care">
+            View all {products.length} products
+          </Link>
         </Reveal>
 
-        <div className="grid" id="grid">
-          {products.map((product, i) => (
-            <ProductCard
-              key={product.slug}
-              product={product}
-              hidden={!visible.includes(product)}
-              delay={(i % 4) * 0.07}
-              animationKey={`${product.slug}-${active}`}
-            />
+        <div className="cgrid" id="grid">
+          {featured.map((product) => (
+            <CommerceCard key={product.slug} product={product} />
           ))}
         </div>
-
-        {visible.length === 0 ? (
-          <p className="grid__empty">Nothing in this category yet — try another filter.</p>
-        ) : null}
       </div>
     </section>
-  );
+  )
 }

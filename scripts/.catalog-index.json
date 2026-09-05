@@ -1,0 +1,219 @@
+[
+ {
+  "slug": "face-brightening-pack",
+  "camel": "faceBrighteningPack",
+  "cat": "Face Care",
+  "sub": null,
+  "price": "₹219"
+ },
+ {
+  "slug": "kumkumadi-serum",
+  "camel": "kumkumadiSerum",
+  "cat": "Face Care",
+  "sub": "Face Serums",
+  "price": "₹249"
+ },
+ {
+  "slug": "aqua-rose-brightening-serum",
+  "camel": "aquaRoseBrighteningSerum",
+  "cat": "Face Care",
+  "sub": "Face Serums",
+  "price": "₹269"
+ },
+ {
+  "slug": "aloe-vera-gel",
+  "camel": "aloeVeraGel",
+  "cat": "Face Care",
+  "sub": null,
+  "price": "₹299"
+ },
+ {
+  "slug": "saffron-gel",
+  "camel": "saffronGel",
+  "cat": "Face Care",
+  "sub": null,
+  "price": "₹319"
+ },
+ {
+  "slug": "multi-floral-gel",
+  "camel": "multiFloralGel",
+  "cat": "Face Care",
+  "sub": null,
+  "price": "₹288"
+ },
+ {
+  "slug": "kumkumadi-night-cream",
+  "camel": "kumkumadiNightCream",
+  "cat": "Face Care",
+  "sub": null,
+  "price": "₹379"
+ },
+ {
+  "slug": "rose-hydrosol",
+  "camel": "roseHydrosol",
+  "cat": "Face Care",
+  "sub": "Hydrosols",
+  "price": "₹189"
+ },
+ {
+  "slug": "tea-tree-hydrosol",
+  "camel": "teaTreeHydrosol",
+  "cat": "Face Care",
+  "sub": "Hydrosols",
+  "price": "₹218"
+ },
+ {
+  "slug": "hair-growth-oil",
+  "camel": "hairGrowthOil",
+  "cat": "Hair Care",
+  "sub": "Hair Oils",
+  "price": "₹179"
+ },
+ {
+  "slug": "scalp-hair-rebirth-serum",
+  "camel": "scalpHairRebirthSerum",
+  "cat": "Hair Care",
+  "sub": "Hair Serums",
+  "price": "₹397"
+ },
+ {
+  "slug": "protein-hair-pack",
+  "camel": "proteinHairPack",
+  "cat": "Hair Care",
+  "sub": null,
+  "price": "₹289"
+ },
+ {
+  "slug": "seed-petal-shampoo",
+  "camel": "seedPetalShampoo",
+  "cat": "Hair Care",
+  "sub": "Shampoos",
+  "price": ""
+ },
+ {
+  "slug": "jasmine-hair-butter",
+  "camel": "jasmineHairButter",
+  "cat": "Hair Care",
+  "sub": null,
+  "price": "₹357"
+ },
+ {
+  "slug": "anti-dandruff-gel",
+  "camel": "antiDandruffGel",
+  "cat": "Hair Care",
+  "sub": null,
+  "price": "₹289"
+ },
+ {
+  "slug": "rosemary-hydrosol",
+  "camel": "rosemaryHydrosol",
+  "cat": "Hair Care",
+  "sub": "Hydrosols",
+  "price": "₹228"
+ },
+ {
+  "slug": "nalpamaradi-lotion",
+  "camel": "nalpamaradiLotion",
+  "cat": "Body Care",
+  "sub": null,
+  "price": "₹429"
+ },
+ {
+  "slug": "ritual-body-oil",
+  "camel": "ritualBodyOil",
+  "cat": "Body Care",
+  "sub": null,
+  "price": "₹379"
+ },
+ {
+  "slug": "nalpamaradi-lepam",
+  "camel": "nalpamaradiLepam",
+  "cat": "Body Care",
+  "sub": null,
+  "price": "₹276"
+ },
+ {
+  "slug": "patchouli-shower-gel",
+  "camel": "patchouliShowerGel",
+  "cat": "Body Care",
+  "sub": null,
+  "price": ""
+ },
+ {
+  "slug": "body-face-scrub",
+  "camel": "bodyFaceScrub",
+  "cat": "Body Care",
+  "sub": null,
+  "price": "₹358"
+ },
+ {
+  "slug": "rose-vanilla-body-butter",
+  "camel": "roseVanillaBodyButter",
+  "cat": "Body Care",
+  "sub": "Body Butters",
+  "price": "₹333"
+ },
+ {
+  "slug": "tender-coconut-body-butter",
+  "camel": "tenderCoconutBodyButter",
+  "cat": "Body Care",
+  "sub": "Body Butters",
+  "price": "₹333"
+ },
+ {
+  "slug": "choco-body-butter",
+  "camel": "chocoBodyButter",
+  "cat": "Body Care",
+  "sub": "Body Butters",
+  "price": "₹333"
+ },
+ {
+  "slug": "sandalwood-lip-balm",
+  "camel": "sandalwoodLipBalm",
+  "cat": "Lip Care",
+  "sub": "Lip Balms",
+  "price": "₹139"
+ },
+ {
+  "slug": "fruit-spice-lip-balm",
+  "camel": "fruitSpiceLipBalm",
+  "cat": "Lip Care",
+  "sub": "Lip Balms",
+  "price": "₹139"
+ },
+ {
+  "slug": "orange-lip-scrub",
+  "camel": "orangeLipScrub",
+  "cat": "Lip Care",
+  "sub": "Lip Scrubs",
+  "price": "₹99"
+ },
+ {
+  "slug": "coffee-lip-scrub",
+  "camel": "coffeeLipScrub",
+  "cat": "Lip Care",
+  "sub": "Lip Scrubs",
+  "price": "₹99"
+ },
+ {
+  "slug": "mango-lip-oil",
+  "camel": "mangoLipOil",
+  "cat": "Lip Care",
+  "sub": null,
+  "price": "₹149"
+ },
+ {
+  "slug": "under-eye-serum",
+  "camel": "underEyeSerum",
+  "cat": "Eye Care",
+  "sub": null,
+  "price": "₹236"
+ },
+ {
+  "slug": "earth-eye-cream",
+  "camel": "earthEyeCream",
+  "cat": "Eye Care",
+  "sub": null,
+  "price": "₹299"
+ }
+]
