@@ -14,6 +14,27 @@ RUN npm ci
 FROM node:${NODE_VERSION} AS builder
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Next inlines NEXT_PUBLIC_* into the client bundle at build time, and a
+# container build sees none of the host's environment unless it is passed in as
+# a build argument. Without these the site compiles with no Cloudinary cloud
+# name and no Medusa URL, then silently falls back to local image paths and a
+# catalogue with no live stock — which is exactly what shipped the first time.
+# Server-only secrets are deliberately absent: they are read at runtime and
+# must never be baked into an image.
+ARG NEXT_PUBLIC_MEDUSA_URL
+ARG NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+ARG NEXT_PUBLIC_MEDUSA_REGION_ID
+ARG NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+ARG NEXT_PUBLIC_CLOUDINARY_FOLDER
+ARG NEXT_PUBLIC_RAZORPAY_KEY_ID
+ENV NEXT_PUBLIC_MEDUSA_URL=$NEXT_PUBLIC_MEDUSA_URL \
+    NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=$NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY \
+    NEXT_PUBLIC_MEDUSA_REGION_ID=$NEXT_PUBLIC_MEDUSA_REGION_ID \
+    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=$NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME \
+    NEXT_PUBLIC_CLOUDINARY_FOLDER=$NEXT_PUBLIC_CLOUDINARY_FOLDER \
+    NEXT_PUBLIC_RAZORPAY_KEY_ID=$NEXT_PUBLIC_RAZORPAY_KEY_ID
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
