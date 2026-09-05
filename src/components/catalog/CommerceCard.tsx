@@ -69,7 +69,12 @@ export function CommerceCard({ product }: { product: Product }) {
               </>
             )}
           </div>
-          <Link className="btn-buy btn-buy--primary ccard__cta" href={href}>
+          {/*
+            Secondary, not primary: the homepage cards already use a white
+            "View product" button, and a solid green one here made the same
+            action look like two different things on two pages.
+          */}
+          <Link className="btn-buy btn-buy--secondary ccard__cta" href={href}>
             View Product
           </Link>
         </div>
