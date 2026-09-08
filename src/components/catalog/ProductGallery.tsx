@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useCallback, useEffect, useRef, useState } from "react"
 import type { ProductImage } from "@/lib/catalog"
+import { useVariantMedia } from "./VariantMedia"
 
 interface Props {
   images: readonly ProductImage[]
@@ -26,6 +27,25 @@ export function ProductGallery({ images, zoom = 2.5 }: Props) {
   const [coarse, setCoarse] = useState(false)
 
   const frameRef = useRef<HTMLDivElement>(null)
+
+  /**
+   * Follow the chosen size.
+   *
+   * Adjusted during render rather than in an effect: an effect would paint the
+   * old image first and then correct it, and it trips
+   * `react-hooks/set-state-in-effect`. Only when that image is actually in the
+   * gallery — a variant image never added to the product would otherwise leave
+   * the thumbnails pointing at nothing. Tracking the last value keeps the
+   * customer's own thumbnail clicks from being overridden.
+   */
+  const { activeImage } = useVariantMedia()
+  const [lastActive, setLastActive] = useState(activeImage)
+  if (activeImage !== lastActive) {
+    setLastActive(activeImage)
+    const at = activeImage ? images.findIndex((i) => i.src === activeImage) : -1
+    if (at >= 0) setIndex(at)
+  }
+
   const active = images[index]
   const count = images.length
 

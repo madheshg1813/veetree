@@ -31,6 +31,8 @@ export interface MedusaVariant {
   manage_inventory?: boolean | null
   /** Grams, as entered in the dashboard. */
   weight?: number | null
+  thumbnail?: string | null
+  images?: MedusaImage[]
 }
 
 export interface MedusaImage {
@@ -84,6 +86,7 @@ const FIELDS = [
   // Stock, as the admin sets it. Needs the "+" form: inventory_quantity is
   // computed per sales channel and is not returned by "*variants" alone.
   "+variants.inventory_quantity", "+variants.manage_inventory", "+variants.weight",
+  "+variants.thumbnail", "*variants.images",
 ].join(",")
 
 export async function fetchProducts(): Promise<MedusaProduct[] | null> {

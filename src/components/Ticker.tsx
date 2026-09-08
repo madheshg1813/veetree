@@ -1,9 +1,17 @@
+/**
+ * The running band above the header, as the founder revised it.
+ *
+ * The four claims that went are the ones every botanical brand runs — an
+ * absence ("no parabens"), a percentage, a provenance line and a batch note.
+ * What replaced them says something only Veetree can say. "Cruelty Free" stays
+ * because it is a specific, checkable fact rather than a slogan.
+ */
 const CLAIMS = [
-  "100% Natural",
-  "Handcrafted in Small Batches",
-  "No Parabens · No Sulphates",
+  "From Farm to Bottle",
+  "Ayurveda Meets Modern Care",
+  "Handpicked Natural Ingredients",
   "Cruelty Free",
-  "Rooted in Ayurveda",
+  "Made with Care",
 ] as const;
 
 function ClaimSet({ hidden = false }: { hidden?: boolean }) {

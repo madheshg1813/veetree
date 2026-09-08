@@ -6,6 +6,7 @@ import { formatPrice, type Product } from "@/lib/catalog"
 import { useCart } from "@/lib/cart/useCart"
 import { PriceBlock } from "./PriceBlock"
 import { StockLine } from "./StockLine"
+import { useVariantMedia } from "./VariantMedia"
 
 /**
  * Size selector, quantity and the two CTAs.
@@ -21,6 +22,7 @@ export function BuyBox({ product }: { product: Product }) {
   const [qty, setQty] = useState(1)
   const [added, setAdded] = useState(false)
   const { add } = useCart()
+  const { setActiveImage } = useVariantMedia()
   const router = useRouter()
 
   const variant = product.variants[sizeIndex] ?? product.variants[0]!
@@ -34,6 +36,11 @@ export function BuyBox({ product }: { product: Product }) {
   // Never offer more than exist: backorders are off, so Medusa would reject
   // the cart at checkout and the customer would find out far too late.
   const max = Math.max(1, Math.min(10, variant.stock ?? 10))
+
+  // Point the gallery at this size's own photograph, where one is set.
+  useEffect(() => {
+    setActiveImage(variant.images?.[0] ?? null)
+  }, [variant.images, setActiveImage])
 
   useEffect(() => {
     if (!added) return

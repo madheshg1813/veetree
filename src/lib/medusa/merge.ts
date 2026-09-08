@@ -54,6 +54,10 @@ export function mergeProduct(local: Product, remote: MedusaProduct | undefined):
             ? match.inventory_quantity
             : null,
       weightG: typeof match?.weight === "number" && match.weight > 0 ? match.weight : null,
+      images: [
+        ...(match?.thumbnail ? [match.thumbnail] : []),
+        ...(match?.images ?? []).map((i) => i.url),
+      ].filter(usableImageUrl),
     }
   })
 

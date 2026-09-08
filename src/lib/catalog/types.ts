@@ -35,6 +35,11 @@ export interface Variant {
    * quote then estimates from the pack size. See `variantWeightG`.
    */
   readonly weightG?: number | null
+  /**
+   * Images attached to this size in the dashboard. Medusa supports images per
+   * variant, and a customer choosing 20 ml expects to see the 20 ml bottle.
+   */
+  readonly images?: readonly string[]
 }
 
 /** Only ever render a rating that comes from real collected reviews. */

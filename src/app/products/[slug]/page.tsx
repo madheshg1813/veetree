@@ -7,6 +7,7 @@ import { FaqList } from "@/components/catalog/FaqList"
 import { InfoSections } from "@/components/catalog/InfoSections"
 import { JsonLd } from "@/components/catalog/JsonLd"
 import { ProductGallery } from "@/components/catalog/ProductGallery"
+import { VariantMediaProvider } from "@/components/catalog/VariantMedia"
 import { StickyBuyBar } from "@/components/catalog/StickyBuyBar"
 import { ReviewForm } from "@/components/product/ReviewForm"
 import { SiteFooter } from "@/components/SiteFooter"
@@ -160,6 +161,7 @@ export default async function ProductPage({
 
         {/* ── Above the fold ─────────────────────────────────────── */}
         <section className="shell pdp__hero">
+         <VariantMediaProvider>
           <div className="pdp__media">
             <ProductGallery images={product.images} />
           </div>
@@ -226,6 +228,7 @@ export default async function ProductPage({
               </ul>
             ) : null}
           </div>
+         </VariantMediaProvider>
         </section>
 
         {/*

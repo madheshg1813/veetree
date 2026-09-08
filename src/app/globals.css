@@ -244,7 +244,7 @@ ul{margin:0;padding:0;list-style:none;}
 
    --logo-h drives the size; width follows the artwork's 2.4 aspect ratio. */
 .brand{
-  --logo-h:46px;
+  --logo-h:54px;
   display:inline-flex;align-items:center;
   color:var(--forest-900);
   transition:color .3s var(--ease),opacity .3s var(--ease);
@@ -263,7 +263,7 @@ ul{margin:0;padding:0;list-style:none;}
   -webkit-mask:url("/veetree-logo.svg") no-repeat center/contain;
   mask:url("/veetree-logo.svg") no-repeat center/contain;
 }
-@media (max-width:520px){.brand{--logo-h:39px;}}
+@media (max-width:520px){.brand{--logo-h:46px;}}
 
 /* ── Primary navigation ────────────────────────────────── */
 .nav{display:flex;}
@@ -697,8 +697,8 @@ ul{margin:0;padding:0;list-style:none;}
 /* ── Footer ────────────────────────────────────────────── */
 .site-footer{background:var(--forest-900);color:rgba(255,253,244,.82);padding:clamp(3rem,6vw,4.5rem) 0 0;border-top:1px solid rgba(221,161,94,.14);}
 .footer__inner{display:grid;grid-template-columns:1fr 2.5fr;gap:clamp(2rem,5vw,4rem);padding-bottom:3rem;}
-.brand--footer{--logo-h:58px;color:var(--cream-50);margin-right:0;}
-@media (max-width:520px){.brand--footer{--logo-h:46px;}}
+.brand--footer{--logo-h:68px;color:var(--cream-50);margin-right:0;}
+@media (max-width:520px){.brand--footer{--logo-h:54px;}}
 .footer__tag{margin-top:.9rem;color:rgba(255,253,244,.8);max-width:32ch;font-style:italic;font-family:var(--f-display);font-size:1.12rem;font-weight:500;}
 .footer__cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem;}
 .footer__col h4{
