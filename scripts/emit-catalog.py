@@ -63,7 +63,7 @@ for p in D["products"]:
         faqs.append({"q": "What is in it?",
                      "a": "The full ingredient list is published on this page and printed on the pack. Key ingredients include " + ", ".join(ings[:5]) + "."})
     faqs.append({"q": "Is a patch test needed?",
-                 "a": "Patch test on a small area of skin before first use, as with any new topical product. If you are pregnant, breastfeeding, or treating a diagnosed skin condition, check with a doctor first."})
+                 "a": "Patch test on a small area of skin before first use, as with any new topical product."})
 
     images = []
     if p["img"]:

@@ -133,7 +133,7 @@ export const navigation: readonly NavItem[] = [
         note: "1 product",
       },
       {
-        label: "Butter",
+        label: "Body Butter",
         href: "/collections/body-butters",
         note: "3 products",
       },
@@ -178,6 +178,26 @@ export const navigation: readonly NavItem[] = [
       },
     ],
   },
+  {
+    // Sits after Eye Care, ahead of Combos: the one category that cuts across
+    // the others — the same products, routed by the problem someone arrives
+    // with. Its children are the concerns themselves, so the menu answers
+    // "what do you want to treat?" directly.
+    label: "Shop by Concern",
+    href: "/concerns",
+    children: [
+      { label: "View All", href: "/concerns", note: "Every concern we formulate for" },
+      { label: "Hydration", href: "/concerns/hydration", note: "4 products" },
+      { label: "Uneven Skin", href: "/concerns/uneven-skin", note: "4 products" },
+      { label: "Hairfall", href: "/concerns/hairfall", note: "5 products" },
+      { label: "Dandruff", href: "/concerns/dandruff", note: "4 products" },
+      { label: "Chapped Lips", href: "/concerns/chapped-lips", note: "5 products" },
+      { label: "Tired Eyes", href: "/concerns/tired-eyes", note: "2 products" },
+    ],
+  },
+  // A category in its own right. No children: a combo is a set rather than a
+  // type, so there are no sub-categories to open.
+  { label: "Combos", href: "/combos" },
   { label: "Our Roots", href: "/#ritual" },
   { label: "Account", href: "/account" },
 ]

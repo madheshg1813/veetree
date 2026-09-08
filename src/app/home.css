@@ -208,7 +208,7 @@
 .combos__grid--all .combo{background:#FFFFFF;}
 
 .combo{
-  /* Linked to as /combos#slug, so keep the header's height clear of it. */
+  /* Older links still arrive as /combos#slug, so keep the header clear of it. */
   scroll-margin-top:96px;
   display:flex;flex-direction:column;height:100%;
   background:#FFFFFF;border:1px solid var(--line);border-radius:var(--r-md);
@@ -223,6 +223,13 @@
 @media (min-width:700px){.combo__media{aspect-ratio:3/4;}}
 .combos__grid--all .combo__media{aspect-ratio:3/4;}
 .combo__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+/* The media is a link now: give it the same lift the card already implies,
+   and a visible focus ring since it is keyboard-reachable. */
+.combo__media img{transition:transform .5s var(--ease);}
+.combo__media:hover img{transform:scale(1.04);}
+.combo__media:focus-visible{outline:2px solid var(--earth-500);outline-offset:-2px;}
+.combo__name a{color:inherit;}
+.combo__name a:hover{color:var(--earth-600);}
 .combo__save{
   position:absolute;top:.55rem;left:.55rem;
   padding:.3rem .6rem;border-radius:100px;
@@ -405,3 +412,12 @@
 
 @media (max-width:1080px){.reels__track{justify-content:start;}}
 @media (max-width:400px){.reels__track{grid-auto-columns:min(320px,86vw);}}
+
+/* The /concerns page: same cards, given room for each concern's intro line. */
+.concerns__grid--all{grid-template-columns:repeat(2,1fr);}
+@media (min-width:1000px){.concerns__grid--all{grid-template-columns:repeat(3,1fr);}}
+.concern__intro{
+  display:block;margin-top:.55rem;
+  font-size:.82rem;line-height:1.5;color:var(--ink-70);
+}
+@media (min-width:700px){.concern__intro{font-size:.88rem;}}

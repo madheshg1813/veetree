@@ -7,7 +7,7 @@ import { ComboAddButton } from "./ComboAddButton"
 /**
  * Combo card, used by the homepage strip and the /combos page.
  *
- * `action` decides the button: "view" links through to the combo on /combos,
+ * `action` decides the button: "view" links through to the combo's own page,
  * which is what the homepage does, and "cart" adds it, which is what the combo
  * listing and the concern pages do. Adding happens on a combo's destination
  * page, never from the homepage.
@@ -36,10 +36,16 @@ export function ComboCard({
 
   return (
     <article className="combo" id={item.slug}>
-      <div className="combo__media">
+      {/*
+        The photograph is a link, like the name. People click a product image
+        expecting to be taken to it, and it was the one part of the card that
+        did nothing. `alt=""` because the link is already labelled by the combo
+        name below — a screen reader should not hear the contents twice.
+      */}
+      <Link className="combo__media" href={item.href} aria-label={item.name}>
         <Image
           src={item.image.src}
-          alt={`Veetree ${item.name}: ${item.contents.join(", ")}`}
+          alt=""
           width={item.image.width}
           height={item.image.height}
           priority={priority}
@@ -50,10 +56,12 @@ export function ComboCard({
         {item.off !== null ? (
           <span className="combo__save">{item.off}% off</span>
         ) : null}
-      </div>
+      </Link>
 
       <div className="combo__body">
-        <h3 className="combo__name">{item.name}</h3>
+        <h3 className="combo__name">
+          <Link href={item.href}>{item.name}</Link>
+        </h3>
 
         <p className="combo__contents">{item.contents.join(", ")}</p>
 

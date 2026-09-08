@@ -317,7 +317,7 @@ ul{margin:0;padding:0;list-style:none;}
 }
 .nav__panel a:hover,.nav__panel a:focus-visible{background:rgba(96,108,56,.09);}
 .nav__panel strong{font-size:.88rem;font-weight:500;color:var(--forest-900);letter-spacing:.01em;}
-.nav__panel span{font-size:.74rem;color:var(--ink-50);}
+.nav__panel span{font-size:.74rem;color:var(--ink-70);}
 /* Same distinction as the drawer: "View All" is the category itself, so it
    sits as a label above its types rather than reading as one of them. */
 .nav__panel-all{margin-bottom:.35rem;padding-bottom:.3rem;border-bottom:1px solid rgba(40,54,24,.1);}
@@ -359,6 +359,10 @@ ul{margin:0;padding:0;list-style:none;}
 .mobile-nav{display:none;flex-direction:column;padding:.4rem 1.25rem 1.4rem;border-top:1px solid rgba(40,54,24,.08);}
 .mobile-nav a{padding:.85rem 0;font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid rgba(40,54,24,.08);}
 .mobile-nav > a:last-child{border-bottom:0;}
+/* Combos and the other childless entries are top-level items too, so they take
+   the same ink and weight as the categories with a dropdown. Direct-child
+   selector: the sub-category links below must not pick this up. */
+.mobile-nav > a{color:var(--ink);font-weight:500;}
 .mobile-nav__group{border-bottom:1px solid rgba(40,54,24,.08);}
 .mobile-nav__parent{
   display:flex;align-items:center;justify-content:space-between;width:100%;
@@ -387,7 +391,9 @@ ul{margin:0;padding:0;list-style:none;}
      follow them down — at this size it pulls the words apart instead of
      lending them weight. */
   padding:.55rem 0;font-size:.9rem;letter-spacing:.005em;font-weight:400;
-  color:var(--ink-70);border-bottom:0;text-transform:none;
+  /* Full ink, matching the desktop panel. The lighter weight is what marks
+     these as sub-items; the colour was only making them hard to read. */
+  color:var(--ink);border-bottom:0;text-transform:none;
 }
 /* "View All" is the whole category, not one of its types, so it reads as a
    label over the list rather than another entry in it. */

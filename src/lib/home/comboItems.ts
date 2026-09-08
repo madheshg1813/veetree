@@ -58,7 +58,8 @@ export function toComboItem(combo: Combo, products: readonly Product[]): ComboIt
   return {
     slug: combo.slug,
     name: combo.name,
-    href: `/combos#${combo.slug}`,
+    // Its own page now, rather than an anchor on the listing.
+    href: `/combos/${combo.slug}`,
     image: combo.image,
     contents: parts.map((x, i) =>
       x.product ? `${x.product.name} ${combo.components[i]!.size}` : combo.components[i]!.slug

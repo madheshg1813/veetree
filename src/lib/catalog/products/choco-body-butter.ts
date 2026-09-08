@@ -30,7 +30,7 @@ export const chocoBodyButter: Product = {
 
   howToUse: [{"title": "Step 1", "detail": "Same as rose body butter."}],
 
-  faqs: [{"q": "What is Veetree Choco Body Butter?", "a": "A decadent body butter with a delicious chocolate-inspired fragrance that turns everyday moisturising into a luxurious treat. It melts into the skin, leaving it feeling soft, smooth and pampered with a rich, comforting aroma."}, {"q": "How do I use Choco Body Butter?", "a": "Same as rose body butter."}, {"q": "What size is it?", "a": "100 g."}, {"q": "What is in it?", "a": "The full ingredient list is published on this page and printed on the pack. Key ingredients include Shea butter, Cocoa butter, Jojoba Oil, Cocoa Powder Geranium essential oil."}, {"q": "Is a patch test needed?", "a": "Patch test on a small area of skin before first use, as with any new topical product. If you are pregnant, breastfeeding, or treating a diagnosed skin condition, check with a doctor first."}],
+  faqs: [{"q": "What is Veetree Choco Body Butter?", "a": "A decadent body butter with a delicious chocolate-inspired fragrance that turns everyday moisturising into a luxurious treat. It melts into the skin, leaving it feeling soft, smooth and pampered with a rich, comforting aroma."}, {"q": "How do I use Choco Body Butter?", "a": "Same as rose body butter."}, {"q": "What size is it?", "a": "100 g."}, {"q": "What is in it?", "a": "The full ingredient list is published on this page and printed on the pack. Key ingredients include Shea butter, Cocoa butter, Jojoba Oil, Cocoa Powder Geranium essential oil."}, {"q": "Is a patch test needed?", "a": "Patch test on a small area of skin before first use, as with any new topical product."}],
 
   related: [],
 

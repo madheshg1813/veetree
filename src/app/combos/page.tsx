@@ -51,7 +51,7 @@ export default async function CombosPage() {
           itemListElement: items.map((c, i) => ({
             "@type": "ListItem",
             position: i + 1,
-            url: `${site.url}/combos#${c.slug}`,
+            url: `${site.url}/combos/${c.slug}`,
             name: c.name,
           })),
         }}
