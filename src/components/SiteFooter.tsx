@@ -38,6 +38,7 @@ export function SiteFooter() {
             <h4>Information</h4>
             <Link href="/about">About Us</Link>
             <Link href="/terms">Terms &amp; Conditions</Link>
+            <Link href="/refund-policy">Exchange &amp; Refunds</Link>
             <Link href="/terms-of-use">Terms of Use</Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/disclaimer">Disclaimer</Link>

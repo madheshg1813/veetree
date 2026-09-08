@@ -8,12 +8,12 @@ const doc: LegalDoc = {
   intro:
     "These terms govern the sale of Veetree products through veetree.life. Placing an order means you accept them.",
   metaDescription:
-    "Veetree Terms and Conditions — orders, pricing, payment, shipping, cancellation, returns, refunds, liability and grievance redressal.",
+    "Veetree Terms and Conditions — orders, pricing, payment, shipping, cancellation, exchanges, liability and grievance redressal.",
   sections: [
     {
       heading: "1. Who you are contracting with",
       blocks: [
-        "{{domain}} is operated by {{entityName}}, a {{entityType}} registered in India at {{address}}, GSTIN {{gstin}}. In these terms, “we”, “us” and “Veetree” mean that entity, and “you” means the person placing the order.",
+        "{{domain}} is operated by {{entityName}}, of {{address}}, India. In these terms, “we”, “us” and “Veetree” mean that business, and “you” means the person placing the order.",
         "These terms apply to every order placed through the website. They sit alongside our Terms of Use, Privacy Policy and Disclaimer, all of which form part of your agreement with us.",
       ],
     },
@@ -54,7 +54,7 @@ const doc: LegalDoc = {
       heading: "6. Payment",
       blocks: [
         "Payments are processed by Razorpay, a third-party payment gateway. We do not see, handle or store your card number, UPI PIN, CVV or net-banking credentials at any point — those go directly to the gateway and its partner banks.",
-        "Your order is processed only once payment is confirmed. If a payment fails but money leaves your account, it is normally reversed by your bank or the gateway within {{refundDays}}. Send us the transaction reference and we will follow it up with the gateway on your behalf.",
+        "Your order is processed only once payment is confirmed. If a payment fails but money leaves your account, that amount is reversed by your bank or the payment gateway, usually within five to ten business days. Send us the transaction reference and we will follow it up with the gateway on your behalf.",
       ],
     },
     {
@@ -70,14 +70,18 @@ const doc: LegalDoc = {
       heading: "8. Cancelling an order",
       blocks: [
         "You may cancel an order at no cost at any time before it is dispatched. Message us on WhatsApp at {{phone}} or email {{supportEmail}} with your order number, and we will refund you in full.",
-        "Once an order has been handed to the courier it cannot be cancelled. At that point the returns section below applies instead.",
+        "Once an order has been handed to the courier it cannot be cancelled. At that point the exchanges section below applies instead.",
       ],
     },
     {
-      heading: "9. Returns, replacements and refunds",
+      heading: "9. Exchanges",
       blocks: [
-        "Cosmetic products are a hygiene-sensitive category. Once a product has been opened or used, we cannot accept it back, resell it or safely return it to stock. That constraint shapes everything below.",
-        "We will replace or refund a product in any of these cases:",
+        {
+          note:
+            "Veetree does not offer refunds. Where something has gone wrong with an order, we exchange the product — we do not return money.",
+        },
+        "Cosmetic products are a hygiene-sensitive category. Once a product has been opened or used, we cannot accept it back, resell it or safely return it to stock. That constraint, and the exchange-only policy above, shape everything below.",
+        "We will exchange a product in any of these cases:",
         {
           list: [
             "It arrived damaged, leaking or with a broken seal.",
@@ -86,17 +90,27 @@ const doc: LegalDoc = {
             "The product was past, or close to, its expiry date on arrival.",
           ],
         },
-        "Report any of these within {{reportWindow}} of delivery, with photographs of the product and the outer packaging. Photographs taken as you open the parcel help considerably. Once we have confirmed the issue we will send a replacement or refund you in full, whichever you prefer, and we bear the return cost.",
-        "An unopened, unused product with its seal intact may be returned within {{returnWindow}} of delivery if you have simply changed your mind. Return shipping in that case is yours to bear, and the refund is issued once we receive the product and confirm its condition.",
-        "We cannot accept a return because a product did not produce the result you hoped for, or because its colour or scent differs slightly from a previous batch. Individual results vary, and batch variation is inherent to natural formulations. If a product is not working for you, message us — we would rather help you use it correctly, or suggest something better suited, than have you keep something you will not use.",
-        "Approved refunds are issued to the original payment method within {{refundDays}} of approval. We cannot refund to a different account or method.",
+        {
+          note:
+            "An unboxing video is required. Every exchange claim must be supported by a single continuous video that starts before the sealed parcel is opened and runs until the products are unwrapped, showing the shipping label clearly. Without it we cannot tell a damaged delivery from a damaged product, and the claim cannot be approved.",
+        },
+        "Start the video before you cut the tape — a recording that begins with the parcel already open cannot establish the condition it arrived in, and is the single most common reason a claim fails.",
+        "Send the video to us on WhatsApp at {{phone}}, or by email to {{supportEmail}}, within {{reportWindow}} of delivery, along with your order number. We will confirm whether the claim is approved and arrange collection of the original item at our cost. The replacement is dispatched within {{exchangeDispatchDays}} of approval.",
+        "A product is exchanged for the same product. Where the same item is genuinely unavailable, we will agree an alternative of equal value with you.",
+        "We cannot exchange a product because it did not produce the result you hoped for, or because its colour or scent differs slightly from a previous batch. Individual results vary, and batch variation is inherent to natural formulations. If a product is not working for you, message us — we would rather help you use it correctly, or suggest something better suited, than leave you with something you will not use.",
+        "There is no change-of-mind return. Please check the size, variant and quantity before you place the order.",
+        "The same policy is set out in full, with the claim steps, on our Cancellation, Exchange and Refund Policy page.",
+        {
+          note:
+            "Where no goods reach you at all, money does come back. If we cancel your order, if an item turns out to be unavailable after payment, or if you are charged twice, the amount is returned to the original payment method — an exchange is not possible for something that was never delivered, and we do not keep payment for goods we have not supplied. Nothing in this section affects your rights under the Consumer Protection Act, 2019.",
+        },
       ],
     },
     {
       heading: "10. Combination sets",
       blocks: [
-        "Combos are sold as single units at a set price. A combo cannot be part-returned or part-refunded — where a return is approved, it applies to the whole set.",
-        "If one product within a combo arrives damaged or wrong, we replace that product rather than the whole set.",
+        "Combos are sold as single units at a set price. A combo is not split for an exchange — a claim covers the set.",
+        "If one product within a combo arrives damaged or wrong, we exchange that product rather than the whole set.",
       ],
     },
     {

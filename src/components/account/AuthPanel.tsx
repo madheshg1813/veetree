@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useState } from "react"
 import { PasswordField } from "./PasswordField"
 
@@ -157,6 +158,18 @@ export function AuthPanel({ onSignedIn }: { onSignedIn: () => void }) {
           </button>
         </form>
       )}
+
+      {/*
+        Shown once for the panel rather than per form: the consent is the same
+        whichever tab you are on, and it has to be visible at the moment of
+        signing in — which is also the moment checkout is gated behind.
+      */}
+      <p className="auth__consent">
+        By continuing you agree to Veetree&rsquo;s{" "}
+        <Link href="/terms">Terms &amp; Conditions</Link>,{" "}
+        <Link href="/privacy">Privacy Policy</Link> &amp;{" "}
+        <Link href="/disclaimer">Disclaimer</Link>.
+      </p>
     </div>
   )
 }

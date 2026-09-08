@@ -12,11 +12,16 @@ import { site } from "@/lib/site"
 export interface Business {
   /** Registered or trading name of the entity that sells on the site. */
   entityName: string | null
-  /** e.g. "sole proprietorship", "private limited company". */
+  /**
+   * e.g. "sole proprietorship", "private limited company". Null when the
+   * structure has not been confirmed — the copy then names the business
+   * without claiming a form it might not have.
+   */
   entityType: string | null
   /** Registered / principal place of business, one line per address element. */
   address: string[] | null
-  gstin: string | null
+  /** Year the business started trading, for the About page. */
+  since: string | null
   /** City whose courts have jurisdiction, and the state for governing law. */
   jurisdictionCity: string | null
 
@@ -38,16 +43,24 @@ export interface Business {
 }
 
 export const business: Business = {
-  entityName: null,
+  entityName: "Veetree Life",
+  // Not stated by Veetree, so not claimed. The Terms name the business
+  // without asserting a legal form.
   entityType: null,
-  address: null,
-  gstin: null,
-  jurisdictionCity: null,
+  address: [
+    "No. 30A, Gandhinagar 2nd Street",
+    "Nandhivaram, Guduvancheri",
+    "Tamil Nadu 603202",
+  ],
+  since: "2024",
+  // Guduvancheri falls under Chengalpattu district. Confirm before relying on
+  // it in a dispute.
+  jurisdictionCity: "Chengalpattu, Tamil Nadu",
 
   supportEmail: "veetreework@gmail.com",
 
   grievanceOfficer: {
-    name: null,
+    name: "U. Mahavishalee",
     email: "veetreework@gmail.com",
     phone: site.whatsappDisplay,
   },
@@ -68,12 +81,14 @@ export const policy = {
   dispatchDays: "2 to 3 business days",
   /** Working days in transit after dispatch. */
   deliveryDays: "3 to 7 business days",
-  /** Window to report a damaged, leaking, wrong or missing item. */
+  /**
+   * Window to report a problem and claim an exchange. The unboxing video has
+   * to exist, so this is deliberately short — the evidence is only available
+   * to someone who filmed the parcel being opened.
+   */
   reportWindow: "48 hours",
-  /** Window to request a return of an unopened item. */
-  returnWindow: "7 days",
-  /** Time for a refund to reach the original payment method. */
-  refundDays: "5 to 10 business days",
+  /** How long a replacement takes to go back out once a claim is approved. */
+  exchangeDispatchDays: "3 to 5 business days",
   /** Where Veetree ships. */
   shipsTo: "India",
 } as const

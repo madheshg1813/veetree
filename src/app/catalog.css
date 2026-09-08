@@ -938,3 +938,13 @@
   font-size:.85rem;color:var(--earth-600);}
 .auth__link{align-self:flex-start;font-size:.8rem;color:#8A431C;text-decoration:underline;
   background:none;padding:0;}
+
+/* Consent, under the button that acts on it. Deliberately quiet — it is a
+   disclosure, not a call to action — but the links are underlined so it is
+   plainly a place you can go and read the thing you are agreeing to. */
+.auth__consent{
+  margin:0;padding:0 1.3rem 1.3rem;
+  font-size:.76rem;line-height:1.6;color:var(--ink-50);text-align:center;
+}
+.auth__consent a{color:var(--forest-800);text-decoration:underline;text-underline-offset:2px;}
+.auth__consent a:hover{color:#8A431C;}

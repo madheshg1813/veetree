@@ -52,8 +52,8 @@ const doc = (): LegalDoc => ({
     {
       heading: "Who you are buying from",
       blocks: [
-        "{{brand}} is a brand of {{entityName}}, a {{entityType}} registered in India.",
-        { list: ["Registered address: {{address}}", "GSTIN: {{gstin}}", "Email: {{supportEmail}}", "WhatsApp: {{phone}}", "Instagram: {{instagram}}"] },
+        "{{brand}} is the brand of {{entityName}}, trading in India since {{since}}.",
+        { list: ["Address: {{address}}", "Email: {{supportEmail}}", "WhatsApp: {{phone}}", "Instagram: {{instagram}}"] },
       ],
     },
     {

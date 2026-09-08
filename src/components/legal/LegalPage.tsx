@@ -46,7 +46,7 @@ const TOKENS: Record<string, string | null> = {
   entityName: business.entityName,
   entityType: business.entityType,
   address: business.address?.join(", ") ?? null,
-  gstin: business.gstin,
+  since: business.since,
   jurisdiction: business.jurisdictionCity,
   supportEmail: business.supportEmail,
   grievanceName: business.grievanceOfficer.name,
@@ -56,8 +56,7 @@ const TOKENS: Record<string, string | null> = {
   dispatchDays: policy.dispatchDays,
   deliveryDays: policy.deliveryDays,
   reportWindow: policy.reportWindow,
-  returnWindow: policy.returnWindow,
-  refundDays: policy.refundDays,
+  exchangeDispatchDays: policy.exchangeDispatchDays,
   shipsTo: policy.shipsTo,
 }
 

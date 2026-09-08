@@ -79,7 +79,7 @@ const doc: LegalDoc = {
       heading: "Batch variation",
       blocks: [
         "The colour, scent and texture of our products can differ slightly from batch to batch, because the herbs, oils and distillates behind them differ with the season and the harvest. We do not correct that with dyes or synthetic fragrance.",
-        "Such variation is characteristic of the ingredients and is not a defect. A product that arrives separated, leaking or visibly spoiled is a different matter — tell us and see the returns section of our Terms and Conditions.",
+        "Such variation is characteristic of the ingredients and is not a defect. A product that arrives separated, leaking or visibly spoiled is a different matter — film your unboxing, tell us within 48 hours, and see the exchanges section of our Terms and Conditions.",
       ],
     },
     {
