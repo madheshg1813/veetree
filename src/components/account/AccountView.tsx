@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { AuthPanel } from "./AuthPanel"
+import { OrderHistory } from "./OrderHistory"
 import { useAccount } from "@/lib/account/useAccount"
 
 /** The standalone account page: sign in, or see who you are signed in as. */
@@ -50,6 +51,8 @@ export function AccountView() {
           </button>
         </div>
       </div>
+
+      <OrderHistory />
     </div>
   )
 }

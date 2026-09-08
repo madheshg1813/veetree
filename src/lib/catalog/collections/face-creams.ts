@@ -14,7 +14,7 @@ export const faceCreams: Collection = {
     {
       heading: "About face creams",
       body: [
-        "Night and under-eye creams for richer, slower-absorbing care.",
+        "Night and under-eye creams: rich, fast-absorbing care.",
         "Every product page sets out the full ingredient list, the sizes and how to use it, taken from what is printed on the pack.",
       ],
     },

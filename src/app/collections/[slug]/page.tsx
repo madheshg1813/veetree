@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs"
-import { CommerceCard } from "@/components/catalog/CommerceCard"
+import { ShopCard } from "@/components/home/ShopCard"
+import { toShopItem } from "@/lib/home/shopItems"
 import { FaqList } from "@/components/catalog/FaqList"
 import { JsonLd } from "@/components/catalog/JsonLd"
 import { SiteFooter } from "@/components/SiteFooter"
@@ -111,9 +112,9 @@ export default async function CollectionPage({
           <p className="plp__count">
             {items.length} {items.length === 1 ? "product" : "products"}
           </p>
-          <div className="cgrid">
+          <div className="best__grid">
             {items.map((p) => (
-              <CommerceCard key={p.slug} product={p} />
+              <ShopCard key={p.slug} item={toShopItem(p)} />
             ))}
           </div>
         </section>

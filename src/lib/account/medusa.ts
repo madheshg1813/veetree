@@ -128,3 +128,81 @@ export async function currentCustomer(token: string): Promise<Customer | null> {
   const r = await call<{ customer: Customer }>("/store/customers/me", { method: "GET", token })
   return r.status === 200 ? (r.data?.customer ?? null) : null
 }
+
+export interface OrderLine {
+  readonly id: string
+  readonly title: string
+  /** The storefront slug: Medusa's product handle is our slug. */
+  readonly slug: string | null
+  /** The storefront size: Medusa's variant title is our size. */
+  readonly size: string | null
+  readonly qty: number
+  readonly unitPrice: number | null
+  readonly thumbnail: string | null
+}
+
+export interface OrderSummary {
+  readonly id: string
+  /** The number a customer sees on their confirmation, e.g. #14. */
+  readonly number: number | null
+  readonly placedAt: string | null
+  readonly total: number | null
+  readonly status: string | null
+  readonly fulfillment: string | null
+  readonly items: readonly OrderLine[]
+}
+
+interface RawLine {
+  id?: string
+  title?: string
+  product_title?: string
+  product_handle?: string | null
+  variant_title?: string | null
+  quantity?: number
+  unit_price?: number
+  thumbnail?: string | null
+}
+
+interface RawOrder {
+  id?: string
+  display_id?: number
+  created_at?: string
+  total?: number
+  status?: string
+  fulfillment_status?: string
+  items?: RawLine[]
+}
+
+/**
+ * A customer's past orders, newest first.
+ *
+ * Medusa is the record of what was actually bought and paid for, so the
+ * storefront asks rather than keeping its own copy. Everything is narrowed to
+ * the fields the account page shows — an order carries addresses, payment
+ * collections and tax lines that have no business reaching the browser.
+ */
+export async function listOrders(token: string, limit = 20): Promise<readonly OrderSummary[]> {
+  const r = await call<{ orders?: RawOrder[] }>(
+    `/store/orders?limit=${limit}&order=-created_at`,
+    { method: "GET", token }
+  )
+  if (r.status !== 200 || !r.data?.orders) return []
+
+  return r.data.orders.map((o) => ({
+    id: o.id ?? "",
+    number: typeof o.display_id === "number" ? o.display_id : null,
+    placedAt: o.created_at ?? null,
+    total: typeof o.total === "number" ? o.total : null,
+    status: o.status ?? null,
+    fulfillment: o.fulfillment_status ?? null,
+    items: (o.items ?? []).map((i) => ({
+      id: i.id ?? "",
+      title: i.product_title ?? i.title ?? "Item",
+      slug: i.product_handle ?? null,
+      size: i.variant_title ?? null,
+      qty: typeof i.quantity === "number" ? i.quantity : 1,
+      unitPrice: typeof i.unit_price === "number" ? i.unit_price : null,
+      thumbnail: i.thumbnail ?? null,
+    })),
+  }))
+}

@@ -25,6 +25,12 @@ export interface NavItem {
   readonly label: string
   readonly href: string
   readonly children?: readonly NavChild[]
+  /**
+   * Not a shopping category — Our Roots and Account are ways around the site
+   * rather than places to buy. The drawer sets them in a lighter weight with
+   * an icon so the categories above them read as the list to shop from.
+   */
+  readonly utility?: boolean
 }
 
 export const navigation: readonly NavItem[] = [
@@ -198,6 +204,6 @@ export const navigation: readonly NavItem[] = [
   // A category in its own right. No children: a combo is a set rather than a
   // type, so there are no sub-categories to open.
   { label: "Combos", href: "/combos" },
-  { label: "Our Roots", href: "/#ritual" },
-  { label: "Account", href: "/account" },
+  { label: "Our Roots", href: "/#ritual", utility: true },
+  { label: "Account", href: "/account", utility: true },
 ]

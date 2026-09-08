@@ -18,6 +18,76 @@ export function InstagramIcon(props: IconProps) {
   );
 }
 
+/*
+ * Menu icons.
+ *
+ * These mark the drawer's utility links — Our Roots, Account, Cart, Instagram
+ * — apart from the shopping categories above them. They stroke in
+ * currentColor rather than the gold gradient the ritual icons use, so they
+ * take the colour of the link they sit in.
+ */
+function MenuIcon({ children, ...props }: IconProps & { children: React.ReactNode }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.6}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      {children}
+    </svg>
+  );
+}
+
+/** Our Roots: a sprout, for the section on where the formulations come from. */
+export function RootsIcon(props: IconProps) {
+  return (
+    <MenuIcon {...props}>
+      <path d="M12 21v-8" />
+      <path d="M12 15c-4 0-6.2-2.6-6.2-6.6C9.8 8.4 12 11 12 15Z" />
+      <path d="M12 17c3.5 0 5.5-2.3 5.5-5.8-3.5 0-5.5 2.3-5.5 5.8Z" />
+    </MenuIcon>
+  );
+}
+
+/**
+ * Account: a person inside a filled circle.
+ *
+ * The circle is part of the glyph rather than a border on the button, so the
+ * mark holds its shape at any size. A filled path, not a stroked one, so it
+ * does not go through MenuIcon.
+ */
+export function AccountCircleIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 14.2a7.2 7.2 0 0 1-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 0 1-6 3.22Z" />
+    </svg>
+  );
+}
+
+export function UserIcon(props: IconProps) {
+  return (
+    <MenuIcon {...props}>
+      <circle cx="12" cy="8.5" r="3.5" />
+      <path d="M5 20a7 7 0 0 1 14 0" />
+    </MenuIcon>
+  );
+}
+
+export function CartIcon(props: IconProps) {
+  return (
+    <MenuIcon {...props}>
+      <path d="M4 5h2.2l2 10.2a1.6 1.6 0 0 0 1.6 1.3h7.6a1.6 1.6 0 0 0 1.6-1.25L20.5 8H7" />
+      <circle cx="10" cy="20" r="1.2" fill="currentColor" stroke="none" />
+      <circle cx="17.5" cy="20" r="1.2" fill="currentColor" stroke="none" />
+    </MenuIcon>
+  );
+}
+
 /** Shared gold gradients used by the trust icons and review stars. Rendered once, near <body>. */
 export function GoldGradientDefs() {
   return (

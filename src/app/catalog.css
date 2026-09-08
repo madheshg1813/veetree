@@ -987,3 +987,60 @@
 .parts__total{margin:.9rem 0 0;font-size:.9rem;color:var(--ink-70);}
 .parts__total s{color:var(--ink-50);}
 .parts__total strong{color:var(--forest-900);}
+
+/* ── Past orders on the account page ───────────────────────
+   Buy again is the point of this list, so it sits at the head of each order
+   and again on every line — a customer usually wants one thing back, not the
+   whole basket. */
+.orders{margin-top:clamp(1.6rem,4vw,2.6rem);}
+.orders__h{
+  font-family:var(--f-display);font-size:1.35rem;font-weight:600;
+  color:var(--forest-900);margin:0 0 .35rem;
+}
+.orders__note{margin:0 0 .9rem;font-size:.9rem;line-height:1.6;color:var(--ink-70);max-width:52ch;}
+.orders__browse{
+  display:inline-flex;align-items:center;min-height:40px;padding:0 1.1rem;
+  border:1px solid var(--forest-800);border-radius:100px;
+  font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--forest-800);
+  transition:background .25s var(--ease),color .25s var(--ease);
+}
+.orders__browse:hover{background:var(--forest-800);color:#FFFFFF;}
+
+.orders__list{display:grid;gap:.9rem;margin:0 0 1.2rem;}
+.order{
+  border:1px solid var(--line);border-radius:var(--r-md);
+  background:#FFFFFF;padding:.9rem 1rem 1rem;
+}
+.order__head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+  padding-bottom:.7rem;margin-bottom:.7rem;border-bottom:1px solid var(--line);
+}
+.order__num{margin:0;font-size:.95rem;font-weight:600;color:var(--forest-900);}
+.order__meta{margin:.2rem 0 0;font-size:.8rem;color:var(--ink-50);}
+.order__status{text-transform:capitalize;}
+.order__again,.oline__again{
+  display:inline-flex;align-items:center;justify-content:center;flex:none;
+  border:1px solid var(--forest-800);border-radius:100px;background:#FFFFFF;
+  font-family:var(--f-body);font-weight:600;letter-spacing:.05em;color:var(--forest-800);
+  transition:background .25s var(--ease),color .25s var(--ease),opacity .2s;
+}
+.order__again{min-height:38px;padding:0 1rem;font-size:.76rem;}
+.oline__again{min-height:32px;padding:0 .75rem;font-size:.7rem;}
+.order__again:hover,.oline__again:hover{background:var(--forest-800);color:#FFFFFF;}
+.order__again:focus-visible,.oline__again:focus-visible{outline:2px solid var(--earth-400);outline-offset:2px;}
+.order__again:disabled{opacity:.4;cursor:not-allowed;}
+.order__again:disabled:hover{background:#FFFFFF;color:var(--forest-800);}
+
+.order__items{display:grid;gap:.55rem;}
+.oline{display:flex;align-items:center;justify-content:space-between;gap:.9rem;}
+.oline__text{min-width:0;}
+.oline__name{margin:0;font-size:.9rem;font-weight:500;color:var(--forest-900);line-height:1.3;}
+.oline__name a:hover{color:var(--earth-600);}
+.oline__meta{margin:.15rem 0 0;font-size:.76rem;color:var(--ink-50);}
+.oline__gone{flex:none;font-size:.72rem;color:var(--ink-50);}
+.order__note{margin:.7rem 0 0;font-size:.76rem;color:var(--ink-50);}
+
+@media (max-width:520px){
+  .order__head{flex-direction:column;gap:.6rem;}
+  .order__again{align-self:stretch;}
+}

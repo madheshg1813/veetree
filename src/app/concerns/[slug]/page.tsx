@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs"
-import { CommerceCard } from "@/components/catalog/CommerceCard"
+import { ShopCard } from "@/components/home/ShopCard"
+import { toShopItem } from "@/lib/home/shopItems"
 import { ComboCard } from "@/components/catalog/ComboCard"
 import { JsonLd } from "@/components/catalog/JsonLd"
 import { SiteFooter } from "@/components/SiteFooter"
@@ -132,9 +133,9 @@ export default async function ConcernPage({
           <p className="plp__count">
             {products.length} {products.length === 1 ? "product" : "products"}
           </p>
-          <div className="cgrid">
+          <div className="best__grid">
             {products.map((p) => (
-              <CommerceCard key={p.slug} product={p} />
+              <ShopCard key={p.slug} item={toShopItem(p)} />
             ))}
           </div>
         </section>

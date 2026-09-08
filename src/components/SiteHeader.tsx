@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import { navigation } from "@/lib/catalog/navigation"
 import { site } from "@/lib/site"
 import { CartLink } from "./CartLink"
+import { AccountCircleIcon, CartIcon, InstagramIcon, RootsIcon, UserIcon } from "./icons"
 import { Wordmark } from "./Wordmark"
 
 /**
@@ -76,6 +77,15 @@ export function SiteHeader() {
 
         <div className="site-header__actions">
           <CartLink />
+          {/*
+            Sits to the right of the cart. A plain link rather than a
+            signed-in/signed-out toggle: /account already decides which of the
+            two it shows, and asking who is signed in from the header would put
+            a fetch on every page load to change nothing but a label.
+          */}
+          <Link className="accountlink" href="/account" aria-label="Your account" onClick={closeAll}>
+            <AccountCircleIcon />
+          </Link>
         </div>
       </div>
 
@@ -159,16 +169,36 @@ export function SiteHeader() {
                 ))}
               </div>
             </div>
+          ) : item.utility ? (
+            <Link
+              key={item.label}
+              className="mobile-nav__util"
+              href={item.href}
+              onClick={closeAll}
+            >
+              {item.label === "Account" ? <UserIcon /> : <RootsIcon />}
+              {item.label}
+            </Link>
           ) : (
+            /* A category with no sub-categories, so it reads like the ones
+               above it rather than like the utility links below. */
             <Link key={item.label} href={item.href} onClick={closeAll}>
               {item.label}
             </Link>
           )
         )}
-        <Link href="/cart" onClick={closeAll}>
+        <Link className="mobile-nav__util" href="/cart" onClick={closeAll}>
+          <CartIcon />
           Cart
         </Link>
-        <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" onClick={closeAll}>
+        <a
+          className="mobile-nav__util"
+          href={site.instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={closeAll}
+        >
+          <InstagramIcon className="mobile-nav__glyph" />
           Instagram
         </a>
       </div>

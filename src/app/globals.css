@@ -329,14 +329,19 @@ ul{margin:0;padding:0;list-style:none;}
 
 /* ── Header actions ────────────────────────────────────── */
 .site-header__actions{display:flex;align-items:center;gap:.5rem;justify-self:end;}
-.cartlink{
+.cartlink,.accountlink{
   position:relative;display:grid;place-items:center;width:2.5rem;height:2.5rem;
   border-radius:100px;color:var(--forest-800);
   transition:background .25s var(--ease),color .25s var(--ease);
 }
-.cartlink:hover{background:rgba(96,108,56,.1);}
-.cartlink:focus-visible{outline:2px solid var(--earth-400);outline-offset:2px;}
-.cartlink svg{width:1.35rem;height:1.35rem;}
+/* The account mark carries its own circle, so the button stays a plain target
+   like the cart and only tints on hover. The glyph runs slightly larger than
+   the cart's, because a filled disc reads smaller than an outline at the same
+   box size. */
+.cartlink:hover,.accountlink:hover{background:rgba(96,108,56,.1);}
+.cartlink:focus-visible,.accountlink:focus-visible{outline:2px solid var(--earth-400);outline-offset:2px;}
+.cartlink svg,.accountlink svg{width:1.35rem;height:1.35rem;}
+.accountlink svg{width:1.55rem;height:1.55rem;}
 .cartlink__count{
   position:absolute;top:.15rem;right:.05rem;
   min-width:1.05rem;height:1.05rem;padding:0 .28rem;
@@ -359,10 +364,28 @@ ul{margin:0;padding:0;list-style:none;}
 .mobile-nav{display:none;flex-direction:column;padding:.4rem 1.25rem 1.4rem;border-top:1px solid rgba(40,54,24,.08);}
 .mobile-nav a{padding:.85rem 0;font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid rgba(40,54,24,.08);}
 .mobile-nav > a:last-child{border-bottom:0;}
-/* Combos and the other childless entries are top-level items too, so they take
-   the same ink and weight as the categories with a dropdown. Direct-child
+/* Combos and the other childless categories are top-level items too, so they
+   take the same ink and weight as the categories with a dropdown. Direct-child
    selector: the sub-category links below must not pick this up. */
 .mobile-nav > a{color:var(--ink);font-weight:500;}
+/* Our Roots, Account, Cart and Instagram are not places to shop, so they keep
+   the lighter weight they had and carry an icon — the categories above stay
+   the list your eye runs down. Higher specificity than the rule above, which
+   would otherwise bold these too. */
+.mobile-nav > a.mobile-nav__util{
+  display:flex;align-items:center;gap:.7rem;
+  color:var(--ink-70);font-weight:400;letter-spacing:.11em;
+}
+.mobile-nav > a.mobile-nav__util svg{
+  width:17px;height:17px;flex:none;color:var(--earth-500);
+}
+/* The Instagram mark is a filled glyph, not a stroked one, so it is the only
+   icon that takes a fill — the rest would turn into solid blobs. */
+.mobile-nav__glyph path{fill:currentColor;}
+.mobile-nav > a.mobile-nav__util:hover{color:var(--ink);}
+/* A little air where the categories end and the utility links begin: the
+   first utility link is the one directly after a non-utility one. */
+.mobile-nav > a:not(.mobile-nav__util) + a.mobile-nav__util{margin-top:.35rem;}
 .mobile-nav__group{border-bottom:1px solid rgba(40,54,24,.08);}
 .mobile-nav__parent{
   display:flex;align-items:center;justify-content:space-between;width:100%;
