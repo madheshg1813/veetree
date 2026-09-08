@@ -257,8 +257,11 @@ ul{margin:0;padding:0;list-style:none;}
   height:var(--logo-h);
   width:calc(var(--logo-h) * 2.4);
   background-color:currentColor;
-  -webkit-mask:url("/veetree-logo.png") no-repeat center/contain;
-  mask:url("/veetree-logo.png") no-repeat center/contain;
+  /* The vector, not the 576x240 PNG: the wordmark now stays sharp at any zoom.
+     The trace finally carries the R's counter as a second subpath — the earlier
+     export had only the background path, so the bowl filled solid. */
+  -webkit-mask:url("/veetree-logo.svg") no-repeat center/contain;
+  mask:url("/veetree-logo.svg") no-repeat center/contain;
 }
 @media (max-width:520px){.brand{--logo-h:39px;}}
 
