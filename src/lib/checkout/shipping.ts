@@ -16,6 +16,32 @@ export const SHIPPING = {
   restOfIndia: { upTo1Kg: 99, over1Kg: 150 },
 } as const
 
+/**
+ * Rates as the dashboard has them, overriding the constants above.
+ *
+ * The constants are only a fallback for when the backend cannot be reached —
+ * the figures that count live on Medusa's shipping options, because those are
+ * what price a cart. Quoting from anywhere else would let the number shown
+ * drift from the number charged.
+ */
+export interface DeliveryRates {
+  readonly tnLight: number
+  readonly tnHeavy: number
+  readonly inLight: number
+  readonly inHeavy: number
+  readonly breakG: number
+  readonly packagingG: number
+}
+
+export const FALLBACK_RATES: DeliveryRates = {
+  tnLight: SHIPPING.tamilNadu.upTo1Kg,
+  tnHeavy: SHIPPING.tamilNadu.over1Kg,
+  inLight: SHIPPING.restOfIndia.upTo1Kg,
+  inHeavy: SHIPPING.restOfIndia.over1Kg,
+  breakG: 1000,
+  packagingG: 80,
+}
+
 /** The weight, in grams, above which the heavier rate applies. */
 export const WEIGHT_BREAK_G = 1000
 
@@ -52,16 +78,16 @@ export function isTamilNadu(state: string): boolean {
  * variant is labelled in g or ml, and for these formulations a millilitre is
  * close enough to a gram — plus the packaging allowance.
  */
-export function variantWeightG(variant: Variant): number {
+export function variantWeightG(variant: Variant, packagingG = PACKAGING_G): number {
   if (typeof variant.weightG === "number" && variant.weightG > 0) return variant.weightG
 
   const match = /(\d+(?:\.\d+)?)\s*(g|ml|kg|l)\b/i.exec(variant.size)
-  if (!match) return PACKAGING_G
+  if (!match) return packagingG
 
   const value = Number(match[1])
   const unit = match[2]!.toLowerCase()
   const net = unit === "kg" || unit === "l" ? value * 1000 : value
-  return net + PACKAGING_G
+  return net + packagingG
 }
 
 export interface ShippingQuote {
@@ -76,15 +102,18 @@ export interface ShippingQuote {
 /** What this order costs to deliver, given where it is going and what is in it. */
 export function quoteShipping(
   lines: readonly { variant: Variant; qty: number }[],
-  state: string
+  state: string,
+  live: DeliveryRates = FALLBACK_RATES
 ): ShippingQuote {
-  const weightG = lines.reduce((sum, l) => sum + variantWeightG(l.variant) * l.qty, 0)
-  const heavy = weightG > WEIGHT_BREAK_G
+  const weightG = lines.reduce(
+    (sum, l) => sum + variantWeightG(l.variant, live.packagingG) * l.qty,
+    0
+  )
+  const heavy = weightG > live.breakG
   const tn = isTamilNadu(state)
-  const rates = tn ? SHIPPING.tamilNadu : SHIPPING.restOfIndia
 
   return {
-    fee: heavy ? rates.over1Kg : rates.upTo1Kg,
+    fee: tn ? (heavy ? live.tnHeavy : live.tnLight) : heavy ? live.inHeavy : live.inLight,
     weightG,
     heavy,
     optionName: tn

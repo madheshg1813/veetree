@@ -2,11 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState, type FormEvent, type InputHTMLAttributes, type ReactNode } from "react"
+import { useEffect, useState, type FormEvent, type InputHTMLAttributes, type ReactNode } from "react"
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs"
 import { commerce, formatPrice } from "@/lib/catalog"
 import { useCart } from "@/lib/cart/useCart"
-import { quoteShipping } from "@/lib/checkout/shipping"
+import { FALLBACK_RATES, quoteShipping, type DeliveryRates } from "@/lib/checkout/shipping"
 import { submitOrder, type SubmitResult } from "@/lib/checkout/submitOrder"
 import {
   DELIVERY_FIELDS,
@@ -61,7 +61,21 @@ export function CheckoutView() {
    * soon as a state is picked — a total that jumps at the payment step is the
    * fastest way to lose an order.
    */
-  const shipping = quoteShipping(lines, details.state)
+  /**
+   * Rates from the dashboard. Until they arrive the constants are used, which
+   * only matters for the fraction of a second before the fetch resolves.
+   */
+  const [rates, setRates] = useState<DeliveryRates>(FALLBACK_RATES)
+  useEffect(() => {
+    let cancelled = false
+    fetch("/api/checkout/rates")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (d && !cancelled) setRates(d as DeliveryRates) })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [])
+
+  const shipping = quoteShipping(lines, details.state, rates)
 
   const set = (key: keyof DeliveryDetails, value: string) => {
     setDetails((d) => ({ ...d, [key]: value }))

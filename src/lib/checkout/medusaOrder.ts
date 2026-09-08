@@ -9,6 +9,7 @@
  */
 import { getProduct } from "@/lib/catalog"
 import type { Slug } from "@/lib/catalog/types"
+import { fetchDeliveryRates } from "./deliveryRates"
 import { quoteShipping } from "./shipping"
 import type { DeliveryDetails } from "./types"
 
@@ -186,7 +187,7 @@ export async function startPayment(input: {
     )
     return variant ? [{ variant, qty: line.qty }] : []
   })
-  const quote = quoteShipping(quoteLines, details.state)
+  const quote = quoteShipping(quoteLines, details.state, await fetchDeliveryRates())
   const option =
     available.find((o) => o.name === quote.optionName) ??
     // Falls back to the cheapest on offer rather than failing the order: a
