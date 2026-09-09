@@ -6,7 +6,7 @@ export const site = {
   name: "Veetree",
   domain: "veetree.life",
   url: "https://veetree.life",
-  tagline: "Rooted in Ayurveda. Made for modern skin.",
+  tagline: "Rooted in Tradition, Backed by Science.",
   description:
     "Veetree crafts small-batch Ayurvedic skin, hair and body care — Kumkumadi serum, Nalpamaradi lebam, cold-pressed oils and pure hydrosols. Rooted in tradition, made for modern skin. Order on WhatsApp.",
 

@@ -88,6 +88,13 @@ export interface ProductImage {
   readonly alt: string
   readonly width: number
   readonly height: number
+  /**
+   * CSS object-position for the square gallery frame, e.g. "50% 70%". A tall
+   * photograph has to lose its top and bottom to fit that square, and the
+   * default centre crop is not always where the product is. Absent means
+   * centred, which is right for most.
+   */
+  readonly focus?: string
 }
 
 export interface Product {

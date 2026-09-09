@@ -118,6 +118,7 @@ export function ProductGallery({ images, zoom = 2.5 }: Props) {
             priority
             sizes="(max-width: 900px) 92vw, 46vw"
             className="gallery__img"
+            style={active.focus ? { objectPosition: active.focus } : undefined}
           />
 
           {/* Magnified layer — same file, shifted under the cursor. */}
@@ -193,7 +194,14 @@ export function ProductGallery({ images, zoom = 2.5 }: Props) {
                 className={`gallery__thumb ${i === index ? "is-active" : ""}`}
                 onClick={() => setIndex(i)}
               >
-                <Image src={img.src} alt="" width={160} height={160} sizes="90px" />
+                <Image
+                  src={img.src}
+                  alt=""
+                  width={160}
+                  height={160}
+                  sizes="90px"
+                  style={img.focus ? { objectPosition: img.focus } : undefined}
+                />
               </button>
             </li>
           ))}

@@ -94,7 +94,16 @@ export function mergeProduct(local: Product, remote: MedusaProduct | undefined):
     ...remote.images.map((i) => i.url).filter((url) => url !== remote.thumbnail),
   ]
     .filter(usableImageUrl)
-    .map((src) => ({ src, alt: local.name, width: 1100, height: 1100 }))
+    .map((src) => ({
+      src,
+      alt: local.name,
+      width: 1100,
+      height: 1100,
+      // The crop the product file asks for, carried onto the dashboard's own
+      // photography: the framing is a property of how the shot is composed,
+      // and these replace the local images rather than sitting beside them.
+      ...(local.images[0]?.focus ? { focus: local.images[0].focus } : {}),
+    }))
 
   return {
     ...local,

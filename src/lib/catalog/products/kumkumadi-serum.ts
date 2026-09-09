@@ -13,7 +13,7 @@ export const kumkumadiSerum: Product = {
 
   variants: [{"size": "15 ml", "sku": "VT-KUMKUMADI-SERUM-15ML", "price": 277, "mrp": 330}, {"size": "20 ml", "sku": "VT-KUMKUMADI-SERUM-20ML", "price": 356, "mrp": 430}],
 
-  images: [{"src": "/products/kumkumadi-serum.jpg", "alt": "Veetree Kumkumadi Serum in a glass dropper bottle with a gold cap, beside a brass lamp and saffron threads", "width": 1100, "height": 1100}],
+  images: [{"src": "/products/kumkumadi-serum.jpg", "alt": "Veetree Kumkumadi Serum in a glass dropper bottle with a gold cap, beside a brass lamp and saffron threads", "width": 1100, "height": 1100, "focus": "50% 70%"}],
 
   rating: null,
 
