@@ -4,8 +4,13 @@
  */
 export const site = {
   name: "Veetree",
-  domain: "veetree.life",
-  url: "https://veetree.life",
+  /**
+   * www is the canonical host. The apex still resolves and is 308-redirected
+   * to it in next.config.ts, so a link to either works and only one is
+   * indexed — both served 200 before, which is duplicate content.
+   */
+  domain: "www.veetree.life",
+  url: "https://www.veetree.life",
   tagline: "Rooted in Tradition, Backed by Science.",
   description:
     "Veetree crafts small-batch Ayurvedic skin, hair and body care — Kumkumadi serum, Nalpamaradi lebam, cold-pressed oils and pure hydrosols. Rooted in tradition, made for modern skin. Order on WhatsApp.",
