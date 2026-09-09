@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Cinzel, Cormorant_Garamond, Jost } from "next/font/google";
 import { GoldGradientDefs } from "@/components/icons"
 import { site } from "@/lib/site";
@@ -29,6 +30,9 @@ const cinzel = Cinzel({
   variable: "--font-cinzel",
   display: "swap",
 });
+
+/** Empty in development and in any build that was not given the ID. */
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim()
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -65,6 +69,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <GoldGradientDefs />
         {children}
       </body>
+      {/*
+        Google Analytics, loaded after hydration so it costs nothing on first
+        paint. Rendered only when the measurement ID is set, which keeps
+        development and any preview build out of the production property —
+        there is no point measuring our own clicking about.
+
+        NEXT_PUBLIC_* is inlined at build time, so this needs the matching ARG
+        in the Dockerfile as well as the Railway variable. Setting one without
+        the other leaves the tag silently absent, which is exactly how this
+        project lost a fortnight of deploys once already.
+      */}
+      {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
     </html>
   );
 }

@@ -82,6 +82,8 @@ const doc: LegalDoc = {
       blocks: [
         "We use cookies that are necessary for the site to function: one keeps your cart, and one keeps you signed in. The sign-in cookie is httpOnly, meaning no script running in your browser can read it, and it carries no readable information about you.",
         "Blocking these cookies will prevent you from staying signed in or completing checkout.",
+        "We also use Google Analytics, which sets its own cookies to tell one visit from another and to count returning visitors. It tells us which pages are read, roughly where in the world visitors are, and what kind of device they use — so we can see which products people look for and where the site is confusing. It does not tell us who you are, and we do not send it your name, email address, phone number or order details.",
+        "Google processes that data on our behalf and is therefore a recipient of it. Their handling is governed by Google\u2019s own privacy policy at policies.google.com/privacy. You can opt out across every site that uses Analytics with Google\u2019s browser add-on at tools.google.com/dlpage/gaoptout, or by blocking analytics cookies in your browser \u2014 neither will stop you shopping here.",
         "Our web fonts are served from our own domain rather than fetched from a third party at page load, so browsing the site does not, by itself, report your visit to a font provider.",
       ],
     },

@@ -65,7 +65,7 @@ export const business: Business = {
     phone: site.whatsappDisplay,
   },
 
-  lastUpdated: "5 September 2026",
+  lastUpdated: "9 September 2026",
 }
 
 /**
