@@ -3,10 +3,10 @@ import type { Slug } from "./types"
 /**
  * Bestsellers shown on the homepage.
  *
- * Chosen from actual customer feedback rather than guesswork — every product
- * here is one a real reviewer named (see src/lib/reviews.ts), with the range
- * spread across all five categories so the grid reads as a shop rather than a
- * single aisle.
+ * Mostly chosen from actual customer feedback rather than guesswork — the
+ * products below are ones a real reviewer named (see src/lib/reviews.ts),
+ * except where a comment says otherwise — with the range spread across all
+ * five categories so the grid reads as a shop rather than a single aisle.
  *
  * Order is deliberate: the strongest testimonial leads.
  */
@@ -19,6 +19,7 @@ export const FEATURED_SLUGS: readonly Slug[] = [
   "face-brightening-pack",      // "my face looks glowing"
   "scalp-hair-rebirth-serum",   // "it's my favourite"
   "jasmine-hair-butter",        // shared around an office
+  "face-body-scrub",            // founder's pick, not from a review
 ]
 
 /**

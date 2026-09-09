@@ -8,7 +8,8 @@ export const faceBodyScrub: Product = {
   slug: "face-body-scrub",
   name: "Face & Body Scrub",
   brand: "Veetree",
-  category: { label: "Body Care", href: "/collections/body-care" },
+  category: { label: "Face Care", href: "/collections/face-care" },
+  collection: { label: "Face Scrubs", href: "/collections/face-scrubs" },
 
   variants: [{"size": "100 g", "sku": "VT-FACE-BODY-SCRUB", "price": 297, "mrp": 360}],
 
@@ -16,7 +17,7 @@ export const faceBodyScrub: Product = {
 
   rating: null,
 
-  badges: [{"label": "100 g"}, {"label": "21 ingredients"}, {"label": "Body Care"}],
+  badges: [{"label": "100 g"}, {"label": "21 ingredients"}, {"label": "Face Care"}],
 
   tagline: "Gently exfoliates dead skin cells for smoother, softer-looking skin.",
   shortDescription: "A gentle exfoliating scrub that helps remove dead skin cells and surface buildup, leaving the skin smoother, softer, brighter and refreshed.",

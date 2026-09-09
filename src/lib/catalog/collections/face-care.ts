@@ -7,7 +7,7 @@ export const faceCare: Collection = {
     { label: "Home", href: "/" },
     { label: "Face Care", href: "/collections/face-care" },
   ],
-  productSlugs: ["face-brightening-pack", "kumkumadi-serum", "aqua-rose-brightening-serum", "aloe-vera-gel", "saffron-gel", "multi-floral-gel", "kumkumayadi-night-cream", "rose-hydrosol", "tea-tree-hydrosol"],
+  productSlugs: ["face-brightening-pack", "kumkumadi-serum", "aqua-rose-brightening-serum", "aloe-vera-gel", "saffron-gel", "multi-floral-gel", "kumkumayadi-night-cream", "face-body-scrub", "rose-hydrosol", "tea-tree-hydrosol"],
   sections: [
     {
       heading: "About Veetree face care",
