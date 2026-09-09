@@ -36,18 +36,32 @@ export interface CartTotals {
  * Fetched once per mount and shared, since three components read the cart.
  */
 type PriceMap = Record<string, number>
-let cachedPrices: { prices: PriceMap; mrps: PriceMap } | null = null
-let inFlight: Promise<{ prices: PriceMap; mrps: PriceMap }> | null = null
+type ImageMap = Record<string, string>
+interface Live {
+  prices: PriceMap
+  mrps: PriceMap
+  /** Live photography, keyed the same way — a size's own, else the product's. */
+  images: ImageMap
+}
+
+const EMPTY: Live = { prices: {}, mrps: {}, images: {} }
+
+let cachedPrices: Live | null = null
+let inFlight: Promise<Live> | null = null
 
 function loadLivePrices() {
   if (cachedPrices) return Promise.resolve(cachedPrices)
   inFlight ??= fetch("/api/catalog/prices")
-    .then((r) => (r.ok ? r.json() : { prices: {}, mrps: {} }))
-    .then((d: { prices?: PriceMap; mrps?: PriceMap }) => {
-      cachedPrices = { prices: d.prices ?? {}, mrps: d.mrps ?? {} }
+    .then((r) => (r.ok ? r.json() : EMPTY))
+    .then((d: Partial<Live>) => {
+      cachedPrices = {
+        prices: d.prices ?? {},
+        mrps: d.mrps ?? {},
+        images: d.images ?? {},
+      }
       return cachedPrices
     })
-    .catch(() => ({ prices: {}, mrps: {} }))
+    .catch(() => EMPTY)
   return inFlight
 }
 
@@ -86,7 +100,26 @@ export function useCart() {
           const mrp = live?.mrps[key] ?? variant.mrp
 
           const priced: Variant = { ...variant, price, ...(mrp === undefined ? {} : { mrp }) }
-          return { product, variant: priced, qty: l.qty, lineTotal: price * l.qty }
+
+          /**
+           * And the photograph, for the same reason as the price: a picture
+           * replaced in the dashboard has to reach the cart and checkout too,
+           * which read `product.images[0]`. Swapping it in here fixes both
+           * pages at once and leaves them needing no knowledge of Medusa.
+           */
+          const liveImage = live?.images[key]
+          const shown =
+            liveImage && liveImage !== product.images[0]?.src
+              ? {
+                  ...product,
+                  images: [
+                    { src: liveImage, alt: product.images[0]?.alt ?? product.name, width: 1100, height: 1100 },
+                    ...product.images,
+                  ],
+                }
+              : product
+
+          return { product: shown, variant: priced, qty: l.qty, lineTotal: price * l.qty }
         })
         .filter((l): l is CartLine => l !== null),
     [stored, live]

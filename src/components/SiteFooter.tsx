@@ -38,6 +38,9 @@ export function SiteFooter() {
             <h4>Information</h4>
             <Link href="/about">About Us</Link>
             <Link href="/terms">Terms &amp; Conditions</Link>
+            {/* Beside the exchange policy: the two are what a customer checks
+                before buying, and what a payment gateway looks for by name. */}
+            <Link href="/shipping-policy">Shipping &amp; Delivery</Link>
             <Link href="/refund-policy">Exchange &amp; Refunds</Link>
             <Link href="/terms-of-use">Terms of Use</Link>
             <Link href="/privacy">Privacy Policy</Link>
