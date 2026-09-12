@@ -35,6 +35,22 @@ const nextConfig: NextConfig = {
         destination: "https://www.veetree.life/:path*",
         permanent: true,
       },
+      /*
+       * A previous site at this domain had a /learn section, and Google still
+       * lists those articles — clicking one reached a 404. Nothing in this
+       * repository or its history contains them, and their exact addresses are
+       * not recoverable, so a wildcard catches whatever is still indexed.
+       *
+       * Temporary on purpose: `permanent: false` is a 307, which does not ask
+       * Google to forget the old address. If those articles are rewritten they
+       * can go back where they were and pick their rankings up again; a 308
+       * would have thrown that away.
+       */
+      {
+        source: "/learn/:path*",
+        destination: "/",
+        permanent: false,
+      },
     ]
   },
 };
