@@ -1,14 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="730 2325 9678 4027" role="img" aria-label="Veetree">
-<title>Veetree</title>
-<style>
-  /* The artwork is black, which disappears against a dark browser tab. The
-     mark flips to cream there instead, so it reads either way. */
-  .mark { fill: #14190C; }
-  @media (prefers-color-scheme: dark) { .mark { fill: #F0D9A8; } }
-</style>
-<g class="mark"><g transform="translate(0.000000,8268.000000) scale(0.100000,-0.100000)"
- stroke="none">
-<path d="M0 41340 l0 -41340 58465 0 58465 0 0 41340 0 41340 -58465 0 -58465
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="730 2325 9678 4027" role="img" aria-label="Veetree"><title>Veetree</title><style>/* The mark is dark ink on a light tab and cream on a dark one, so it is never invisible. */.mark{fill:#14190C}@media (prefers-color-scheme:dark){.mark{fill:#F0D9A8}}</style><defs><mask id="c" maskUnits="userSpaceOnUse" x="0" y="0" width="11693" height="8268"><rect width="11693" height="8268" fill="#fff"/><g transform="translate(0.000000,8268.000000) scale(0.100000,-0.100000)"><path d="M0 41340 l0 -41340 58465 0 58465 0 0 41340 0 41340 -58465 0 -58465
 0 0 -41340z m57062 17900 c73 -80 213 -233 312 -340 99 -107 326 -355 505
 -550 448 -487 624 -680 1071 -1165 212 -231 493 -536 624 -680 132 -143 285
 -309 341 -370 56 -60 306 -333 556 -605 250 -272 587 -639 748 -815 162 -176
@@ -538,11 +528,8 @@ m-37980 -7280 l0 -520 -2740 0 -2740 0 0 520 0 520 2740 0 2740 0 0 -520z
 m12290 -30 l0 -520 -2740 0 -2740 0 0 515 0 515 2738 3 c1505 1 2738 3 2740 5
 1 1 2 -232 2 -518z m43730 -30 l0 -520 -2745 0 -2745 0 0 520 0 520 2745 0
 2745 0 0 -520z m12850 -10 l0 -520 -2740 0 -2740 0 0 520 0 520 2740 0 2740 0
-0 -520z"/>
-<path d="M70680 48904 c-318 -15 -543 -40 -809 -90 -74 -14 -204 -36 -290 -48
+0 -520z" fill="#000"/><path d="M70680 48904 c-318 -15 -543 -40 -809 -90 -74 -14 -204 -36 -290 -48
 l-156 -22 -3 -3147 -2 -3147 812 1 c838 1 955 5 1193 45 597 99 1025 272 1441
 584 267 201 473 437 660 757 311 533 446 1135 431 1933 -12 672 -108 1109
 -348 1580 -240 473 -554 826 -978 1097 -145 94 -379 208 -536 263 -230 80
--548 151 -800 180 -96 11 -489 20 -615 14z"/>
-</g></g>
-</svg>
+-548 151 -800 180 -96 11 -489 20 -615 14z" fill="#000"/></g></mask></defs><rect width="11693" height="8268" class="mark" mask="url(#c)"/></svg>
