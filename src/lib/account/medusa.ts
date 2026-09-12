@@ -141,6 +141,19 @@ export interface OrderLine {
   readonly thumbnail: string | null
 }
 
+/**
+ * The couriers Veetree ships with, mirroring the list in the backend's
+ * `src/lib/couriers.ts`. Kept here as names only: the storefront never chooses
+ * a courier, it just has to print the one the dashboard recorded.
+ */
+const COURIER_NAMES: Record<string, string> = {
+  st: "ST Courier",
+  "india-post": "India Post",
+  dtdc: "DTDC",
+  franch: "Franch Express",
+  thirupathi: "Thirupathi Courier",
+}
+
 export interface OrderSummary {
   readonly id: string
   /** The number a customer sees on their confirmation, e.g. #14. */
@@ -149,6 +162,9 @@ export interface OrderSummary {
   readonly total: number | null
   readonly status: string | null
   readonly fulfillment: string | null
+  /** Set in the dashboard once the parcel is handed to the courier. */
+  readonly courier: string | null
+  readonly tracking: string | null
   readonly items: readonly OrderLine[]
 }
 
@@ -170,6 +186,8 @@ interface RawOrder {
   total?: number
   status?: string
   fulfillment_status?: string
+  /** Where the dashboard records the courier and tracking number. */
+  metadata?: Record<string, unknown> | null
   items?: RawLine[]
 }
 
@@ -188,13 +206,22 @@ export async function listOrders(token: string, limit = 20): Promise<readonly Or
   )
   if (r.status !== 200 || !r.data?.orders) return []
 
-  return r.data.orders.map((o) => ({
+  return r.data.orders.map((o) => {
+    const meta = o.metadata ?? {}
+    const courierId = typeof meta.veetree_courier === "string" ? meta.veetree_courier : null
+    const tracking = typeof meta.veetree_tracking === "string" ? meta.veetree_tracking : null
+
+    return {
     id: o.id ?? "",
     number: typeof o.display_id === "number" ? o.display_id : null,
     placedAt: o.created_at ?? null,
     total: typeof o.total === "number" ? o.total : null,
     status: o.status ?? null,
     fulfillment: o.fulfillment_status ?? null,
+    // The name, not the id — a customer has no use for "thirupathi". An
+    // unrecognised id falls through as itself rather than disappearing.
+    courier: courierId ? COURIER_NAMES[courierId] ?? courierId : null,
+    tracking: tracking || null,
     items: (o.items ?? []).map((i) => ({
       id: i.id ?? "",
       title: i.product_title ?? i.title ?? "Item",
@@ -204,7 +231,8 @@ export async function listOrders(token: string, limit = 20): Promise<readonly Or
       unitPrice: typeof i.unit_price === "number" ? i.unit_price : null,
       thumbnail: i.thumbnail ?? null,
     })),
-  }))
+    }
+  })
 }
 
 export type ResetRequest = { ok: true } | { ok: false; reason: "unavailable" }

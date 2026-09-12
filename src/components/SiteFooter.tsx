@@ -37,6 +37,7 @@ export function SiteFooter() {
           <div className="footer__col">
             <h4>Information</h4>
             <Link href="/about">About Us</Link>
+            <Link href="/contact">Contact Us</Link>
             <Link href="/terms">Terms &amp; Conditions</Link>
             {/* Beside the exchange policy: the two are what a customer checks
                 before buying, and what a payment gateway looks for by name. */}

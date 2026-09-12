@@ -1047,3 +1047,43 @@
   .order__head{flex-direction:column;gap:.6rem;}
   .order__again{align-self:stretch;}
 }
+
+/* Tracking, on a past order. Boxed because it is the one thing on the card a
+   customer may need to read out or paste into a courier's website. */
+.order__track{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin:0 0 .8rem;padding:.6rem .8rem;
+  border:1px solid var(--forest-800);border-radius:var(--r-md);
+  background:rgba(96,108,56,.06);
+}
+.order__track-label{margin:0;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-50);}
+.order__track-code{
+  margin:.15rem 0 0;font-size:1rem;font-weight:700;letter-spacing:.03em;
+  color:var(--forest-900);font-variant-numeric:tabular-nums;word-break:break-all;
+}
+.order__track-copy{
+  flex:none;min-height:32px;padding:0 .75rem;
+  border:1px solid var(--forest-800);border-radius:100px;background:#FFFFFF;
+  font-size:.72rem;font-weight:600;letter-spacing:.05em;color:var(--forest-800);
+  transition:background .25s var(--ease),color .25s var(--ease);
+}
+.order__track-copy:hover{background:var(--forest-800);color:#FFFFFF;}
+.order__track-pending{margin:0 0 .8rem;font-size:.8rem;color:var(--ink-50);}
+
+/* Contact Us. Three ways to reach a person, then the detail behind them. */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
+.contact__card{
+  padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:var(--r-md);background:#FFFFFF;
+}
+.contact__card h2{
+  margin:0 0 .5rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-50);font-weight:600;
+}
+.contact__value{margin:0;font-size:1.05rem;font-weight:600;color:var(--forest-900);word-break:break-word;}
+.contact__value a:hover{color:var(--earth-600);}
+.contact__note{margin:.45rem 0 0;font-size:.84rem;line-height:1.5;color:var(--ink-50);}
+.contact__address{margin:0 0 .6rem;font-style:normal;line-height:1.7;color:var(--ink-70);}
+.contact__links{display:grid;gap:.6rem;max-width:60ch;}
+.contact__links li{font-size:.92rem;line-height:1.6;color:var(--ink-70);}
+.contact__links a{color:var(--forest-800);text-decoration:underline;text-underline-offset:3px;}
+.contact__links a:hover{color:#8A431C;}

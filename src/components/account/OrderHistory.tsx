@@ -22,6 +22,8 @@ interface OrderSummary {
   total: number | null
   status: string | null
   fulfillment: string | null
+  courier: string | null
+  tracking: string | null
   items: OrderLine[]
 }
 
@@ -161,6 +163,37 @@ export function OrderHistory() {
                   {added === order.id ? "Added to cart" : "Buy again"}
                 </button>
               </div>
+
+              {/*
+                Once the parcel is handed over, the courier and its tracking
+                number are what the customer actually came to this page for —
+                so they sit above the items, not under them.
+              */}
+              {order.tracking ? (
+                <div className="order__track">
+                  <div>
+                    <p className="order__track-label">
+                      {order.courier ? `${order.courier} tracking number` : "Tracking number"}
+                    </p>
+                    <p className="order__track-code">{order.tracking}</p>
+                  </div>
+                  <button
+                    type="button"
+                    className="order__track-copy"
+                    onClick={() => {
+                      void navigator.clipboard?.writeText(order.tracking ?? "")
+                      flash(`copy:${order.id}`)
+                    }}
+                  >
+                    {added === `copy:${order.id}` ? "Copied" : "Copy"}
+                  </button>
+                </div>
+              ) : order.courier ? (
+                <p className="order__track-pending">
+                  Going out with {order.courier}. The tracking number appears here once the parcel is
+                  collected.
+                </p>
+              ) : null}
 
               <ul className="order__items">
                 {order.items.map((line) => {
