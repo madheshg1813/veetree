@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { PasswordField } from "./PasswordField"
 
-type Mode = "signin" | "details" | "code"
+type Mode = "signin" | "details" | "code" | "forgot"
 
 /**
  * Sign in, or create an account with an emailed code.
@@ -15,7 +15,7 @@ type Mode = "signin" | "details" | "code"
  * — this component cannot let anyone past by itself.
  */
 export function AuthPanel({ onSignedIn }: { onSignedIn: () => void }) {
-  const [mode, setMode] = useState<Mode>("signin")
+  const [mode, setMode] = useState<Mode>("details")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [firstName, setFirstName] = useState("")
@@ -42,6 +42,26 @@ export function AuthPanel({ onSignedIn }: { onSignedIn: () => void }) {
     setBusy(false)
     if (!ok) return setError(data.error ?? "Could not sign in.")
     onSignedIn()
+  }
+
+  /**
+   * Ask for a reset link.
+   *
+   * The confirmation is the same whether or not the address has an account.
+   * Saying "no account with that address" here would turn this form into a way
+   * of testing which addresses are registered, so the wording tells the
+   * customer what to do without confirming anything either way.
+   */
+  const sendReset = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setBusy(true); setError(null); setNotice(null)
+    const { ok, data } = await post("/api/account/forgot", { email })
+    setBusy(false)
+    if (!ok) return setError(data.error ?? "Could not send the reset link.")
+    setMode("signin")
+    setNotice(
+      `If ${email} has an account, a reset link is on its way. It expires, and it works once — check your spam folder if it does not arrive.`
+    )
   }
 
   const sendCode = async (e: React.FormEvent) => {
@@ -72,19 +92,24 @@ export function AuthPanel({ onSignedIn }: { onSignedIn: () => void }) {
   return (
     <div className="auth">
       <div className="auth__tabs" role="tablist" aria-label="Account">
-        <button
-          type="button" role="tab" aria-selected={mode === "signin"}
-          className={mode === "signin" ? "is-active" : ""}
-          onClick={() => { setMode("signin"); setError(null); setNotice(null) }}
-        >
-          Sign in
-        </button>
+        {/*
+          Create account leads. Most people arriving here have no account yet —
+          a returning customer is one tap away either way, but a new one should
+          not have to notice the second tab to get started.
+        */}
         <button
           type="button" role="tab" aria-selected={mode !== "signin"}
           className={mode !== "signin" ? "is-active" : ""}
           onClick={() => { setMode("details"); setError(null); setNotice(null) }}
         >
           Create account
+        </button>
+        <button
+          type="button" role="tab" aria-selected={mode === "signin"}
+          className={mode === "signin" ? "is-active" : ""}
+          onClick={() => { setMode("signin"); setError(null); setNotice(null) }}
+        >
+          Sign in
         </button>
       </div>
 
@@ -107,6 +132,39 @@ export function AuthPanel({ onSignedIn }: { onSignedIn: () => void }) {
           />
           <button className="btn btn--shop auth__submit" disabled={busy}>
             {busy ? "Signing in…" : "Sign in"}
+          </button>
+          {/*
+            Carries the address already typed across to the reset form, since
+            someone who has just failed to sign in has usually typed it.
+          */}
+          <button
+            type="button"
+            className="auth__link"
+            onClick={() => { setMode("forgot"); setError(null); setNotice(null) }}
+          >
+            Forgotten your password?
+          </button>
+        </form>
+      ) : mode === "forgot" ? (
+        <form className="auth__form" onSubmit={sendReset}>
+          <p className="auth__hint">
+            Enter the address on your account and we will email you a link to set a new
+            password. The link works once, and expires.
+          </p>
+          <label>
+            <span>Email</span>
+            <input type="email" autoComplete="email" required value={email}
+              onChange={(e) => setEmail(e.target.value)} />
+          </label>
+          <button className="btn btn--shop auth__submit" disabled={busy}>
+            {busy ? "Sending…" : "Email me a reset link"}
+          </button>
+          <button
+            type="button"
+            className="auth__link"
+            onClick={() => { setMode("signin"); setError(null); setNotice(null) }}
+          >
+            Back to sign in
           </button>
         </form>
       ) : mode === "details" ? (

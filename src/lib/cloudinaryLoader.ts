@@ -21,12 +21,18 @@ const FOLDER = process.env.NEXT_PUBLIC_CLOUDINARY_FOLDER ?? "veetree"
 const UPSCALE_FROM = 1000
 
 /**
- * And the width it is capped at. The sources are 619–1100px, so past about
- * 1600 there is no further detail to reconstruct — a larger request would only
- * spend bandwidth and add-on quota on a softer enlargement. A browser asking
- * for 3840 gets 1600 and scales it, exactly as c_limit has always behaved.
+ * And the width it is capped at.
+ *
+ * 1600 was enough while the largest view was a product page frame at about
+ * 660 CSS px. It is not enough for the magnifier, which enlarges 2.5x and so
+ * inspects the pixels directly — that was the "breaking up when you zoom in".
+ * e_upscale reconstructs to 4x of the source, which is 2476px even for the
+ * smallest photograph we hold, so 2400 is within reach for every product.
+ *
+ * A browser asking for 3840 still gets 2400 and scales it, exactly as c_limit
+ * has always behaved.
  */
-const UPSCALE_TO = 1600
+const UPSCALE_TO = 2400
 
 interface LoaderArgs {
   src: string

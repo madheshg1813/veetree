@@ -936,7 +936,10 @@
   font-size:.85rem;color:var(--forest-800);}
 .auth__error{margin:0;padding:.8rem 1.3rem;background:rgba(150,70,31,.09);
   font-size:.85rem;color:var(--earth-600);}
-.auth__link{align-self:flex-start;font-size:.8rem;color:#8A431C;text-decoration:underline;
+/* Centred, under the button each one follows. These are all secondary actions
+   sitting beneath a full-width primary button in a narrow card, so hanging
+   them off the left edge left them looking detached from it. */
+.auth__link{align-self:center;font-size:.8rem;color:#8A431C;text-decoration:underline;
   background:none;padding:0;}
 
 /* Consent, under the button that acts on it. Deliberately quiet — it is a

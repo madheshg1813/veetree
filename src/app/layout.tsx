@@ -38,7 +38,22 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: `${site.name} — Ayurvedic Skin & Hair Care, Handcrafted in Small Batches`,
   description: site.description,
-  icons: { icon: "/favicon.svg" },
+  /*
+   * More than the SVG. Google's favicon crawler and Safari both look for a
+   * raster file — often /favicon.ico directly — and fall back to whatever they
+   * cached when there is none, which is why a search result kept showing the
+   * old mark. The SVG leads for browsers that prefer it, since it stays sharp
+   * at any size and follows the tab's colour scheme.
+   */
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: `${site.name} — Ayurvedic Skin & Hair Care`,
     description: "Small-batch Ayurvedic formulations. Rooted in tradition, made for modern skin.",

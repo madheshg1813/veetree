@@ -206,3 +206,47 @@ export async function listOrders(token: string, limit = 20): Promise<readonly Or
     })),
   }))
 }
+
+export type ResetRequest = { ok: true } | { ok: false; reason: "unavailable" }
+
+/**
+ * Ask Medusa to issue a password reset token.
+ *
+ * Medusa answers 201 whether or not the address has an account, and never
+ * returns the token — it emits `auth.password_reset` instead, which a
+ * subscriber in the backend turns into an email. That is deliberate: a
+ * response that differed would tell anyone which addresses are registered.
+ * So this reports only whether the request was accepted.
+ */
+export async function requestPasswordReset(email: string): Promise<ResetRequest> {
+  const r = await call<unknown>("/auth/customer/emailpass/reset-password", {
+    method: "POST",
+    body: { identifier: email },
+  })
+  // 201 is the documented success. Anything else means Medusa is unreachable
+  // or refused the request, which is worth telling the customer about.
+  return r.status === 201 || r.status === 200 ? { ok: true } : { ok: false, reason: "unavailable" }
+}
+
+export type PasswordUpdate =
+  | { ok: true }
+  | { ok: false; reason: "bad-token" | "weak" | "unavailable" }
+
+/**
+ * Set a new password using a reset token from the emailed link.
+ *
+ * The token is a short-lived JWT signed by Medusa; `update` reads the customer
+ * identity out of it, so possession of a valid token is the authorisation. The
+ * storefront never learns which account it belongs to, and does not need to.
+ */
+export async function updatePassword(token: string, password: string): Promise<PasswordUpdate> {
+  const r = await call<{ success?: boolean }>("/auth/customer/emailpass/update", {
+    method: "POST",
+    token,
+    body: { password },
+  })
+  if (r.status === 200 && r.data?.success) return { ok: true }
+  if (r.status === 401 || r.status === 403) return { ok: false, reason: "bad-token" }
+  if (r.status === 400 || r.status === 422) return { ok: false, reason: "weak" }
+  return { ok: false, reason: "unavailable" }
+}

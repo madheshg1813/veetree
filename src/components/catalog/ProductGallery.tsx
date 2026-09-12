@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useCallback, useEffect, useRef, useState } from "react"
 import type { ProductImage } from "@/lib/catalog"
+import cloudinaryLoader from "@/lib/cloudinaryLoader"
 import { useVariantMedia } from "./VariantMedia"
 
 interface Props {
@@ -19,9 +20,34 @@ interface Props {
  * background-position — it does not scale the container, so the frame stays
  * put and nothing around it reflows.
  */
+/**
+ * Width to fetch for the magnifier.
+ *
+ * The frame is about 660 CSS px, and the magnifier enlarges 2.5x, so the pixels
+ * under the cursor come from roughly 1650 CSS px of image — double that on a
+ * Retina screen. Asking the loader for this width puts the AI upscale to work
+ * on the one view where detail is actually being inspected.
+ */
+const ZOOM_WIDTH = 2400
+
 export function ProductGallery({ images, zoom = 2.5 }: Props) {
   const [index, setIndex] = useState(0)
   const [zooming, setZooming] = useState(false)
+  /**
+   * The magnified file is large, and a background-image is fetched the moment
+   * it is set — even at opacity 0 — so setting it up front made every visitor
+   * pay for a view most never open.
+   *
+   * Waiting for the hover was worse: the file takes a moment to arrive, so a
+   * quick hover showed nothing and the zoom read as broken. It is fetched once
+   * the page has gone idle instead, which keeps it clear of the initial load
+   * and still has it warm before anyone reaches for it.
+   *
+   * Tracked by src rather than as a flag, so switching size or thumbnail
+   * re-arms it without a setState in the effect body.
+   */
+  const [readySrc, setReadySrc] = useState<string | null>(null)
+  const [zoomWanted, setZoomWanted] = useState(false)
   const [origin, setOrigin] = useState({ x: 50, y: 50 })
   const [lightbox, setLightbox] = useState(false)
   const [coarse, setCoarse] = useState(false)
@@ -48,6 +74,38 @@ export function ProductGallery({ images, zoom = 2.5 }: Props) {
 
   const active = images[index]
   const count = images.length
+
+  /**
+   * Warm the magnified rendition once the page is quiet.
+   *
+   * `activeSrc` rather than `active`: a product with no photography has no
+   * active image, and the dependency has to be a plain value anyway.
+   */
+  const activeSrc = active?.src
+  useEffect(() => {
+    if (coarse || !activeSrc) return
+    const url = cloudinaryLoader({ src: activeSrc, width: ZOOM_WIDTH })
+    let cancelled = false
+
+    const fetchIt = () => {
+      const img = new window.Image()
+      img.onload = () => { if (!cancelled) setReadySrc(url) }
+      img.src = url
+    }
+
+    // requestIdleCallback where it exists, a timer where it does not — Safari
+    // only added it recently, so the type saying otherwise is optimistic.
+    const idle = typeof window.requestIdleCallback === "function"
+    const handle: number = idle
+      ? window.requestIdleCallback(fetchIt, { timeout: 4000 })
+      : window.setTimeout(fetchIt, 1500)
+
+    return () => {
+      cancelled = true
+      if (idle) window.cancelIdleCallback(handle)
+      else window.clearTimeout(handle)
+    }
+  }, [activeSrc, coarse])
 
   // Hover zoom is meaningless without a pointer; touch gets the lightbox.
   useEffect(() => {
@@ -106,7 +164,7 @@ export function ProductGallery({ images, zoom = 2.5 }: Props) {
         <div
           ref={frameRef}
           className={`gallery__frame ${zooming ? "is-zooming" : ""}`}
-          onMouseEnter={() => !coarse && setZooming(true)}
+          onMouseEnter={() => { if (!coarse) { setZoomWanted(true); setZooming(true) } }}
           onMouseLeave={() => setZooming(false)}
           onMouseMove={onMove}
         >
@@ -121,13 +179,23 @@ export function ProductGallery({ images, zoom = 2.5 }: Props) {
             style={active.focus ? { objectPosition: active.focus } : undefined}
           />
 
-          {/* Magnified layer — same file, shifted under the cursor. */}
+          {/*
+            Magnified layer, shifted under the cursor.
+
+            Built through the Cloudinary loader rather than using `src` as it
+            stands: a catalogue image's src is the file in /public, 619–1100px,
+            which the magnifier was enlarging 2.5x straight to pixels. The
+            loader returns a far larger, upscaled rendition instead.
+          */}
           {!coarse && (
             <div
               className="gallery__zoom"
               aria-hidden="true"
               style={{
-                backgroundImage: `url(${active.src})`,
+                backgroundImage:
+                  zoomWanted || readySrc
+                    ? `url(${cloudinaryLoader({ src: active.src, width: ZOOM_WIDTH })})`
+                    : undefined,
                 backgroundSize: `${zoom * 100}%`,
                 backgroundPosition: `${origin.x}% ${origin.y}%`,
                 opacity: zooming ? 1 : 0,
