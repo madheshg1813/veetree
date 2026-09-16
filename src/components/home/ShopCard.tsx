@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { formatPrice } from "@/lib/catalog"
 import type { ShopItem } from "@/lib/home/shopItems"
+import { AddToCartButton } from "@/components/catalog/AddToCartButton"
 
 /**
  * Bestsellers card, following the client's layout: photo, name, rating, two
@@ -70,9 +71,17 @@ export function ShopCard({ item }: { item: ShopItem }) {
           )}
         </p>
 
-        <Link className="scard__cta" href={item.href}>
-          {item.inStock ? "View product" : "Out of stock"}
-        </Link>
+        {/*
+          Two actions, in the order people use them: add if they already know
+          what they want, read first if they do not. The link stays secondary
+          so the card still leads to the page with the ingredients on it.
+        */}
+        <div className="scard__actions">
+          <AddToCartButton slug={item.slug} size={item.size} inStock={item.inStock} />
+          <Link className="scard__cta scard__cta--ghost" href={item.href}>
+            View product
+          </Link>
+        </div>
       </div>
     </article>
   )

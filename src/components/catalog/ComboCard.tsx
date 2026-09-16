@@ -76,13 +76,16 @@ export function ComboCard({
           )}
         </p>
 
-        {action === "cart" ? (
-          <ComboAddButton item={item} />
-        ) : (
-          <Link className="combo__cta" href={item.href}>
+        {/*
+          Both, now. The strip used to offer only "View combo", which meant the
+          homepage showed four sets and no way to buy one.
+        */}
+        <div className="combo__actions">
+          {action === "cart" ? <ComboAddButton item={item} /> : null}
+          <Link className="combo__cta combo__cta--ghost" href={item.href}>
             View combo
           </Link>
-        )}
+        </div>
       </div>
     </article>
   )

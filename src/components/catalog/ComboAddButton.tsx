@@ -44,7 +44,7 @@ export function ComboAddButton({ item }: { item: ComboItem }) {
       onClick={onAdd}
       aria-live="polite"
     >
-      {added ? "Added to cart" : "Add to Cart"}
+      {added ? "Added" : "Add to cart"}
     </button>
   )
 }

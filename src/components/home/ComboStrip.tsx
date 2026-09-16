@@ -24,7 +24,7 @@ export function ComboStrip({ items }: { items: readonly ComboItem[] }) {
         <div className="combos__grid">
           {shown.map((item) => (
             <Reveal as="div" key={item.slug}>
-              <ComboCard item={item} action="view" />
+              <ComboCard item={item} />
             </Reveal>
           ))}
         </div>
