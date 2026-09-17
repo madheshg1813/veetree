@@ -47,7 +47,8 @@ export const metadata: Metadata = {
    */
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      // No SVG entry: the mark is a raster drawing, so a vector one would only
+      // be that same bitmap in a wrapper.
       { url: "/favicon.ico", sizes: "32x32" },
       { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
