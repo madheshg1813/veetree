@@ -79,7 +79,7 @@
 
 /* ── Reset ─────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip;}
 body{
   margin:0;
   font-family:var(--f-body);
@@ -88,7 +88,7 @@ body{
   line-height:1.7;
   color:var(--ink);
   background:var(--surface);
-  overflow-x:hidden;
+  overflow-x:clip;
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block;}
@@ -581,7 +581,7 @@ ul{margin:0;padding:0;list-style:none;}
 
 /* ── Trust ─────────────────────────────────────────────── */
 .trust{padding:clamp(3rem,6vw,4.75rem) 0;background:var(--surface);border-block:1px solid var(--line);}
-.trust__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.25rem,2.5vw,2.25rem);}
+.trust__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.25rem,2.5vw,2.25rem);}
 .trust__item{
   padding:1.75rem 1.5rem;border-radius:var(--r-md);
   background:var(--surface);
@@ -602,7 +602,7 @@ ul{margin:0;padding:0;list-style:none;}
 .trust__item:hover .trust__ico{transform:rotate(-4deg) scale(1.06);box-shadow:0 10px 22px -12px rgba(168,90,34,.7);}
 .trust__item h3{font-size:1.3rem;font-weight:600;margin-bottom:.5rem;color:var(--forest-900);}
 .trust__item p{font-size:.89rem;color:var(--ink-70);line-height:1.62;}
-@media (max-width:900px){.trust__grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:900px){.trust__grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 /* Stays two-up on phones rather than dropping to one: four full-width cards
    made the section four screens tall for four short lines of copy. The card
    is tightened to suit the narrower column instead. */
@@ -686,7 +686,7 @@ ul{margin:0;padding:0;list-style:none;}
 /* ── Ritual ────────────────────────────────────────────── */
 .ritual{padding:clamp(4rem,9vw,7rem) 0;background:var(--g-forest);color:var(--cream-100);}
 .ritual .section-title{color:#FFFDF4;}
-.ritual__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.1rem,2.2vw,1.75rem);}
+.ritual__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.1rem,2.2vw,1.75rem);}
 .ritual__step{
   position:relative;padding:2rem 1.5rem 1.75rem;
   border-radius:var(--r-md);
@@ -704,7 +704,7 @@ ul{margin:0;padding:0;list-style:none;}
 }
 .ritual__step h3{font-size:1.32rem;font-weight:600;margin-bottom:.5rem;color:#FFFDF4;}
 .ritual__step p{font-size:.88rem;color:rgba(255,253,244,.82);line-height:1.65;}
-@media (max-width:900px){.ritual__grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:900px){.ritual__grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media (max-width:520px){.ritual__grid{grid-template-columns:1fr;}}
 
 /* ── CTA ───────────────────────────────────────────────── */

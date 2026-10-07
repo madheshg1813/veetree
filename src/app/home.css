@@ -138,9 +138,9 @@
 }
 .best__viewall:hover{color:var(--clay-700);}
 
-.best__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(.85rem,2.4vw,1.5rem);}
-@media (min-width:700px){.best__grid{grid-template-columns:repeat(3,1fr);}}
-@media (min-width:1000px){.best__grid{grid-template-columns:repeat(4,1fr);}}
+.best__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.85rem,2.4vw,1.5rem);}
+@media (min-width:700px){.best__grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media (min-width:1000px){.best__grid{grid-template-columns:repeat(4,minmax(0,1fr));}}
 
 /* ── Bestsellers card ──────────────────────────────────── */
 /* Cards in a row line their price and button up, so the grid reads as rows
@@ -200,8 +200,8 @@
   .combos .best__title{margin-bottom:.7rem;font-size:1.35rem;}
   .combos .best__title::before,.combos .best__title::after{width:22px;}
 }
-.combos__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(.6rem,2vw,1.5rem);}
-@media (min-width:1000px){.combos__grid{grid-template-columns:repeat(4,1fr);}}
+.combos__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.6rem,2vw,1.5rem);}
+@media (min-width:1000px){.combos__grid{grid-template-columns:repeat(4,minmax(0,1fr));}}
 /* The full listing has room to breathe, so it keeps the taller frame. */
 .combos__grid--all{gap:clamp(.85rem,2.4vw,1.5rem);}
 /* The /combos page sits on white, so its cards need their own ground. */
@@ -301,11 +301,11 @@
   font-size:.92rem;color:var(--ink-50);
 }
 .concerns__grid{
-  display:grid;grid-template-columns:repeat(2,1fr);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
   gap:clamp(.7rem,2.2vw,1.4rem) clamp(.6rem,2vw,1.4rem);
   list-style:none;margin:0;padding:0;
 }
-@media (min-width:1000px){.concerns__grid{grid-template-columns:repeat(3,1fr);}}
+@media (min-width:1000px){.concerns__grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
 
 .concern a{display:block;}
 .concern__media{
@@ -414,8 +414,8 @@
 @media (max-width:400px){.reels__track{grid-auto-columns:min(320px,86vw);}}
 
 /* The /concerns page: same cards, given room for each concern's intro line. */
-.concerns__grid--all{grid-template-columns:repeat(2,1fr);}
-@media (min-width:1000px){.concerns__grid--all{grid-template-columns:repeat(3,1fr);}}
+.concerns__grid--all{grid-template-columns:repeat(2,minmax(0,1fr));}
+@media (min-width:1000px){.concerns__grid--all{grid-template-columns:repeat(3,minmax(0,1fr));}}
 .concern__intro{
   display:block;margin-top:.55rem;
   font-size:.82rem;line-height:1.5;color:var(--ink-70);

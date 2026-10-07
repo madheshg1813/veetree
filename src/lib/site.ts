@@ -13,7 +13,7 @@ export const site = {
   url: "https://www.veetree.life",
   tagline: "Rooted in Tradition, Backed by Science.",
   description:
-    "Veetree crafts small-batch Ayurvedic skin, hair and body care — Kumkumadi serum, Nalpamaradi lebam, cold-pressed oils and pure hydrosols. Rooted in tradition, made for modern skin. Order on WhatsApp.",
+    "Tradition Meets Modern Science - Formulated with Clean & high-performance ingredients for effective, everyday Skin | Hair | Body Care. Rooted in tradition. Backed by science.",
 
   /** Country code + number, digits only — no "+", no spaces. */
   whatsappNumber: "916382525233",

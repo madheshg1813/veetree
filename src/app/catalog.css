@@ -689,8 +689,8 @@
 
 /* ── Shop by category ──────────────────────────────────── */
 .cats{padding:clamp(3rem,7vw,5rem) 0;background:var(--surface);border-top:1px solid var(--line);}
-.cats__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.8rem,1.6vw,1.25rem);list-style:none;margin:0;padding:0;}
-@media (max-width:1000px){.cats__grid{grid-template-columns:repeat(3,1fr);}}
+.cats__grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(.8rem,1.6vw,1.25rem);list-style:none;margin:0;padding:0;}
+@media (max-width:1000px){.cats__grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
 .cats__item a{
   display:flex;flex-direction:column;height:100%;
   border-radius:var(--r-md);overflow:hidden;
@@ -710,7 +710,7 @@
    and the label alone on each card — the blurb and count are desktop detail. */
 @media (max-width:620px){
   .cats{padding:2.4rem 0;}
-  .cats__grid{--cats-gap:.75rem;grid-template-columns:repeat(2,1fr);gap:var(--cats-gap);}
+  .cats__grid{--cats-gap:.75rem;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--cats-gap);}
   .cats__item:last-child:nth-child(odd){
     grid-column:1/-1;justify-self:center;
     width:calc(50% - var(--cats-gap) / 2);
