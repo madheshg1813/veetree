@@ -11,7 +11,7 @@ export const fruitSpiceLipBalm: Product = {
   category: { label: "Lip Care", href: "/collections/lip-care" },
   collection: { label: "Lip Balms", href: "/collections/lip-balms" },
 
-  variants: [{"size": "10 g", "sku": "VT-FRUIT-SPICE-LIP-BALM", "price": 129, "mrp": 150}],
+  variants: [{"size": "10 g", "sku": "VT-FRUIT-SPICE-LIP-BALM", "price": 139, "mrp": 170}],
 
   images: [{"src": "/products/fruit-spice-lip-balm.jpg", "alt": "Veetree Fruit & Spice Lip Balm in an aluminium tin with a green label, beside pineapple, lemon, cardamom and star anise", "width": 1049, "height": 1400}],
 

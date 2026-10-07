@@ -11,7 +11,7 @@ export const coffeeLipScrub: Product = {
   category: { label: "Lip Care", href: "/collections/lip-care" },
   collection: { label: "Lip Scrubs", href: "/collections/lip-scrubs" },
 
-  variants: [{"size": "15 g", "sku": "VT-COFFEE-LIP-SCRUB", "price": 119, "mrp": 140}],
+  variants: [{"size": "15 g", "sku": "VT-COFFEE-LIP-SCRUB", "price": 148, "mrp": 180}],
 
   images: [{"src": "/products/coffee-lip-scrub.jpg", "alt": "Veetree Coffee Lip Scrub in an aluminium tin on a wooden coaster, beside a brass bowl of coffee beans", "width": 1051, "height": 1400}],
 

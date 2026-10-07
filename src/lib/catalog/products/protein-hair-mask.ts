@@ -10,7 +10,7 @@ export const proteinHairMask: Product = {
   brand: "Veetree",
   category: { label: "Hair Care", href: "/collections/hair-care" },
 
-  variants: [{"size": "100 g", "sku": "VT-PROTEIN-HAIR-MASK", "price": 288, "mrp": 350}],
+  variants: [{"size": "100 g", "sku": "VT-PROTEIN-HAIR-MASK", "price": 279, "mrp": 330}],
 
   images: [{"src": "/products/protein-hair-mask.jpg", "alt": "Veetree Protein Hair Mask in a stand-up pouch beside amla, a red hibiscus flower, dried hibiscus and herbal powders", "width": 788, "height": 1400}],
 

@@ -10,7 +10,7 @@ export const saffronGel: Product = {
   brand: "Veetree",
   category: { label: "Face Care", href: "/collections/face-care" },
 
-  variants: [{"size": "100 g", "sku": "VT-SAFFRON-GEL", "price": 289, "mrp": 350}],
+  variants: [{"size": "100 g", "sku": "VT-SAFFRON-GEL", "price": 319, "mrp": 380}],
 
   images: [{"src": "/products/saffron-gel.jpg", "alt": "Veetree Saffron Gel in a black jar with a lilac label, beside saffron crocus flowers, saffron threads and rosehips", "width": 933, "height": 1400}],
 

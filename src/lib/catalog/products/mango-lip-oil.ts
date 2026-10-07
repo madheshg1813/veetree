@@ -10,7 +10,7 @@ export const mangoLipOil: Product = {
   brand: "Veetree",
   category: { label: "Lip Care", href: "/collections/lip-care" },
 
-  variants: [{"size": "10 ml", "sku": "VT-MANGO-LIP-OIL", "price": 159, "mrp": 190}],
+  variants: [{"size": "10 ml", "sku": "VT-MANGO-LIP-OIL", "price": 199, "mrp": 240}],
 
   images: [{"src": "/products/mango-lip-oil.jpg", "alt": "Veetree Mango Lip Oil in an amber roll-on bottle on a wooden stand, beside a cut mango and a brass diffuser", "width": 880, "height": 1100}],
 

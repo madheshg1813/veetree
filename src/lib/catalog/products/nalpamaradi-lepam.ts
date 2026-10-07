@@ -10,7 +10,7 @@ export const nalpamaradiLepam: Product = {
   brand: "Veetree",
   category: { label: "Body Care", href: "/collections/body-care" },
 
-  variants: [{"size": "15 g", "sku": "VT-NALPAMARADI-LEPAM", "price": 277, "mrp": 330}],
+  variants: [{"size": "15 g", "sku": "VT-NALPAMARADI-LEPAM", "price": 259, "mrp": 310}],
 
   images: [{"src": "/products/nalpamaradi-body-lebam.jpg", "alt": "Veetree Nalpamaradi Lepam in a metal tin, surrounded by amla, turmeric, lotus petals and herbal roots", "width": 1100, "height": 1100}],
 

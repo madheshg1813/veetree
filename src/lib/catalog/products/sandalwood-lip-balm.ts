@@ -11,7 +11,7 @@ export const sandalwoodLipBalm: Product = {
   category: { label: "Lip Care", href: "/collections/lip-care" },
   collection: { label: "Lip Balms", href: "/collections/lip-balms" },
 
-  variants: [{"size": "10 g", "sku": "VT-SANDALWOOD-LIP-BALM", "price": 139, "mrp": 170}],
+  variants: [{"size": "10 g", "sku": "VT-SANDALWOOD-LIP-BALM", "price": 149, "mrp": 180}],
 
   images: [{"src": "/products/sandalwood-lip-balm.jpg", "alt": "Veetree Sandalwood Lip Balm in an aluminium tin with a red label, beside sandalwood pieces in a brass dish", "width": 1053, "height": 1400}],
 

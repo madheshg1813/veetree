@@ -10,7 +10,7 @@ export const underEyeSerum: Product = {
   brand: "Veetree",
   category: { label: "Eye Care", href: "/collections/eye-care" },
 
-  variants: [{"size": "10 ml", "sku": "VT-UNDER-EYE-SERUM", "price": 188, "mrp": 230}],
+  variants: [{"size": "10 ml", "sku": "VT-UNDER-EYE-SERUM", "price": 229, "mrp": 270}],
 
   images: [{"src": "/products/under-eye-serum.jpg", "alt": "Veetree Under-Eye Serum in an amber roll-on bottle on a stone plinth, beside almonds, green olives and a halved pomegranate", "width": 934, "height": 1400}],
 

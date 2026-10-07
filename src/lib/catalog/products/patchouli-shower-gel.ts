@@ -10,7 +10,7 @@ export const patchouliShowerGel: Product = {
   brand: "Veetree",
   category: { label: "Body Care", href: "/collections/body-care" },
 
-  variants: [{"size": "100 ml", "sku": "VT-PATCHOULI-SHOWER-GEL-100ML", "price": 198, "mrp": 240}, {"size": "200 ml", "sku": "VT-PATCHOULI-SHOWER-GEL-200ML", "price": 386, "mrp": 460}],
+  variants: [{"size": "100 ml", "sku": "VT-PATCHOULI-SHOWER-GEL-100ML", "price": 199, "mrp": 240}, {"size": "200 ml", "sku": "VT-PATCHOULI-SHOWER-GEL-200ML", "price": 389, "mrp": 470}],
 
   images: [{"src": "/products/patchouli-shower-gel.jpg", "alt": "Veetree Patchouli Shower Gel in an amber bottle on a stone slab with dried lavender buds and sprigs", "width": 619, "height": 1100}],
 
@@ -21,7 +21,7 @@ export const patchouliShowerGel: Product = {
   tagline: "Gently cleanses the body while leaving skin refreshed and fragrant.",
   shortDescription: "A refreshing shower gel that gently cleanses away impurities while leaving the skin feeling fresh, soft, clean and beautifully refreshed.",
 
-  sections: [{"id": "description", "heading": "Product Description", "defaultOpen": true, "body": ["A refreshing shower gel that gently cleanses away impurities while leaving the skin feeling fresh, soft, clean and beautifully refreshed."]}, {"id": "sizes", "heading": "Sizes", "bullets": ["100 ml — price on request", "200 ml — price on request"]}, {"id": "storage", "heading": "Storage & Care", "body": ["Keep the pack closed and store somewhere cool and dry, out of direct sunlight.", "Natural formulations vary a little in colour and scent between batches — that is the botanicals, not a fault."]}],
+  sections: [{"id": "description", "heading": "Product Description", "defaultOpen": true, "body": ["A refreshing shower gel that gently cleanses away impurities while leaving the skin feeling fresh, soft, clean and beautifully refreshed."]}, {"id": "sizes", "heading": "Sizes", "bullets": ["100 ml — ₹199", "200 ml — ₹389"]}, {"id": "storage", "heading": "Storage & Care", "body": ["Keep the pack closed and store somewhere cool and dry, out of direct sunlight.", "Natural formulations vary a little in colour and scent between batches — that is the botanicals, not a fault."]}],
 
   keyIngredients: [{"name": "Aqua", "note": "Listed in the product's ingredient list."}, {"name": "Lavender buds infused", "note": "Listed in the product's ingredient list."}, {"name": "Decyl glucoside", "note": "Listed in the product's ingredient list."}, {"name": "Coco glucoside", "note": "Listed in the product's ingredient list."}],
 

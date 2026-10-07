@@ -1,4 +1,5 @@
 import type { Product, Variant } from "@/lib/catalog/types"
+import { mrpFor, sizeBullets } from "@/lib/catalog/pricing"
 import type { MedusaProduct } from "./client"
 
 /**
@@ -41,12 +42,15 @@ export function mergeProduct(local: Product, remote: MedusaProduct | undefined):
       (rv) => (rv.title ?? "").trim().toLowerCase() === v.size.trim().toLowerCase()
     )
     const amount = match?.calculated_price?.calculated_amount
+    const live = typeof amount === "number" ? Math.round(amount) : null
     return {
       ...v,
       sku: match?.sku ?? v.sku,
       // Only override when Medusa actually returns a number, so a missing
       // price never silently becomes free.
-      price: typeof amount === "number" ? Math.round(amount) : v.price,
+      price: live ?? v.price,
+      // The MRP moves with the dashboard price, so the discount stays true.
+      ...(live !== null ? { mrp: mrpFor(live) } : {}),
       stock:
         match?.manage_inventory === false
           ? null
@@ -71,14 +75,16 @@ export function mergeProduct(local: Product, remote: MedusaProduct | undefined):
           (v) => v.size.trim().toLowerCase() === rv.title!.trim().toLowerCase()
         )
     )
-    .map((rv) => ({
-      size: rv.title!,
-      sku: rv.sku ?? `${local.slug}-${rv.title}`,
-      price:
-        typeof rv.calculated_price?.calculated_amount === "number"
-          ? Math.round(rv.calculated_price.calculated_amount)
-          : null,
-    }))
+    .map((rv) => {
+      const amount = rv.calculated_price?.calculated_amount
+      const price = typeof amount === "number" ? Math.round(amount) : null
+      return {
+        size: rv.title!,
+        sku: rv.sku ?? `${local.slug}-${rv.title}`,
+        price,
+        ...(price !== null ? { mrp: mrpFor(price) } : {}),
+      }
+    })
 
   /**
    * Photography from the dashboard wins when it is there.
@@ -105,10 +111,17 @@ export function mergeProduct(local: Product, remote: MedusaProduct | undefined):
       ...(local.images[0]?.focus ? { focus: local.images[0].focus } : {}),
     }))
 
+  const allVariants = [...variants, ...extra]
+
   return {
     ...local,
     images: remoteImages.length ? remoteImages : local.images,
-    variants: [...variants, ...extra],
+    variants: allVariants,
+    // The "Sizes" section quotes prices, so it is rebuilt from the live ones
+    // rather than left saying whatever the file was written with.
+    sections: local.sections.map((s) =>
+      s.id === "sizes" ? { ...s, bullets: sizeBullets(allVariants) } : s
+    ),
     inStock: remote.status === "published" && variants.some((v) => v.price !== null),
   }
 }

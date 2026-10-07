@@ -11,7 +11,7 @@ export const orangeLipScrub: Product = {
   category: { label: "Lip Care", href: "/collections/lip-care" },
   collection: { label: "Lip Scrubs", href: "/collections/lip-scrubs" },
 
-  variants: [{"size": "15 g", "sku": "VT-ORANGE-LIP-SCRUB", "price": 119, "mrp": 140}],
+  variants: [{"size": "15 g", "sku": "VT-ORANGE-LIP-SCRUB", "price": 148, "mrp": 180}],
 
   images: [{"src": "/products/orange-lip-scrub.jpg", "alt": "Veetree Orange Lip Scrub in an aluminium tin on a wooden coaster, beside a halved orange in a brass dish", "width": 1050, "height": 1400}],
 

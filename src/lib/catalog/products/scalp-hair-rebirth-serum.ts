@@ -11,7 +11,7 @@ export const scalpHairRebirthSerum: Product = {
   category: { label: "Hair Care", href: "/collections/hair-care" },
   collection: { label: "Hair Serums", href: "/collections/hair-serums" },
 
-  variants: [{"size": "50 ml", "sku": "VT-SCALP-HAIR-REBIRTH-SERUM", "price": 487, "mrp": 580}],
+  variants: [{"size": "50 ml", "sku": "VT-SCALP-HAIR-REBIRTH-SERUM", "price": 489, "mrp": 590}],
 
   images: [{"src": "/products/scalp-hair-rebirth-serum.jpg", "alt": "Veetree Scalp & Hair Rebirth Serum in an amber pump bottle, photographed with pumpkin seeds, amla and rosemary sprigs", "width": 619, "height": 1100}],
 

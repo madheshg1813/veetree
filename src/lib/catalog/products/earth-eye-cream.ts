@@ -10,7 +10,7 @@ export const earthEyeCream: Product = {
   brand: "Veetree",
   category: { label: "Eye Care", href: "/collections/eye-care" },
 
-  variants: [{"size": "15 g", "sku": "VT-EARTH-EYE-CREAM", "price": 249, "mrp": 300}],
+  variants: [{"size": "15 g", "sku": "VT-EARTH-EYE-CREAM", "price": 279, "mrp": 330}],
 
   images: [{"src": "/products/earth-eye-cream.jpg", "alt": "Veetree Earth Eye Cream in a small black jar on a wooden coaster, beside a lit brass lamp", "width": 929, "height": 1400}],
 

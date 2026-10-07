@@ -11,7 +11,7 @@ export const faceBodyScrub: Product = {
   category: { label: "Face Care", href: "/collections/face-care" },
   collection: { label: "Face Scrubs", href: "/collections/face-scrubs" },
 
-  variants: [{"size": "100 g", "sku": "VT-FACE-BODY-SCRUB", "price": 297, "mrp": 360}],
+  variants: [{"size": "100 g", "sku": "VT-FACE-BODY-SCRUB", "price": 339, "mrp": 410}],
 
   images: [{"src": "/products/face-body-scrub.jpg", "alt": "Veetree Face & Body Scrub in a black jar beside a pink lotus, saffron, turmeric root and powdered botanicals", "width": 1050, "height": 1400}],
 

@@ -10,7 +10,7 @@ export const jasmineHairButter: Product = {
   brand: "Veetree",
   category: { label: "Hair Care", href: "/collections/hair-care" },
 
-  variants: [{"size": "100 g", "sku": "VT-JASMINE-HAIR-BUTTER", "price": 298, "mrp": 360}],
+  variants: [{"size": "100 g", "sku": "VT-JASMINE-HAIR-BUTTER", "price": 299, "mrp": 360}],
 
   images: [{"src": "/products/jasmine-hair-butter.jpg", "alt": "Veetree Jasmine Hair Butter in a black 100 g jar on stone, beside jasmine flowers, argan nuts and whipped butter", "width": 1050, "height": 1400}],
 

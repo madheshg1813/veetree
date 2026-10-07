@@ -11,7 +11,7 @@ export const kumkumayadiNightCream: Product = {
   brand: "Veetree",
   category: { label: "Face Care", href: "/collections/face-care" },
 
-  variants: [{"size": "30 g", "sku": "VT-KUMKUMAYADI-NIGHT-CREAM", "price": 369, "mrp": 440}],
+  variants: [{"size": "30 g", "sku": "VT-KUMKUMAYADI-NIGHT-CREAM", "price": 419, "mrp": 500}],
 
   images: [{"src": "/products/kumkumayadi-night-cream.jpg", "alt": "Veetree Kumkumayadi Night Cream in a black glass jar on a stone plinth, beside saffron threads, rose petals and a brass lamp", "width": 788, "height": 1400}],
 

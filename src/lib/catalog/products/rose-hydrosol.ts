@@ -11,7 +11,7 @@ export const roseHydrosol: Product = {
   category: { label: "Face Care", href: "/collections/face-care" },
   collection: { label: "Hydrosols", href: "/collections/hydrosols" },
 
-  variants: [{"size": "100 ml", "sku": "VT-ROSE-HYDROSOL", "price": 217, "mrp": 260}],
+  variants: [{"size": "100 ml", "sku": "VT-ROSE-HYDROSOL", "price": 229, "mrp": 270}],
 
   images: [{"src": "/products/rose-hydrosol.jpg", "alt": "Veetree Rose Hydrosol in an amber spray bottle on a stone slab, surrounded by fresh pink garden roses and petals", "width": 732, "height": 1100}],
 

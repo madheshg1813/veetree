@@ -10,7 +10,7 @@ export const multiFloralGel: Product = {
   brand: "Veetree",
   category: { label: "Face Care", href: "/collections/face-care" },
 
-  variants: [{"size": "30 ml", "sku": "VT-MULTI-FLORAL-GEL", "price": 318, "mrp": 380}],
+  variants: [{"size": "30 ml", "sku": "VT-MULTI-FLORAL-GEL", "price": 379, "mrp": 450}],
 
   images: [{"src": "/products/multi-floral-gel.jpg", "alt": "Veetree Multi-Floral Gel in a pump bottle beside a red hibiscus flower and blue butterfly pea blooms", "width": 1100, "height": 1100}],
 

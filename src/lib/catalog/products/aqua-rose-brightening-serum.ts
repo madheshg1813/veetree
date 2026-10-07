@@ -11,7 +11,7 @@ export const aquaRoseBrighteningSerum: Product = {
   category: { label: "Face Care", href: "/collections/face-care" },
   collection: { label: "Face Serums", href: "/collections/face-serums" },
 
-  variants: [{"size": "30 ml", "sku": "VT-AQUA-ROSE-BRIGHTENING-SERUM", "price": 339, "mrp": 410}],
+  variants: [{"size": "30 ml", "sku": "VT-AQUA-ROSE-BRIGHTENING-SERUM", "price": 369, "mrp": 440}],
 
   images: [{"src": "/products/aqua-rose-brightening-serum.jpg", "alt": "Veetree Aqua Rose Brightening Serum in a 30 ml frosted glass dropper bottle with a pink label, standing on travertine stone among fresh pink rose petals", "width": 1023, "height": 1537}],
 

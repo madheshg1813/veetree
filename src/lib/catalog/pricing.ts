@@ -9,6 +9,22 @@ const inr = new Intl.NumberFormat("en-IN", {
 
 export const formatPrice = (amount: number): string => inr.format(amount)
 
+/**
+ * The MRP struck through beside a price: 20% above it, to the nearest ₹10.
+ *
+ * Derived rather than stored so a price changed in the dashboard carries its
+ * MRP with it. When MRP was a second number kept in the product files, raising
+ * a price in the dashboard quietly shrank the discount, or put the price above
+ * its own MRP and dropped the discount altogether.
+ */
+export const mrpFor = (price: number): number => Math.round((price * 1.2) / 10) * 10
+
+/** "15 ml — ₹289" for each size, from whatever the variants are priced at now. */
+export const sizeBullets = (variants: readonly Variant[]): string[] =>
+  variants.map(
+    (v) => `${v.size} — ${v.price !== null ? formatPrice(v.price) : "price on request"}`
+  )
+
 /** The variant shown by default: the first that has a price, else the first. */
 export function defaultVariant(product: Product): Variant {
   return product.variants.find((v) => v.price !== null) ?? product.variants[0]!

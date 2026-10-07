@@ -11,7 +11,7 @@ export const kumkumadiSerum: Product = {
   category: { label: "Face Care", href: "/collections/face-care" },
   collection: { label: "Face Serums", href: "/collections/face-serums" },
 
-  variants: [{"size": "15 ml", "sku": "VT-KUMKUMADI-SERUM-15ML", "price": 277, "mrp": 330}, {"size": "20 ml", "sku": "VT-KUMKUMADI-SERUM-20ML", "price": 356, "mrp": 430}],
+  variants: [{"size": "15 ml", "sku": "VT-KUMKUMADI-SERUM-15ML", "price": 289, "mrp": 350}, {"size": "20 ml", "sku": "VT-KUMKUMADI-SERUM-20ML", "price": 379, "mrp": 450}],
 
   images: [{"src": "/products/kumkumadi-serum.jpg", "alt": "Veetree Kumkumadi Serum in a glass dropper bottle with a gold cap, beside a brass lamp and saffron threads", "width": 1100, "height": 1100, "focus": "50% 70%"}],
 
@@ -22,7 +22,7 @@ export const kumkumadiSerum: Product = {
   tagline: "Helps improve skin radiance, uneven tone & dullness.",
   shortDescription: "A luxurious Ayurvedic-inspired facial serum infused with traditional botanicals to nourish the skin, enhance its natural glow and support a more even-looking complexion.",
 
-  sections: [{"id": "description", "heading": "Product Description", "defaultOpen": true, "body": ["A luxurious Ayurvedic-inspired facial serum infused with traditional botanicals to nourish the skin, enhance its natural glow and support a more even-looking complexion."]}, {"id": "sizes", "heading": "Sizes", "bullets": ["15 ml — ₹277", "20 ml — ₹356"]}, {"id": "storage", "heading": "Storage & Care", "body": ["Keep the pack closed and store somewhere cool and dry, out of direct sunlight.", "Natural formulations vary a little in colour and scent between batches — that is the botanicals, not a fault."]}],
+  sections: [{"id": "description", "heading": "Product Description", "defaultOpen": true, "body": ["A luxurious Ayurvedic-inspired facial serum infused with traditional botanicals to nourish the skin, enhance its natural glow and support a more even-looking complexion."]}, {"id": "sizes", "heading": "Sizes", "bullets": ["15 ml — ₹289", "20 ml — ₹379"]}, {"id": "storage", "heading": "Storage & Care", "body": ["Keep the pack closed and store somewhere cool and dry, out of direct sunlight.", "Natural formulations vary a little in colour and scent between batches — that is the botanicals, not a fault."]}],
 
   keyIngredients: [{"name": "Purest grade of Sesame seed oil from organic farming", "note": "Listed in the product's ingredient list."}, {"name": "Dashmoola powder", "note": "Listed in the product's ingredient list."}, {"name": "(10 Herbs powder blend)", "note": "Listed in the product's ingredient list."}, {"name": "Saffron (Kumkuma/Kesar)", "note": "Listed in the product's ingredient list."}],
 

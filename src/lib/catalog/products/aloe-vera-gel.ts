@@ -10,7 +10,7 @@ export const aloeVeraGel: Product = {
   brand: "Veetree",
   category: { label: "Face Care", href: "/collections/face-care" },
 
-  variants: [{"size": "100 g", "sku": "VT-ALOE-VERA-GEL", "price": 279, "mrp": 330}],
+  variants: [{"size": "100 g", "sku": "VT-ALOE-VERA-GEL", "price": 289, "mrp": 350}],
 
   images: [{"src": "/products/aloe-vera-gel.jpg", "alt": "Veetree Aloe Vera Gel in a black jar on a stone plinth, beside fresh cut aloe leaves", "width": 733, "height": 1100}],
 

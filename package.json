@@ -12,7 +12,8 @@
     "images:upload": "node --env-file-if-exists=.env.local scripts/upload-cloudinary.mjs",
     "otp:check": "node --env-file=.env.local scripts/check-2factor.mjs",
     "otp:setup": "node scripts/set-2factor-key.mjs",
-    "otp:diag": "node --env-file=.env.local scripts/otp-diag.mjs"
+    "otp:diag": "node --env-file=.env.local scripts/otp-diag.mjs",
+    "prices:sync": "node --env-file=.env.local scripts/medusa-reprice.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.4",
