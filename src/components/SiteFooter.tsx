@@ -87,6 +87,19 @@ export function SiteFooter() {
         </p>
         <p>Handcrafted in India 🇮🇳</p>
       </div>
+
+      {/* The agency credit sits on its own strip, apart from the brand's lines. */}
+      <div className="footer__credit">
+        <p className="shell">
+          Website developed and managed by{" "}
+          <a href="https://www.rulethetop.com" target="_blank" rel="noopener noreferrer">
+            {/* Plain <img> for the same reason as the social marks above. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/partners/rulethetop.png" alt="" width={20} height={20} loading="lazy" decoding="async" />
+            RuleTheTop.com
+          </a>
+        </p>
+      </div>
     </footer>
   );
 }

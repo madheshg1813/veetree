@@ -751,6 +751,15 @@ ul{margin:0;padding:0;list-style:none;}
 }
 .footer__base p:last-child{padding-right:5.5rem;}
 @media (max-width:520px){.footer__base p:last-child{padding-right:0;}}
+.footer__credit{
+  padding:.95rem 0 1.05rem;background:rgba(0,0,0,.24);border-top:1px solid rgba(221,161,94,.1);
+  text-align:center;font-size:.72rem;letter-spacing:.02em;color:rgba(255,253,244,.5);
+}
+.footer__credit a{display:inline-flex;align-items:center;gap:.4rem;vertical-align:middle;margin-left:.2rem;font-weight:600;color:#FFFDF4;text-decoration:none;transition:color .3s;}
+.footer__credit a:hover{color:var(--earth-200);}
+.footer__credit img{width:20px;height:20px;flex:none;border-radius:5px;box-shadow:0 0 0 1px rgba(255,253,244,.14);}
+/* Phones: the credit wraps under the floating WhatsApp button, so clear it from below. */
+@media (max-width:520px){.footer__credit{padding-bottom:5.5rem;}}
 @media (max-width:980px){
   .footer__inner{grid-template-columns:1fr;}
   .footer__cols{grid-template-columns:1fr 1fr;}
