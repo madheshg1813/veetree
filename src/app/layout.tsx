@@ -34,9 +34,12 @@ const cinzel = Cinzel({
 /** Empty in development and in any build that was not given the ID. */
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim()
 
+/** The home page's title, in search results and on shared links alike. */
+const HOME_TITLE = `${site.name} - Natural Skin & Hair Care - Rooted in tradition, Backed by science`
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.name} — Ayurvedic Skin & Hair Care, Handcrafted in Small Batches`,
+  title: HOME_TITLE,
   description: site.description,
   /*
    * More than the SVG. Google's favicon crawler and Safari both look for a
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: `${site.name} — Ayurvedic Skin & Hair Care`,
+    title: HOME_TITLE,
     description: "Small-batch Ayurvedic formulations. Rooted in tradition, made for modern skin.",
     url: site.url,
     siteName: site.name,
@@ -66,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Ayurvedic Skin & Hair Care`,
+    title: HOME_TITLE,
     description: "Small-batch Ayurvedic formulations. Rooted in tradition, made for modern skin.",
     images: ["/products/kumkumadi-serum.jpg"],
   },

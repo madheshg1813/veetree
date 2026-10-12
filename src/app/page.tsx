@@ -18,6 +18,17 @@ import { SiteHeader } from "@/components/SiteHeader"
 import { Ticker } from "@/components/Ticker"
 import { TrustStrip } from "@/components/TrustStrip"
 import { WhatsAppFab } from "@/components/WhatsAppFab"
+import type { Metadata } from "next"
+
+/*
+ * Title, description and social cards come from the root layout. The
+ * canonical is set here rather than there, because a layout's canonical is
+ * inherited by every page that does not set its own — a 404 would claim to be
+ * the home page.
+ */
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+}
 
 /**
  * Home page, built to the client's layout: search, slider, then bestsellers
