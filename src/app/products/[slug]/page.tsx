@@ -23,6 +23,7 @@ import {
 import { howToAsList, howToParagraph, howToSteps } from "@/lib/catalog/howTo"
 import { ingredientIcon } from "@/lib/catalog/ingredientIcon"
 import { liveProduct, liveRelated } from "@/lib/catalog/live"
+import type { InfoSection } from "@/lib/catalog/types"
 import { site } from "@/lib/site"
 
 /**
@@ -90,6 +91,12 @@ export default async function ProductPage({
    * key ingredients when a product has no full list yet, so the section still
    * says something rather than disappearing.
    */
+  const description = product.sections.filter((sec) => sec.id === "description")
+  const leadSections: readonly InfoSection[] = product.benefits?.length
+    ? [...description, { id: "benefits", heading: "Benefits", defaultOpen: true, bullets: product.benefits }]
+    : description
+  const restSections = product.sections.filter((sec) => sec.id !== "description")
+
   const ingredientNames: readonly string[] = product.fullIngredients?.length
     ? product.fullIngredients
     : product.keyIngredients.map((i) => i.name)
@@ -232,6 +239,31 @@ export default async function ProductPage({
         </section>
 
         {/*
+          ── Description, then benefits ─────────────────────────────
+          Veetree's order for the page: description, benefits, how to use,
+          ingredients, then storage and the rest of the details.
+        */}
+        <section className="shell pdp__block">
+          <InfoSections sections={leadSections} />
+        </section>
+
+        {/* ── How to use ─────────────────────────────────────────── */}
+        {product.howToUse.length ? (
+          <section className="shell pdp__block">
+            <h2 className="pdp__h2">How to Use</h2>
+            {howToAsList(product.howToUse) ? (
+              <ol className="howto__list">
+                {howToSteps(product.howToUse).map((step, i) => (
+                  <li key={i}>{step}</li>
+                ))}
+              </ol>
+            ) : (
+              <p className="howto">{howToParagraph(product.howToUse)}</p>
+            )}
+          </section>
+        ) : null}
+
+        {/*
           ── Ingredients ───────────────────────────────────────────
           One section, not two. The old "Key Ingredients" cards were the first
           four entries of the full list repeated, each captioned with the same
@@ -271,32 +303,17 @@ export default async function ProductPage({
           </section>
         ) : null}
 
-        {/* ── How to use ─────────────────────────────────────────── */}
-        {product.howToUse.length ? (
+        {/* ── Storage, sizes and anything else ──────────────────────── */}
+        {restSections.length ? (
           <section className="shell pdp__block">
-            <h2 className="pdp__h2">How to Use</h2>
-            {howToAsList(product.howToUse) ? (
-              <ol className="howto__list">
-                {howToSteps(product.howToUse).map((step, i) => (
-                  <li key={i}>{step}</li>
-                ))}
-              </ol>
-            ) : (
-              <p className="howto">{howToParagraph(product.howToUse)}</p>
-            )}
+            <InfoSections sections={restSections} />
           </section>
         ) : null}
-
-        {/* ── Details ────────────────────────────────────────────── */}
-        <section className="shell pdp__block">
-          <h2 className="pdp__h2">Product Details</h2>
-          <InfoSections sections={product.sections} />
-        </section>
 
         {/* ── FAQ ────────────────────────────────────────────────── */}
         {product.faqs.length ? (
           <section className="shell pdp__block" id="faq">
-            <h2 className="pdp__h2">Questions About This Serum</h2>
+            <h2 className="pdp__h2">Questions About This Product</h2>
             <FaqList faqs={product.faqs} idPrefix={product.slug} />
           </section>
         ) : null}

@@ -18,7 +18,7 @@ const doc: LegalDoc = {
       blocks: [
         "Everything Veetree makes is a cosmetic product intended for external application to the skin, hair and lips. None of it is a drug, a medicine or a therapeutic product.",
         "Nothing on this website — product names, descriptions, ingredient notes, testimonials, or anything on our social media — is intended to diagnose, treat, cure or prevent any disease or medical condition. No statement we make has been evaluated as a therapeutic claim, and none should be read as one.",
-        "Where a product carries the name of a classical Ayurvedic preparation, such as Kumkumadi or Nalpamaradi, that name describes the recipe the formulation follows. It is heritage and provenance, not a medical indication.",
+        "Where a product carries the name of a traditional preparation, such as Kumkumadi or Nalpamaradi, that name describes the recipe the formulation follows. It is heritage and provenance, not a medical indication.",
       ],
     },
     {
@@ -51,7 +51,7 @@ const doc: LegalDoc = {
             "Are buying for a child.",
           ],
         },
-        "Nothing we tell you — on this site, on WhatsApp, or on social media — is medical advice, and it is not a substitute for consulting a doctor or a qualified Ayurvedic practitioner. Never delay or disregard professional medical advice because of something you read here.",
+        "Nothing we tell you — on this site, on WhatsApp, or on social media — is medical advice, and it is not a substitute for consulting a doctor or another qualified practitioner. Never delay or disregard professional medical advice because of something you read here.",
       ],
     },
     {

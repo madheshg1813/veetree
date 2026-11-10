@@ -49,8 +49,7 @@ export default function ContactPage() {
           address: business.address
             ? {
                 "@type": "PostalAddress",
-                streetAddress: business.address[0],
-                addressLocality: business.address[1],
+                addressLocality: "Guduvancheri",
                 addressRegion: "Tamil Nadu",
                 postalCode: "603202",
                 addressCountry: "IN",

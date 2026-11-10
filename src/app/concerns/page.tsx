@@ -11,7 +11,7 @@ import { site } from "@/lib/site"
 
 const TITLE = "Shop by Concern | Veetree"
 const DESCRIPTION =
-  "Find Veetree products by what you want to treat: hydration, uneven skin tone, hairfall, dandruff, chapped lips and tired eyes. Small-batch Ayurvedic formulations."
+  "Find Veetree products by what you want to treat: hydration, uneven skin tone, hairfall, dandruff, chapped lips and tired eyes. Natural formulations, rooted in tradition."
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -18,7 +18,7 @@ export function Hero() {
         <Reveal className="hero__copy">
           <p className="eyebrow">
             <span className="eyebrow__line" />
-            Ayurvedic Skin &amp; Hair Care
+            Natural Skin &amp; Hair Care
           </p>
           <h1 className="hero__title">
             Ancient roots.

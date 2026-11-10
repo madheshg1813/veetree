@@ -14,9 +14,16 @@ type Mode = "signin" | "details" | "code" | "forgot"
  * invents a password for it. The code is checked on the server at registration
  * — this component cannot let anyone past by itself.
  */
-export function AuthPanel({ onSignedIn }: { onSignedIn: () => void }) {
+export function AuthPanel({
+  onSignedIn,
+  initialEmail = "",
+}: {
+  onSignedIn: () => void
+  /** Pre-fills the email box, e.g. with the address already typed at checkout. */
+  initialEmail?: string
+}) {
   const [mode, setMode] = useState<Mode>("details")
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState(initialEmail)
   const [password, setPassword] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")

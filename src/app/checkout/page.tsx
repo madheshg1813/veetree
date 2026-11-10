@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { connection } from "next/server"
 import { CheckoutView } from "@/components/checkout/CheckoutView"
 import { SiteFooter } from "@/components/SiteFooter"
-import { SiteHeader } from "@/components/SiteHeader"
 
 export const metadata: Metadata = {
   title: "Checkout | Veetree",
@@ -18,8 +17,9 @@ export default async function CheckoutPage() {
 
   return (
     <>
-      <SiteHeader />
-      <main className="pdp cartpage">
+      {/* No site header: checkout gets its own slim logo bar, so there is
+          nowhere to wander off to between the cart and payment. */}
+      <main className="ckpage">
         <CheckoutView />
       </main>
       <SiteFooter />

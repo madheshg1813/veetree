@@ -125,6 +125,11 @@ export interface Product {
   readonly tagline?: string
   readonly shortDescription: string
   readonly sections: readonly InfoSection[]
+  /**
+   * Benefit points, one per line, shown straight after the description.
+   * Optional: the section is left out until Veetree supplies a product's points.
+   */
+  readonly benefits?: readonly string[]
   readonly keyIngredients: readonly KeyIngredient[]
   readonly fullIngredients: readonly string[] | null
   readonly howToUse: readonly HowToUseStep[]

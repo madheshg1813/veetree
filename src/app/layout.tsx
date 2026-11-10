@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: HOME_TITLE,
-    description: "Small-batch Ayurvedic formulations. Rooted in tradition, made for modern skin.",
+    description: "Natural skin, hair and body care. Rooted in tradition, refined by science.",
     url: site.url,
     siteName: site.name,
     images: [{ url: "/products/kumkumadi-serum.jpg", width: 1100, height: 1100 }],
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: HOME_TITLE,
-    description: "Small-batch Ayurvedic formulations. Rooted in tradition, made for modern skin.",
+    description: "Natural skin, hair and body care. Rooted in tradition, refined by science.",
     images: ["/products/kumkumadi-serum.jpg"],
   },
 };

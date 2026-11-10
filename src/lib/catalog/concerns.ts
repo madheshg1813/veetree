@@ -55,7 +55,7 @@ export const CONCERNS: readonly Concern[] = [
     slug: "uneven-skin",
     label: "Uneven Skin",
     heading: "Uneven Skin Tone",
-    intro: "Serums, a night cream and a face pack for dark spots, tan and patchiness.",
+    intro: "Serums, a moisturising cream and a face pack for dark spots, tan and patchiness.",
     image: img("uneven-skin", "A woman's face in close-up with one hand resting against her cheek"),
     productSlugs: [
       "aqua-rose-brightening-serum",

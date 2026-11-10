@@ -9,11 +9,9 @@ import { LegalPage, legalMetadata, type LegalDoc } from "@/components/legal/Lega
  * are also stated in the Terms; the two must agree, so change one and change
  * the other.
  *
- * The rates below are the ones the storefront falls back to. What a cart is
- * actually charged comes from Medusa's shipping options, which are editable in
- * the dashboard — so the page says the charge is confirmed at checkout rather
- * than presenting these as the last word. That way the page cannot quietly
- * contradict what someone is billed.
+ * No rates are listed. What a cart is charged comes from Medusa's shipping
+ * options, which are editable in the dashboard — so the page points to the
+ * checkout figure instead, and cannot quietly contradict what someone is billed.
  */
 const doc: LegalDoc = {
   title: "Shipping & Delivery Policy",
@@ -21,7 +19,7 @@ const doc: LegalDoc = {
   intro:
     "Where we ship, what delivery costs, how long it takes, and what happens when a parcel goes astray.",
   metaDescription:
-    "Veetree shipping and delivery policy — delivery charges for Tamil Nadu and the rest of India, dispatch and delivery timelines, tracking, and what to do if a parcel is delayed or lost.",
+    "Veetree shipping and delivery policy — delivery charges, dispatch and delivery timelines, tracking, and what to do if a parcel is delayed or lost.",
   sections: [
     {
       heading: "Where we ship",
@@ -39,16 +37,8 @@ const doc: LegalDoc = {
       blocks: [
         "Delivery is charged by weight and by where the parcel is going. The weight used is the packed weight — the products plus their packaging — not the volume printed on the label.",
         {
-          list: [
-            "Tamil Nadu, up to 1 kg — ₹50",
-            "Tamil Nadu, over 1 kg — ₹99",
-            "Rest of India, up to 1 kg — ₹99",
-            "Rest of India, over 1 kg — ₹150",
-          ],
-        },
-        {
           note:
-            "The exact charge for your order is shown at checkout, before you pay, once you have entered your delivery address. That figure is the one you will be billed. If it differs from the table above, the checkout figure is the current one.",
+            "The exact charge for your order is shown at checkout, before you pay, once you have entered your delivery address. That figure is the one you will be billed.",
         },
         "Delivery charges are not refundable once an order has been dispatched.",
       ],
@@ -59,10 +49,6 @@ const doc: LegalDoc = {
         "Orders are packed and handed to the courier within {{dispatchDays}} of confirmation. Orders placed on a Sunday or a public holiday are processed on the next working day.",
         "After dispatch, delivery normally takes {{deliveryDays}}, depending on the destination. Metro addresses are usually at the shorter end of that range and remote pin codes at the longer end.",
         "These are estimates, not guarantees. Festivals, weather, strikes and courier backlogs can all add time, and none of them are within our control.",
-        {
-          note:
-            "Everything is made in small batches. If an item in your order needs a fresh batch before it can go out, we will tell you and give you the choice of waiting, swapping it, or cancelling that item for a refund.",
-        },
       ],
     },
     {

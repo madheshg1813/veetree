@@ -1,6 +1,6 @@
 # VeeTree
 
-Landing page for **veetree.life** — Ayurvedic skin and hair care, sold through WhatsApp.
+Landing page for **veetree.life** — natural skin and hair care, sold through WhatsApp.
 No cart, no checkout: every "Buy" button opens a chat with the product already named.
 
 Built with **Next.js 16** (App Router) and **TypeScript**.

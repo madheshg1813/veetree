@@ -30,7 +30,7 @@ export const faceCreams: Collection = {
   ],
   seo: {
     title: "Face Creams | Veetree",
-    description: "Veetree face creams \u2014 a Kumkumayadi night cream and an under-eye cream.",
+    description: "Veetree face creams \u2014 a Kumkumadi moisturising cream and an under-eye cream.",
     canonical: "/collections/face-creams",
   },
 }

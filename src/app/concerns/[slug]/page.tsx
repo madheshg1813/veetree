@@ -28,7 +28,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const concern = getConcern((await params).slug)
   if (!concern) return {}
-  const title = `${concern.heading} — Ayurvedic Care | Veetree`
+  const title = `${concern.heading} — Natural Care | Veetree`
   return {
     title,
     description: concern.intro,

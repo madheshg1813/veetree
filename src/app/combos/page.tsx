@@ -11,7 +11,7 @@ import { site } from "@/lib/site"
 
 const TITLE = "Combos — Skin & Hair Care Sets | Veetree"
 const DESCRIPTION =
-  "Veetree combos: skin and hair care sets built around one concern — hydration, glow, hair growth, frizz, dandruff, acne and lip care. Small-batch Ayurvedic formulations."
+  "Veetree combos: skin and hair care sets built around one concern — hydration, glow, hair growth, frizz, dandruff, acne and lip care. Natural formulations, rooted in tradition."
 
 export const metadata: Metadata = {
   title: TITLE,

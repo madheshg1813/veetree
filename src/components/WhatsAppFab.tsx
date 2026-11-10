@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { whatsappLink } from "@/lib/whatsapp";
-import { WhatsAppIcon } from "./icons";
 
 /**
  * Floating support link. Ordering happens on the site — this is for questions,
@@ -26,7 +25,10 @@ export function WhatsAppFab() {
       rel="noopener noreferrer"
       aria-label="Message Veetree on WhatsApp"
     >
-      <WhatsAppIcon />
+      {/* The official full-colour mark, as in the footer. Plain <img>: the
+          Cloudinary loader would rewrite a next/image src. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="fab__ico" src="/social/whatsapp.svg" alt="" width={34} height={34} />
       <span className="fab__label">Message us</span>
     </a>
   );

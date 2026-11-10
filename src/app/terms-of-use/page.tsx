@@ -29,7 +29,7 @@ const doc: LegalDoc = {
       blocks: [
         "The Veetree name, logo, wordmark, product names, photography, illustrations, page design, and the text of our product descriptions and editorial content are owned by {{entityName}} or licensed to us, and are protected by copyright and trade mark law.",
         "You may not copy, reproduce, republish, distribute, adapt or exploit any of it without our prior written permission. Sharing a link to a page, or a screenshot in a personal review, is fine and welcome.",
-        "Names of classical Ayurvedic preparations — Kumkumadi, Nalpamaradi and others — are traditional and are not claimed by us as trade marks.",
+        "Names of traditional preparations — Kumkumadi, Nalpamaradi and others — are not claimed by us as trade marks.",
       ],
     },
     {

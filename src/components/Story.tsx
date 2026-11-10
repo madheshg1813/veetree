@@ -23,8 +23,6 @@ export function Story() {
           <div className="story__badge">
             <span>Rooted in</span>
             <strong>
-              Ayurvedic
-              <br />
               Tradition
             </strong>
           </div>

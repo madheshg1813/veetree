@@ -8,7 +8,7 @@
  */
 const CLAIMS = [
   "From Farm to Bottle",
-  "Ayurveda Meets Modern Care",
+  "Tradition Meets Modern Science",
   "Handpicked Natural Ingredients",
   "Cruelty Free",
   "Made with Care",

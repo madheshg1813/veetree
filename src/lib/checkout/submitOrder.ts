@@ -130,7 +130,7 @@ export async function submitOrder(draft: OrderDraft): Promise<SubmitResult> {
       amount: session.amount,
       currency: session.currency,
       name: "Veetree",
-      description: "Ayurvedic skin, hair and body care",
+      description: "Natural skin, hair and body care",
       // Razorpay's modal is served over https and would refuse an http logo as
       // mixed content, so the mark is offered only when the page is secure —
       // which is always the case in production and never on plain localhost.

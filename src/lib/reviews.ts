@@ -71,7 +71,7 @@ export const reviews: readonly Review[] = [
   },
   {
     name: "Koushalya",
-    productLabel: "Kumkumayadi Night Cream",
+    productLabel: "Kumkumadi Moisturising Cream",
     slugs: ["kumkumayadi-night-cream"],
     text: "Akka!! u saw la acne marks cheeks la ipo nalla koraiyuthu. Ennaku hair care kum products venum, suggest me?",
   },

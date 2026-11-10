@@ -2,7 +2,7 @@
   "name": "veetree",
   "version": "1.0.0",
   "private": true,
-  "description": "VeeTree — Ayurvedic skin & hair care landing page",
+  "description": "VeeTree — natural skin & hair care",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

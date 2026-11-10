@@ -1,52 +1,59 @@
 import type { Metadata } from "next"
 import { LegalPage, legalMetadata, type LegalDoc } from "@/components/legal/LegalPage"
-import { allProducts } from "@/lib/catalog"
-import { COMBOS } from "@/lib/catalog/combos"
 
-/**
- * Counts come from the catalogue rather than being typed in, so the page
- * cannot drift out of date the way a hand-written number does.
- */
+/** The client's own About copy, followed by the business details gateways look for. */
 const doc = (): LegalDoc => ({
   title: "About Us",
   href: "/about",
-  intro:
-    "Veetree makes Ayurvedic skin, hair and body care in small batches — built ingredient-up, from classical preparations rather than reformulated versions of them.",
+  intro: "Rooted in Tradition. Refined by Science.",
   metaDescription:
-    "About Veetree — small-batch Ayurvedic skin, hair and body care handcrafted in India. What we make, how we make it, and what we will not claim.",
+    "About Veetree — skincare, haircare and body care inspired by traditional beauty rituals and refined through modern science. What we make, what we don't do, and how batch numbers work.",
   sections: [
+    {
+      heading: "Who we are",
+      blocks: [
+        "At VEETREE, we believe that nature holds timeless secrets to beauty and well-being.",
+        "Inspired by generations of traditional beauty practices and guided by modern science, we bring together the goodness of nature and the precision of thoughtful formulation.",
+        "Every product is thoughtfully crafted with carefully selected ingredients, drawing inspiration from fruits, flowers, herbs and nature's finest offerings.",
+        "We believe skincare and haircare should be more than just a routine. They should be a meaningful connection with yourself and the natural world around you.",
+        "Our journey is driven by one simple thought: bringing the wisdom of tradition into your everyday life through modern, thoughtful care.",
+        { note: "VEETREE – Where Tradition Meets Modern Science." },
+      ],
+    },
     {
       heading: "What we make",
       blocks: [
-        `Veetree currently makes ${allProducts().length} formulations across face care, hair care, body care, lip care and eye care, along with ${COMBOS.length} combination sets built around a single concern.`,
-        "The range is built on classical Ayurvedic preparations — Kumkumadi, Nalpamaradi and similar time-honoured recipes — alongside cold-pressed oils, steam-distilled hydrosols and herbal infusions. Where a formulation carries a classical name, it is because the preparation follows that recipe, not because the name reads well on a label.",
+        "At VEETREE, we create thoughtfully crafted skincare, haircare and body care products inspired by traditional beauty rituals and refined through modern science.",
+        // "30+" is the client's wording; keep it true against the catalogue count.
+        "With a collection of 30+ carefully crafted products, our range brings together the goodness of fruits, flowers, herbs and nature-inspired ingredients.",
+        "From nourishing hair oils and revitalising serums to skin-brightening formulations, herbal gels, moisturisers, lip care and body care essentials, every product is thoughtfully developed to make everyday self-care a beautiful experience.",
+        "We bring traditional wisdom and modern scientific understanding together to create care that feels close to nature and belongs in your everyday routine.",
+        { note: "30+ Products. One Beautiful Connection with Nature." },
       ],
     },
     {
-      heading: "How we make it",
+      heading: "What we don't do",
       blocks: [
-        "Everything is blended in small, limited runs. That is a deliberate constraint rather than a marketing line: small batches mean a bottle reaches you closer to the day it was made, and it means we can change a formulation when we learn something instead of working through a warehouse first.",
-        "Every product is built ingredient-up. The full ingredient list is published on the product page and printed on the pack — there is no proprietary blend standing in for the part we would rather not disclose.",
-      ],
-    },
-    {
-      heading: "What we do not do",
-      blocks: [
+        "At VEETREE, we believe beauty should never come at the cost of trust.",
         {
           list: [
-            "We do not test on animals, and we do not work with anyone who does on our behalf.",
-            "We do not use fillers to bulk out a formulation or to make a thin product feel richer than it is.",
-            "We do not make medical claims. Our products are cosmetics. They are not intended to diagnose, treat, cure or prevent any disease — see our Disclaimer for what that means in practice.",
-            "We do not sell or rent customer data. See our Privacy Policy for exactly who does receive it and why.",
+            "We don't compromise on ingredient quality.",
+            "We don't believe in unnecessary shortcuts.",
+            "We don't make unrealistic beauty promises.",
+            "We don't overlook the importance of thoughtful formulation.",
+            "We don't follow trends blindly; we believe in meaningful care.",
           ],
         },
+        "(Because beauty deserves honesty, care and purpose)",
       ],
     },
     {
-      heading: "About batch variation",
+      heading: "About batch verification",
       blocks: [
-        "Natural formulations vary. The colour, scent and texture of a product can shift slightly from one batch to the next, because the herbs, oils and distillates behind them shift with the season and the harvest. That is the raw material talking, not a defect, and it is not something we correct with dyes or synthetic fragrance.",
-        "If a product arrives in a condition you did not expect — separated, leaking, or clearly different from what you have had before — tell us and we will look at the batch.",
+        "Your trust is our priority.",
+        "At VEETREE, we believe in transparency and quality at every step. Every product carries a unique batch number that helps identify its production details.",
+        "Enter your product's batch number to verify its batch information and ensure greater confidence in your purchase.",
+        { note: "Know Your Batch. Trust Your Product." },
       ],
     },
     {

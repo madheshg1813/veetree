@@ -47,9 +47,9 @@ export const business: Business = {
   // Not stated by Veetree, so not claimed. The Terms name the business
   // without asserting a legal form.
   entityType: null,
+  // Town and pin code only: the street address is a home, and is not published.
   address: [
-    "No. 30A, Gandhinagar 2nd Street",
-    "Nandhivaram, Guduvancheri",
+    "Guduvancheri, Chennai",
     "Tamil Nadu 603202",
   ],
   since: "2024",
@@ -57,15 +57,15 @@ export const business: Business = {
   // it in a dispute.
   jurisdictionCity: "Chengalpattu, Tamil Nadu",
 
-  supportEmail: "veetreework@gmail.com",
+  supportEmail: "veetree.enquiry@gmail.com",
 
   grievanceOfficer: {
     name: "U. Mahavishalee",
-    email: "veetreework@gmail.com",
+    email: "veetree.enquiry@gmail.com",
     phone: site.whatsappDisplay,
   },
 
-  lastUpdated: "9 September 2026",
+  lastUpdated: "10 November 2026",
 }
 
 /**
