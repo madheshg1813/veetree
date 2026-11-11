@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Cinzel, Cormorant_Garamond, Jost } from "next/font/google";
 import { GoldGradientDefs } from "@/components/icons"
+import { CartDrawer } from "@/components/cart/CartDrawer"
 import { site } from "@/lib/site";
 import "./globals.css"
 import "./catalog.css";
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <GoldGradientDefs />
         {children}
+        <CartDrawer />
       </body>
       {/*
         Google Analytics, loaded after hydration so it costs nothing on first

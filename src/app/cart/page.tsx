@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { CartView } from "@/components/cart/CartView"
+import { CartPanel } from "@/components/cart/CartDrawer"
 import { SiteFooter } from "@/components/SiteFooter"
 import { SiteHeader } from "@/components/SiteHeader"
 
@@ -16,7 +16,9 @@ export default function CartPage() {
     <>
       <SiteHeader />
       <main className="pdp cartpage">
-        <CartView />
+        <div className="shell cartpage__wrap">
+          <CartPanel mode="page" />
+        </div>
       </main>
       <SiteFooter />
     </>

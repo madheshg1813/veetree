@@ -17,6 +17,8 @@ export interface OrderDraft {
   readonly total: number
   readonly paymentMethodId: string | null
   readonly verification: PhoneVerification | null
+  /** The discount code applied in the summary, if any. */
+  readonly promoCode?: string | null
 }
 
 export type SubmitResult =
@@ -90,6 +92,33 @@ const failed = (reason: Extract<SubmitResult, { ok: false }>["reason"], message:
  * amount charged is computed by Medusa from the catalogue, so editing this
  * request can change the contents of an order but not its cost.
  */
+export type CouponResult =
+  | { ok: true; code: string; discount: number }
+  | { ok: false; message: string }
+
+/**
+ * Asks the server what a discount code takes off this cart. A preview only:
+ * the code is applied again when the order starts, and Medusa's total is what
+ * is charged.
+ */
+export async function checkCoupon(code: string, lines: readonly CartLine[]): Promise<CouponResult> {
+  try {
+    const res = await fetch("/api/checkout/coupon", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        code,
+        lines: lines.map((l) => ({ slug: l.product.slug, size: l.variant.size, qty: l.qty })),
+      }),
+    })
+    const data = (await res.json()) as { code?: string; discount?: number; error?: string }
+    if (!res.ok || !data.code) return { ok: false, message: data.error ?? "That code could not be applied." }
+    return { ok: true, code: data.code, discount: Number(data.discount) || 0 }
+  } catch {
+    return { ok: false, message: "We could not check that code just now. Please try again." }
+  }
+}
+
 export async function submitOrder(draft: OrderDraft): Promise<SubmitResult> {
   const lines = draft.lines.map((l) => ({
     slug: l.product.slug,
@@ -102,7 +131,7 @@ export async function submitOrder(draft: OrderDraft): Promise<SubmitResult> {
     const res = await fetch("/api/checkout/session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ details: draft.details, lines }),
+      body: JSON.stringify({ details: draft.details, lines, promoCode: draft.promoCode ?? undefined }),
     })
     const data = (await res.json()) as Partial<SessionResponse> & { error?: string }
     if (res.status === 401) return failed("signed-out", data.error ?? "Please sign in to place your order.")

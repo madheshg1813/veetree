@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { formatPrice, type Product } from "@/lib/catalog"
+import { openCartDrawer } from "@/lib/cart/drawer"
 import { useCart } from "@/lib/cart/useCart"
 import { PriceBlock } from "./PriceBlock"
 import { StockLine } from "./StockLine"
@@ -113,6 +114,7 @@ export function BuyBox({ product }: { product: Product }) {
           onClick={() => {
             add(product.slug, variant.size, qty)
             setAdded(true)
+            openCartDrawer()
           }}
         >
           Add to Cart
@@ -123,7 +125,7 @@ export function BuyBox({ product }: { product: Product }) {
           disabled={!buyable}
           onClick={() => {
             add(product.slug, variant.size, qty)
-            router.push("/cart")
+            router.push("/checkout")
           }}
         >
           Buy Now

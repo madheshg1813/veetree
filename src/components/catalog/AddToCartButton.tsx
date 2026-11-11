@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { openCartDrawer } from "@/lib/cart/drawer"
 import { useCart } from "@/lib/cart/useCart"
 
 /**
@@ -41,6 +42,7 @@ export function AddToCartButton({
   const onAdd = () => {
     add(slug, size, 1)
     setAdded(true)
+    openCartDrawer()
     window.clearTimeout(timer.current)
     timer.current = window.setTimeout(() => setAdded(false), 1800)
   }

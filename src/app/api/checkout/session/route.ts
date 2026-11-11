@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import { currentCustomer } from "@/lib/account/medusa"
 import { sessionToken } from "@/lib/account/session"
-import { checkoutEnabled, startPayment, type OrderLineInput } from "@/lib/checkout/medusaOrder"
+import { checkoutEnabled, cleanPromoCode, startPayment, type OrderLineInput } from "@/lib/checkout/medusaOrder"
 import { DELIVERY_FIELDS, normalizePhone, validate, type DeliveryDetails } from "@/lib/checkout/types"
 
 export const runtime = "nodejs"
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Your session has expired. Please sign in again." }, { status: 401 })
   }
 
-  let body: { details?: Partial<DeliveryDetails>; lines?: OrderLineInput[] }
+  let body: { details?: Partial<DeliveryDetails>; lines?: OrderLineInput[]; promoCode?: unknown }
   try { body = await req.json() } catch { return NextResponse.json({ error: "Bad request." }, { status: 400 }) }
 
   const lines = Array.isArray(body.lines) ? body.lines : []
@@ -66,7 +66,13 @@ export async function POST(req: Request) {
 
   // The order belongs to the signed-in account, so the address form cannot
   // redirect someone else's order confirmation to an attacker's inbox.
-  const result = await startPayment({ token, email: customer.email, details, lines: clean })
+  const result = await startPayment({
+    token,
+    email: customer.email,
+    details,
+    lines: clean,
+    promoCode: cleanPromoCode(body.promoCode),
+  })
   if (!result.ok) return NextResponse.json({ error: result.message }, { status: 502 })
 
   return NextResponse.json({

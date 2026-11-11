@@ -1,9 +1,14 @@
 "use client"
 
 import Link from "next/link"
+import { openCartDrawer } from "@/lib/cart/drawer"
 import { useCart } from "@/lib/cart/useCart"
 
-/** Header cart link. The count only renders once storage has been read. */
+/**
+ * Header cart link. Opens the slide-in cart; the /cart href stays for a new
+ * tab or a page without JavaScript. The count only renders once storage has
+ * been read.
+ */
 export function CartLink() {
   const { totals, hydrated } = useCart()
   const count = totals.itemCount
@@ -12,6 +17,11 @@ export function CartLink() {
     <Link
       className="cartlink"
       href="/cart"
+      onClick={(e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
+        e.preventDefault()
+        openCartDrawer()
+      }}
       aria-label={
         hydrated && count > 0 ? `Cart, ${count} ${count === 1 ? "item" : "items"}` : "Cart"
       }

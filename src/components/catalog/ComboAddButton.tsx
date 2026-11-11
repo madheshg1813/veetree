@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { openCartDrawer } from "@/lib/cart/drawer"
 import { useCart } from "@/lib/cart/useCart"
 import type { ComboItem } from "@/lib/home/comboItems"
 
@@ -33,6 +34,7 @@ export function ComboAddButton({ item }: { item: ComboItem }) {
   const onAdd = () => {
     for (const line of item.lines) add(line.slug, line.size, 1)
     setAdded(true)
+    openCartDrawer()
     window.clearTimeout(timer.current)
     timer.current = window.setTimeout(() => setAdded(false), 1800)
   }

@@ -17,6 +17,8 @@ import {
   type FieldErrors,
 } from "@/lib/checkout/types"
 import { useAccount } from "@/lib/account/useAccount"
+import { setCoupon, useCoupon } from "@/lib/cart/coupon"
+import { freeShippingReached, useOffers } from "@/lib/cart/useOffers"
 import { AuthPanel } from "@/components/account/AuthPanel"
 import { policy } from "@/lib/legal/business"
 
@@ -95,8 +97,38 @@ export function CheckoutView() {
     setLastName((v) => v || customer.last_name || "")
   }, [customer])
 
-  const shipping = quoteShipping(lines, details.state, rates)
-  const toPay = totals.total + (shipping.known ? shipping.fee : 0)
+  /**
+   * Discount code, shared with the cart drawer: a code applied there arrives
+   * here already applied, and is checked again against this cart.
+   */
+  const [codeInput, setCodeInput] = useState("")
+  const {
+    coupon,
+    error: couponError,
+    busy: couponBusy,
+    apply: applyCode,
+    remove: removeCode,
+    clearError: clearCouponError,
+  } = useCoupon(lines, true)
+
+  const applyCoupon = async (code: string) => {
+    if (await applyCode(code)) setCodeInput("")
+    setResult(null)
+  }
+
+  const removeCoupon = () => {
+    removeCode()
+    setResult(null)
+  }
+
+  const offers = useOffers()
+
+  const discount = Math.min(coupon?.discount ?? 0, totals.total)
+  const quoted = quoteShipping(lines, details.state, rates)
+  // A free-shipping milestone from the dashboard. Medusa's shipping option has
+  // to carry the same rule, since its price is what is charged.
+  const shipping = freeShippingReached(offers, totals.total - discount) ? { ...quoted, fee: 0 } : quoted
+  const toPay = totals.total - discount + (shipping.known ? shipping.fee : 0)
 
   const set = (key: keyof DeliveryDetails, value: string) => {
     setDetails((d) => ({ ...d, [key]: value }))
@@ -135,6 +167,7 @@ export function CheckoutView() {
       lines,
       total: totals.total,
       paymentMethodId: payment,
+      promoCode: coupon?.code ?? null,
       // The account itself is the verification, proved server-side by the
       // httpOnly session cookie.
       verification: null,
@@ -146,6 +179,7 @@ export function CheckoutView() {
       // customer would never see the confirmation.
       setPlaced(outcome.orderNumber)
       clear()
+      setCoupon(null)
     }
     setBusy(false)
   }
@@ -273,7 +307,7 @@ export function CheckoutView() {
 
   const itemCount = lines.reduce((n, l) => n + l.qty, 0)
 
-  const summary = (
+  const summary = (where: "fold" | "side") => (
     <>
       <ul className="ck__lines">
         {lines.map(({ product, variant, qty, lineTotal }) => {
@@ -294,6 +328,51 @@ export function CheckoutView() {
         })}
       </ul>
 
+      <div className="ck__coupon">
+        <div className="ck__coupon-row">
+          <div className={`ckf ${couponError ? "is-error" : ""}`}>
+            <input
+              id={`coupon-${where}`}
+              value={codeInput}
+              onChange={(e) => { setCodeInput(e.target.value); clearCouponError() }}
+              onKeyDown={(e) => {
+                // Enter here applies the code; it must not submit the order.
+                if (e.key === "Enter") { e.preventDefault(); void applyCoupon(codeInput) }
+              }}
+              placeholder=" "
+              autoComplete="off"
+              autoCapitalize="characters"
+              spellCheck={false}
+              maxLength={40}
+              aria-invalid={couponError ? "true" : undefined}
+              aria-describedby={couponError ? `coupon-${where}-err` : undefined}
+            />
+            <label htmlFor={`coupon-${where}`}>Discount code</label>
+          </div>
+          <button
+            type="button"
+            className="ck__coupon-btn"
+            onClick={() => void applyCoupon(codeInput)}
+            disabled={couponBusy || !codeInput.trim()}
+          >
+            {couponBusy ? "Checking…" : "Apply"}
+          </button>
+        </div>
+        {couponError ? (
+          <p className="ck__coupon-err" id={`coupon-${where}-err`} role="alert">
+            {couponError}
+          </p>
+        ) : null}
+        {coupon ? (
+          <p className="ck__coupon-tag">
+            <strong>{coupon.code}</strong>
+            <button type="button" onClick={removeCoupon} aria-label={`Remove discount code ${coupon.code}`}>
+              ×
+            </button>
+          </p>
+        ) : null}
+      </div>
+
       <dl className="ck__sums">
         <div>
           <dt>
@@ -301,6 +380,12 @@ export function CheckoutView() {
           </dt>
           <dd>{formatPrice(totals.total)}</dd>
         </div>
+        {coupon ? (
+          <div className="ck__disc">
+            <dt>Discount · {coupon.code}</dt>
+            <dd>{discount > 0 ? `−${formatPrice(discount)}` : "Applied"}</dd>
+          </div>
+        ) : null}
         <div>
           <dt>Shipping</dt>
           <dd className={shipping.known ? undefined : "ck__muted"}>
@@ -345,7 +430,7 @@ export function CheckoutView() {
             <strong>{formatPrice(toPay)}</strong>
           </button>
           <div className="ck__fold-body" id="ck-fold-body">
-            {summary}
+            {summary("fold")}
           </div>
         </div>
 
@@ -525,7 +610,7 @@ export function CheckoutView() {
 
       {/* ── Order summary (desktop) ─────────────────────────────────── */}
       <aside className="ck__side" aria-label="Order summary">
-        <div className="ck__side-inner">{summary}</div>
+        <div className="ck__side-inner">{summary("side")}</div>
       </aside>
     </form>
 

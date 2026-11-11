@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { defaultVariant, formatPrice, type Product } from "@/lib/catalog"
+import { openCartDrawer } from "@/lib/cart/drawer"
 import { useCart } from "@/lib/cart/useCart"
 
 /**
@@ -54,7 +55,7 @@ export function StickyBuyBar({ product }: { product: Product }) {
         type="button"
         className="btn-buy btn-buy--primary stickybar__cta"
         disabled={!buyable}
-        onClick={() => add(product.slug, variant.size)}
+        onClick={() => { add(product.slug, variant.size); openCartDrawer() }}
         tabIndex={show ? 0 : -1}
       >
         Add to Cart
@@ -65,7 +66,7 @@ export function StickyBuyBar({ product }: { product: Product }) {
         disabled={!buyable}
         onClick={() => {
           add(product.slug, variant.size)
-          router.push("/cart")
+          router.push("/checkout")
         }}
         tabIndex={show ? 0 : -1}
       >

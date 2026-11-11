@@ -105,12 +105,152 @@ interface Cart {
   currency_code: string
 }
 
+interface PromoCart {
+  id: string
+  discount_total: number | null
+  promotions?: { code?: string | null }[] | null
+}
+
+/** Coupon codes are short; anything longer is not one, and is not sent on. */
+const MAX_CODE_LENGTH = 40
+
+export const cleanPromoCode = (raw: unknown): string =>
+  typeof raw === "string" ? raw.trim().slice(0, MAX_CODE_LENGTH) : ""
+
+export type PromoResult =
+  | { ok: true; code: string; discount: number }
+  | { ok: false; message: string }
+
+/**
+ * Applies a coupon code to a cart that already has its items, and reports what
+ * it took off.
+ *
+ * The code is tried as typed and then in capitals, so "welcome10" finds a
+ * promotion created as WELCOME10 — customers rarely match the case on a poster.
+ * Medusa answers 400 for a code it has never heard of, but quietly leaves out
+ * one whose conditions the cart does not meet (minimum spend, other products,
+ * expired, used up), so the cart's own list of promotions is what decides.
+ */
+async function applyPromo(cartId: string, code: string, token?: string): Promise<PromoResult> {
+  const tries = [...new Set([code, code.toUpperCase()])]
+  let known = false
+  for (const attempt of tries) {
+    const res = await store<{ cart: PromoCart }>(`/store/carts/${cartId}/promotions`, {
+      method: "POST", token, body: { promo_codes: [attempt] },
+    })
+    if (res.status === 400) continue
+    if (res.error) return { ok: false, message: "We could not check that code just now. Please try again." }
+    known = true
+
+    const check = await store<{ cart: PromoCart }>(
+      `/store/carts/${cartId}?fields=id,discount_total,*promotions`, { method: "GET", token }
+    )
+    const cart = check.data?.cart
+    const applied = cart?.promotions?.some((p) => (p.code ?? "").toLowerCase() === attempt.toLowerCase())
+    if (applied) return { ok: true, code: attempt, discount: Math.max(0, cart?.discount_total ?? 0) }
+  }
+  return {
+    ok: false,
+    message: known
+      ? "This code does not apply to your cart. It may have expired, need a higher order value, or be for other products."
+      : "That code is not valid. Please check it and try again.",
+  }
+}
+
+/**
+ * Adds the resolved items to a new cart. Shared by coupon checks and payment so
+ * both price exactly the same contents.
+ */
+async function cartWithItems(
+  items: readonly { variant_id: string; quantity: number }[],
+  opts: { token?: string; email?: string }
+): Promise<{ ok: true; cartId: string } | { ok: false; message: string }> {
+  const { region } = config()
+  const created = await store<{ cart: Cart }>("/store/carts", {
+    method: "POST",
+    token: opts.token,
+    body: { region_id: region, ...(opts.email ? { email: opts.email } : {}) },
+  })
+  if (!created.data?.cart) return { ok: false, message: "Could not start your order. Please try again." }
+  const cartId = created.data.cart.id
+
+  for (const item of items) {
+    const added = await store<{ cart: Cart }>(`/store/carts/${cartId}/line-items`, {
+      method: "POST", token: opts.token, body: item,
+    })
+    if (added.error) return { ok: false, message: "One of the items could not be added. Please try again." }
+  }
+  return { ok: true, cartId }
+}
+
+export interface PromoPreview {
+  readonly code: string
+  /** Rupees off this cart, or null when the code does not apply to it. */
+  readonly discount: number | null
+}
+
+/**
+ * Prices several advertised coupons against one cart, for "Save ₹X with CODE".
+ * One throwaway guest cart; each code is applied, read and taken off again so
+ * each figure is that code on its own.
+ */
+export async function previewPromos(
+  lines: readonly OrderLineInput[],
+  codes: readonly string[]
+): Promise<PromoPreview[]> {
+  const none = codes.map((code) => ({ code, discount: null }))
+  if (codes.length === 0) return []
+  const resolved = await resolveVariants(lines)
+  if (!resolved.ok || resolved.items.length === 0) return none
+  const cart = await cartWithItems(resolved.items, {})
+  if (!cart.ok) return none
+
+  const out: PromoPreview[] = []
+  for (const code of codes) {
+    const result = await applyPromo(cart.cartId, code)
+    out.push({ code, discount: result.ok ? result.discount : null })
+    if (result.ok) {
+      await store(`/store/carts/${cart.cartId}/promotions`, {
+        method: "DELETE", body: { promo_codes: [result.code] },
+      })
+    }
+  }
+  return out
+}
+
+/**
+ * Checks a coupon against the customer's cart before they pay, so the summary
+ * can show the discount. Works signed out: it uses a throwaway guest cart that
+ * is never paid for. The real cart gets the same code again at Pay now.
+ */
+export async function previewPromo(
+  lines: readonly OrderLineInput[],
+  rawCode: string,
+  demo?: (code: string) => number | null
+): Promise<PromoResult> {
+  const code = cleanPromoCode(rawCode)
+  if (!code) return { ok: false, message: "Enter a discount code." }
+  // Development sample codes only; see CART_OFFERS_DEMO.
+  const sample = demo?.(code.toUpperCase())
+  if (sample !== undefined && sample !== null) return { ok: true, code: code.toUpperCase(), discount: sample }
+
+  const resolved = await resolveVariants(lines)
+  if (!resolved.ok) return { ok: false, message: resolved.error }
+  if (resolved.items.length === 0) return { ok: false, message: "Your cart is empty." }
+
+  const cart = await cartWithItems(resolved.items, {})
+  if (!cart.ok) return { ok: false, message: "We could not check that code just now. Please try again." }
+  return applyPromo(cart.cartId, code)
+}
+
 export interface StartedPayment {
   readonly cartId: string
   readonly razorpayOrderId: string
   /** Minor units, as Razorpay reports them — for display reconciliation only. */
   readonly amount: number
   readonly currency: string
+  /** Rupees taken off by the coupon, 0 when none was used. */
+  readonly discount: number
 }
 
 export type StartResult =
@@ -126,28 +266,18 @@ export async function startPayment(input: {
   email: string
   details: DeliveryDetails
   lines: readonly OrderLineInput[]
+  /** A coupon code the customer applied, if any. Checked again here. */
+  promoCode?: string
 }): Promise<StartResult> {
-  const { region } = config()
   const { token, email, details } = input
 
   const resolved = await resolveVariants(input.lines)
   if (!resolved.ok) return { ok: false, message: resolved.error }
   if (resolved.items.length === 0) return { ok: false, message: "Your cart is empty." }
 
-  const created = await store<{ cart: Cart }>("/store/carts", {
-    method: "POST",
-    token,
-    body: { region_id: region, email },
-  })
-  if (!created.data?.cart) return { ok: false, message: "Could not start your order. Please try again." }
-  const cartId = created.data.cart.id
-
-  for (const item of resolved.items) {
-    const added = await store<{ cart: Cart }>(`/store/carts/${cartId}/line-items`, {
-      method: "POST", token, body: item,
-    })
-    if (added.error) return { ok: false, message: "One of the items could not be added. Please try again." }
-  }
+  const started = await cartWithItems(resolved.items, { token, email })
+  if (!started.ok) return started
+  const cartId = started.cartId
 
   const [firstName, ...rest] = details.fullName.trim().split(/\s+/)
   const address = {
@@ -199,6 +329,20 @@ export async function startPayment(input: {
   })
   if (shipped.error) return { ok: false, message: "Delivery could not be arranged for that address." }
 
+  // The coupon goes on last, once the items and delivery are in, so a code that
+  // takes money off delivery has something to apply to. If it no longer
+  // applies — expired, or its last use went in the meantime — we stop rather
+  // than charge the full price the customer was not expecting.
+  let discount = 0
+  const promoCode = cleanPromoCode(input.promoCode)
+  if (promoCode) {
+    const promo = await applyPromo(cartId, promoCode, token)
+    if (!promo.ok) {
+      return { ok: false, message: `Discount code ${promoCode}: ${promo.message} Remove it to pay without it.` }
+    }
+    discount = promo.discount
+  }
+
   const collection = await store<{ payment_collection: { id: string } }>("/store/payment-collections", {
     method: "POST", token, body: { cart_id: cartId },
   })
@@ -221,6 +365,7 @@ export async function startPayment(input: {
       razorpayOrderId: razorpay.id,
       amount: razorpay.amount ?? 0,
       currency: razorpay.currency ?? "INR",
+      discount,
     },
   }
 }
