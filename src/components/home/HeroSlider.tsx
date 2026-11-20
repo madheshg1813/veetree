@@ -79,24 +79,14 @@ export function HeroSlider({ slides }: { slides: readonly Slide[] }) {
             aria-roledescription="slide"
             aria-label={`${i + 1} of ${slides.length}`}
           >
-            {/* Desktop only: a blurred copy fills the sides when the window is
-                too wide for the whole photo to fit at full width. */}
-            <Image
-              className="slider__backdrop"
-              src={slide.image.src}
-              alt=""
-              aria-hidden="true"
-              fill
-              sizes="100vw"
-            />
             <Image
               className="slider__img"
               src={slide.image.src}
               alt={slide.image.alt}
               fill
               priority={i === 0}
-              sizes="100vw"
-              // Used by the phone crop only; desktop shows the whole photo.
+              sizes="(min-width: 941px) 1240px, 100vw"
+              // Where a phone's side crop holds; desktop frames the whole bottle.
               style={slide.focus ? ({ "--focus": slide.focus } as React.CSSProperties) : undefined}
             />
             <div className="slider__scrim" aria-hidden="true" />
