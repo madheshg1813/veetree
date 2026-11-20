@@ -79,13 +79,25 @@ export function HeroSlider({ slides }: { slides: readonly Slide[] }) {
             aria-roledescription="slide"
             aria-label={`${i + 1} of ${slides.length}`}
           >
+            {/* Desktop only: a blurred copy fills the sides when the window is
+                too wide for the whole photo to fit at full width. */}
             <Image
+              className="slider__backdrop"
+              src={slide.image.src}
+              alt=""
+              aria-hidden="true"
+              fill
+              sizes="100vw"
+            />
+            <Image
+              className="slider__img"
               src={slide.image.src}
               alt={slide.image.alt}
               fill
               priority={i === 0}
               sizes="100vw"
-              style={slide.focus ? { objectPosition: slide.focus } : undefined}
+              // Used by the phone crop only; desktop shows the whole photo.
+              style={slide.focus ? ({ "--focus": slide.focus } as React.CSSProperties) : undefined}
             />
             <div className="slider__scrim" aria-hidden="true" />
             <div className="slider__copy">
