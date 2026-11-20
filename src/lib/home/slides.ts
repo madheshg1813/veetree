@@ -1,10 +1,9 @@
 /**
  * Homepage slider.
  *
- * Veetree has no lifestyle or banner photography, so each slide uses a real
- * product photograph. Every line of copy here is either the product's own
- * label wording or the brand line already used elsewhere on the site — nothing
- * is a claim the product sheet does not support.
+ * Each slide is one of the client's banner photographs (public/banners), wide
+ * shots with the product right of centre and open space on the left for the
+ * copy. `focus` keeps the bottle in frame when a phone crops the sides.
  */
 export interface Slide {
   readonly eyebrow: string
@@ -17,33 +16,33 @@ export interface Slide {
 
 export const SLIDES: readonly Slide[] = [
   {
-    eyebrow: "Bestseller",
-    title: "Kumkumadi Serum",
-    cta: { label: "Shop the serum", href: "/products/kumkumadi-serum" },
-    image: {
-      src: "/products/kumkumadi-serum.jpg",
-      alt: "Veetree Kumkumadi Serum in a glass dropper bottle beside a brass lamp and saffron threads",
-    },
-    focus: "center 42%",
-  },
-  {
     eyebrow: "Hair Care",
     title: "Hair Growth Oil",
     cta: { label: "Shop hair care", href: "/collections/hair-care" },
     image: {
-      src: "/products/hair-growth-oil.jpg",
-      alt: "Veetree Hair Growth Oil in a bottle set in a brass plate with amla, hibiscus, curry leaves and black seeds",
+      src: "/banners/hair-growth-oil.jpg",
+      alt: "Veetree Hair Growth Oil bottle on a stone ledge with moss, against a warm beige wall",
     },
-    focus: "center 45%",
+    focus: "64% 50%",
   },
   {
-    eyebrow: "Small Batch",
-    title: "Nalpamaradi Lepam",
-    cta: { label: "Shop body care", href: "/collections/body-care" },
+    eyebrow: "Body Care",
+    title: "Ritual Body Oil",
+    cta: { label: "Shop the body oil", href: "/products/ritual-body-oil" },
     image: {
-      src: "/products/nalpamaradi-body-lebam.jpg",
-      alt: "Veetree Nalpamaradi Lepam in a metal tin, surrounded by amla, turmeric, lotus petals and herbal roots",
+      src: "/banners/ritual-body-oil.jpg",
+      alt: "Veetree Ritual Body Oil spray bottle on a moss-covered rock in a sunlit forest",
     },
-    focus: "center 45%",
+    focus: "63% 55%",
+  },
+  {
+    eyebrow: "Bestseller",
+    title: "Kumkumadi Serum",
+    cta: { label: "Shop the serum", href: "/products/kumkumadi-serum" },
+    image: {
+      src: "/banners/kumkumadi-serum.jpg",
+      alt: "Veetree Kumkumadi Brightening Face Serum dropper bottle on moss beside a fern and a smooth stone",
+    },
+    focus: "64% 58%",
   },
 ]

@@ -21,7 +21,7 @@ const OVERWRITE = process.argv.includes("--overwrite")
 const PUBLIC_DIR = path.join(process.cwd(), "public")
 
 /** Directories under /public whose images next/image serves. */
-const TARGETS = ["products", "categories", "combos", "concerns"]
+const TARGETS = ["products", "categories", "combos", "concerns", "banners"]
 
 function assertCredentials() {
   if (process.env.CLOUDINARY_URL) return
